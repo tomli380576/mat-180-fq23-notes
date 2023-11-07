@@ -6,7 +6,7 @@ icon: check-circle
 # W2 - Linear Programming
 
 
-!!!secondary
+!!!warning
 We will use $\bold x$ to indicate a vector, $x_i$ to indicate the element of $\bold x$. The $\leqslant, \geqslant$ comparators are element–wise comparison. $\bold 0$ is the zero vector.
 !!!
 
@@ -112,7 +112,7 @@ $$
 
 |||
 
-!!! **Def.** Standard Form
+!!!info **Def.** Standard Form
 
 $$
 \begin{aligned}

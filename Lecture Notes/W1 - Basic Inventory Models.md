@@ -18,14 +18,14 @@ A coffee shop needs to decide how much coffee beans to purchase and how frequent
 
 #### Assumption
 
-1. Everything is deterministic
-2. Demand is constant (always the same amount of customers)
-3. Only 1 product (1 type of coffee)
-4. No backorders (coffee bean provider is always available)
-5. Zero load time (supply instantly appears when ordered)
-6. No discounts (coffee is always flat rate)
+- Everything is deterministic
+- Demand is constant (always the same amount of customers)
+- Only 1 product (1 type of coffee)
+- No backorders (coffee bean provider is always available)
+- Zero load time (supply instantly appears when ordered)
+- No discounts (coffee is always flat rate)
 
-#### Input
+### Variables
 
 $d$  
 :   Total annual demand (in this case pounds of coffee needed per year) 
@@ -39,13 +39,10 @@ $c$
 $h$
 :    Holding / Storage cost per item per year                            
 
-
-#### Decision Variables / Output
-
-$Q$
+$Q$ [!badge variant="success" text="Decision Variable"]
 :    Quantity
 
-#### Optimal Order Quantity $Q^*$
+### Optimal Order Quantity $Q^*$
 
 Since orders are fulfilled instantly, we only order a batch of coffee beans when stock goes to 0.
 
@@ -119,18 +116,9 @@ $$
 
 ## The News Vendor Model
 
-### Scenario. Selling Newspapers
-
 A newspaper vendor needs to decide how many newspapers to buy from the news publisher. Newspapers expire in a day. Expired newspapers can be salvaged (returned to vendor) for a lower price.
 
-#### Decision Variable
-
-$B$
-:   The number of newspapers to buy from the supplier
-
----
-
-#### Input & Objective Function
+### Variables
 
 $d$
 :   Discrete R.V., the uncertain demand of newspapers                  
@@ -146,6 +134,9 @@ $c$
 
 $s$          
 :   Salvage price, sale price for expired newspapers. (e.g. recycling the paper) 
+
+$B$ [!badge variant="success" text="Decision Variable"]
+:   The number of newspapers to buy from the supplier
 
 
 The 3 prices have the following inequality:
@@ -292,7 +283,7 @@ s\uparrow\implies p-s\darr \implies\frac{p-c}{p-s}\uarr\implies B^*\uarr
 $$
 
 ##  Buying services
-[!badge variant='warning' text="Key Example."]
+[!badge variant='warning' text="Key Example"]
 
 ### Scenario. Signing a contract
 
@@ -301,24 +292,28 @@ Suppose we want to sign a contract with a lighting company to purchase their mai
 - Contract too much: We get refunded for remaining services at a less price
 - Contract too little: We need to pay more for the extra services on the fly
 
-#### Decision Variable
+#### Variables
 
-|Variable| Definition|
-| --- | --- |
-| $B$ | The number of services to buy from the contracting company |
+$D$     
+:   A discrete random variable, the uncertain number of services we actually need 
 
-#### Input & Objective Function
+$c$     
+:   Price of each service on the contract                                         
 
+$s$     
+:   Refund price                                                                  
+ 
+$p$     
+:   Price of extra services                                                       
+ 
+$q(d)$  
+:   PMF of $D$, same as $\Bbb P(D=d)$, in this case $d = 0,1,2,\dots$             
+ 
+$Q(d)$  
+:   CDF of $D$, same as $\Bbb P(D\leqslant d)$               
 
-|Variable| Definition|
-| --- | --- |
-| $D$    | A discrete random variable, the uncertain number of services we actually need |
-
-| $c$    | Price of each service on the contract                                         |
-| $s$    | Refund price                                                                  |
-| $p$    | Price of extra services                                                       |
-| $q(d)$ | PMF of $D$, same as $\Bbb P(D=d)$, in this case $d = 0,1,2,\dots$             |
-| $Q(d)$ | CDF of $D$, same as $\Bbb P(D\leqslant d)$                                    |
+$B$  [!badge variant="success" text="Decision Variable"]
+:   The number of services to buy from the contracting company 
 
 The objective is to minimize the expected total cost $\text {TC}$ by picking the optimal $B$.
 

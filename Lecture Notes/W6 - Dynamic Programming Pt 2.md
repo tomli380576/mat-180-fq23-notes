@@ -10,7 +10,7 @@ icon: circle
 
 Going back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase. Now suppose we also own a roastery with a bunch of roasters, where we can roast our own coffee beans.
 
-#### Inputs
+#### Variables
 
 $t$  
 :	Time period 
@@ -36,12 +36,12 @@ $K$
 $c(a_t)$
 :  	Production cost function 
 
-	> $$
-	> c(a_t) = \begin{cases}
-	> 0 & \text{if }a_t = 0\\
-	> K + b\cdot a_t & \text{if }a_t > 0
-	> \end{cases}
-	> $$
+$$
+c(a_t) = \begin{cases}
+0 & \text{if }a_t = 0\\
+K + b\cdot a_t & \text{if }a_t > 0
+\end{cases}
+$$
 
 Note that “period” is the interval between each timestamp
 
@@ -195,7 +195,7 @@ $r_t(s_t, a_t)$
 :	Reward function for the state, action pair at time $t$ 
 
 $\Bbb P(s_{t+1}\mid s_t, a_t)$ 
-:	Transition probability of going to state $s_{t+1}$ given we took action $a_t$ at state $s_t$. 
+:	Transition probability of actually going to state $s_{t+1}$ given we took action $a_t$ at state $s_t$. 
 
 $R(s_N)$ or $r_N(s_N)$  
 :	Reward if we end on state $s_N$ 
@@ -211,7 +211,7 @@ $$
 For the stochastic case, replace $v_{t+1}$ with expected value, since it’s possible we might not get to the state $s_{t+1}$. The next state became a random variable:
 
 $$
-v_t(s_t) = \underset{a_t\in A}{\max/\min}\,\Big\{r_t(s_t, a_t) + {\color{darkorange}\Bbb E}[v_{t+1}(s_{t+1})\mid s_t, a_t]\Big\}
+v_t(s_t) = \underset{a_t\in A}{\max/\min}\,\Big\{r_t(s_t, a_t) + \Bbb E[v_{t+1}(s_{t+1})\mid s_t, a_t]\Big\}
 $$
 
 Expand with the definition of $\Bbb E$:

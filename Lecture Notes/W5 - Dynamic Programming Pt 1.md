@@ -48,7 +48,7 @@ We could solve the shortest path problem with a general LP solver, but we have m
 
 The following pseudocode is from my own [algorithm notes](https://www.notion.so/Single-Source-Shortest-Paths-ccab559c3b5c4f018913429bf3b1091c?pvs=21) but it does the same thing as what we did in class.
 
-||| :icon-code: Pseudocode
+|||:icon-code: Pseudocode
 ```c
 function Initialize(G, start):
 	for each vertex v in G:
@@ -74,7 +74,7 @@ function NonNegativeDijkstras(G, start):
 				pred[v] = u
 				queue.UpdatePriority(v, dist[v])
 ```
-||| :icon-rocket: Complexity
+|||:icon-rocket: Complexity
 ```
 // matched to each line
 
@@ -104,7 +104,7 @@ O(log V) for heaps
 
 where `queue.ExtractMin()` grabs the vertex with the shortest distance.
 
-#### EX. In-class practice graph
+=== **Ex.** In-class practice graph
 
 ![Source: Canvas, `Shortest_path_problem_in_class.pdf`](/assets/Screenshot_2023-10-23_at_15.33.56.png){class="image-m"}
 
@@ -129,6 +129,8 @@ Running Dijkstra’s algorithm with $\text{start} = A$ gives us shortest path fr
 │ L            │ ['A', 'E', 'F', 'G', 'K', 'L'] │         61 │  <== Path from A to L
 ╰──────────────┴────────────────────────────────┴────────────╯
 ```
+===
+
 
 ### Optimal Substructure
 
@@ -183,16 +185,16 @@ The graph should also be connected, no isolated subgraphs
 
 We don’t want (1) basically, since there’s complete tour. [Source](https://www.mdpi.com/2075-1680/10/1/19)
 
-#### The ****Dantzig-Fulkerson-Johnson (DFJ) formulation****
+#### The Dantzig-Fulkerson-Johnson (DFJ) formulation
 
 $$
 \forall S\sub V, S\ne \varnothing,\text{ define }\delta ^+(S) =\{i\to j\in A:i\in S, j\notin S\}\\[10pt]
 \sum_{a\in \delta^+(S)}x_a\geqslant 1
 $$
 
-This constraint is what makes TSP an NP-Hard problem, the number of possible $S$’s is the size of the power set of $V$, which is $|{\cal P}(V)|=2^{|V|}$
+This constraint is what makes TSP an NP-Hard problem, the number of possible $S$’s is the size of the power set of $V$, which is ${\cal P}(V)=2^{V}$
 
-#### **The Miller–Tucker–Zemlin (MTZ)** formulation
+#### The Miller–Tucker–Zemlin (MTZ) formulation
 
 For each node $i\in V$, label with $u_i\in\N$ except the starting node.
 
@@ -255,20 +257,27 @@ $$
 
 Every DP problem has the following properties:
 
-|Variable| Definition|
-| --- | --- |
-| $t=1,2,\dots ,T$ | Stages |
-| $s_t$ | State at time $t$ |
-| $v_t(s_t)$ | Value function |
-| $c(s_{t-1}, s_t)$ | Transition cost |
+
+Stages
+:	$t=1,2,\dots ,T$  
+
+State at stage $t$
+:	$s_t$  
+
+Value function 
+:	$v_t(s_t)$  
+
+Transition cost 
+:	$c(s_{t-1}, s_t)$  
 
 $$
 v_t(s_t) = \min/\max\{v_{t-1}(s_{t-1}) + c(s_{t-1}, s_t)\}
 $$
 
-#### Thm. Principle of optimality
+!!!success Theorem. Principle of optimality
 
 If $v_t(s_t)$ is optimal, then all the subproblems $v_{t-1}(s_{t-1})$ are also optimal.
+!!!
 
 ### 0-1 Knapsack
 
@@ -294,11 +303,14 @@ If we don’t have the integer constraint $x_i\in\{0,1\}$, we can just take the 
 
 #### DP Formulation
 
-|Element| Corresponding varaible|
-| --- | --- |
-| Stage | The maximum item index $1, 2,\dots,n$. If we are in stage $k$, we only consider items $1,2,\dots, k$. |
-| State | $w$, remaining capacity of the backpack |
-| Value function | $v_k(w)$, max profit given capacity $w$ and items $1,2,\dots k$ |
+Stage  
+:	The maximum item index $1, 2,\dots,n$. If we are in stage $k$, we only consider items $1,2,\dots, k$. 
+
+State  
+:	$w$, remaining capacity of the backpack 
+
+Value function
+:	$v_k(w)$, max profit given capacity $w$ and items $1,2,\dots k$ 
 
 $$
 v_k(w) = \max\left\{\begin{gathered}v_{k-1}(w-a_k) + c_k\\v_{k-1}(w)\end{gathered}\right\}

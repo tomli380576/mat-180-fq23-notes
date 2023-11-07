@@ -32,4 +32,3 @@ $$
 \min\sum_{(i\to j)\in A}c_{ij}x_{ij} + \sum_{(i\to j)\in A}d_{ij}y_{ij}
 $$
 
-idk what happened this week

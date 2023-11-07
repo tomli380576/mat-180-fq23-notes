@@ -9,15 +9,9 @@ icon: check-circle
 
 #### Scenario. Sending supplies to stores
 
-Suppose you own a clothing business and owns both factories and stores.
+Suppose you own a clothing business and owns both factories and stores. Let $\bigcirc$ be the factories (supply nodes) and $\triangle$ be the stores (demand node). The supply system looks like a directed graph:
 
-Let $\bigcirc$ be the factories (supply nodes) and $\triangle$ be the stores (demand node).
-
-The supply system looks like a directed graph:
-
-![](/assets/Screenshot_2023-10-14_at_00.00.58.png){class="image-m"}
-
-The placements are arbitrary
+![The placements are arbitrary](/assets/Screenshot_2023-10-14_at_00.00.58.png){class="image-m"}
 
 There’s also a unit cost to ship cloths from $i$ to $j$.
 
@@ -25,23 +19,27 @@ $$
 {\Large\text{\textcircled{$\normalsize i$}}}\xrightarrow{\normalsize c_{ij}}{\Large\triangle}\!\!\!\!\!\!j
 $$
 
-#### Inputs
+### Variables
 
-|Variable| Definition|
-| --- | --- |
-| $I$ | Set of supply nodes |
-| $J$ | Set of demand nodes |
-| $s_i$ | Supply capacity of node $i$ |
-| $d_j$ | Demand at node $j$ |
-| $c_{ij}$ | Unit transportation cost to go from $i$ to $j$ |
+$I$  
+:   Set of supply nodes 
 
-#### Decision Variables
+$J$  
+:   Set of demand nodes 
 
-|Variable| Definition|
-| --- | --- |
-| $x_{ij}$ | Amount of items to ship from supply node $i$ to demand node $j$. $\forall i\in I, j\in J$ |
+$s_i$  
+:   Supply capacity of node $i$ 
 
-#### Objective
+$d_j$  
+:   Demand at node $j$ 
+
+$c_{ij}$
+:   Unit transportation cost to go from $i$ to $j$ 
+
+$x_{ij}$ [!badge variant="success" text="Decision Variable"]
+:   Amount of items to ship from supply node $i$ to demand node $j$. $\forall i\in I, j\in J$ 
+
+### Objective
 
 We want to minimize the total shipping cost.
 
@@ -56,7 +54,7 @@ x_{ij}&\geqslant 0
 \end{aligned}
 $$
 
-!!!primary **Proposition.** Integer Constraints ⇒ Integer Solutions, Existence
+!!!secondary **Proposition.** Integer Constraints ⇒ Integer Solutions, Existence
 
 1. If $d_j, s_i\in \Z$, the solution are also integers.
 2. If the total demand is less than total supply, the the problem is feasible.
@@ -78,8 +76,7 @@ Define $x_{ij}$ to be the **flow** on the arc $i\to j$.
 Each node $i$ has the flow conservation constraint
 
 
-!!!
-**Def.** Flow Conservation
+!!!info **Def.** Flow Conservation
 
 For each node $i$,
 
@@ -91,7 +88,7 @@ $$
 $$
 !!!
 
-#### Objective
+### Objective
 
 Minimize the total cost. $c_{ij}$ is the unit cost to go from $i\to j$. 
 
@@ -106,7 +103,7 @@ $$
 l_{ij}\leqslant x_{ij}\leqslant u_{ij}
 $$
 
-### Special Case: Transportation Problem
+## Special Case: Transportation Problem
 
 Continue from above, define the vertices to be:
 
@@ -139,17 +136,20 @@ A ={}&\{i\to j: i\text{ is supply node}, j\text{ is demand node}\}\cup{}\\
 \end{aligned}
 $$
 
-#### Decision Variables
+### Decision Variables
 
-$y_i$ and $z_j$ are new
+$y_i$ and $z_j$ are new for this model.
 
-|Variable| Definition|
-| --- | --- |
-| $x_{ij}$ | Amount of items to ship from supply node $i$ to demand node $j$. |
-| $y_i$ | The flow from $u$ to $i$ for each supply node $i$ |
-| $z_j$ | The from from $j$ to $u$ for each demand node $j$ |
+$x_{ij}$
+:   Amount of items to ship from supply node $i$ to demand node $j$. 
+ 
+$y_i$  
+:   The flow from $u$ to $i$ for each supply node $i$ 
 
-#### Objective
+$z_j$  
+:   The from from $j$ to $u$ for each demand node $j$ 
+
+### Objective
 
 Minimize the total cost.
 
@@ -159,7 +159,7 @@ $$
 
 Note that the under-braced parts are 0, because we only use $y_i, z_j$ for flow conservation. There’s no unit cost associated with arcs from or into $u$.
 
-#### Constraints
+### Constraints
 
 For each supply node $i$, total flow out should equal to total flow in.
 
