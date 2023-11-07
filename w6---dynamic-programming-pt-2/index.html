@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752634972837">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752646552814">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -11,33 +11,37 @@
     <!-- Primary Meta Tags -->
     <title>W6 - Dynamic Programming Pt.2</title>
     <meta name="title" content="W6 - Dynamic Programming Pt.2">
-    <meta name="description" content="Go back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase.">
+    <meta name="description" content="Going back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="/w6---dynamic-programming-pt-2-c6f49edbe8024c978a19f0f916e7a7ad/">
+    <link rel="canonical" href="/w6---dynamic-programming-pt-2/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="/w6---dynamic-programming-pt-2-c6f49edbe8024c978a19f0f916e7a7ad/">
+    <meta property="og:url" content="/w6---dynamic-programming-pt-2/">
     <meta property="og:title" content="W6 - Dynamic Programming Pt.2">
-    <meta property="og:description" content="Go back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase.">
+    <meta property="og:description" content="Going back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase.">
+    <meta property="og:image" content="/assets/screenshot_2023-11-03_at_15.25.45.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="/w6---dynamic-programming-pt-2-c6f49edbe8024c978a19f0f916e7a7ad/">
+    <meta property="twitter:url" content="/w6---dynamic-programming-pt-2/">
     <meta property="twitter:title" content="W6 - Dynamic Programming Pt.2">
-    <meta property="twitter:description" content="Go back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase.">
+    <meta property="twitter:description" content="Going back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase.">
+    <meta property="twitter:image" content="/assets/screenshot_2023-11-03_at_15.25.45.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.5.0.752634972837" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.5.0.752646552814" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.752634972837" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.752646552814" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.752634972837" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.752646552814" data-turbo-eval="false" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../resources/js/mermaid.js?v=3.5.0" defer></script>
     <link href="../resources/css/katex.css?v=3.5.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../resources/js/katex.js?v=3.5.0" defer></script>
+
+    <link href="/assets/palette.css" rel="stylesheet" />
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -64,10 +68,7 @@
                     <!-- Top Nav -->
                     <nav class="hidden md:flex">
                         <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
-                            <li class="mr-6">
-                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
-                            </li>
-        
+                            
                         </ul>
                     </nav>
         
@@ -138,17 +139,6 @@
                 <template #sidebar-footer>
                     <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
             
-                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
-                            <nav>
-                                <ul class="flex flex-wrap justify-center items-center">
-                                    <li class="mr-6">
-                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
-                                    </li>
-            
-                                </ul>
-                            </nav>
-                        </div>
-            
                         <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
                             <span class="text-xs whitespace-nowrap">Powered by</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
@@ -179,12 +169,12 @@
     </h2>
 </doc-anchor-target>
 <doc-anchor-target id="scenario-keeping-inventory">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#scenario-keeping-inventory">#</doc-anchor-trigger>
         <span>Scenario. Keeping inventory</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
-<p>Go back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase. Now suppose we also own a roastery with a bunch of roasters, where we can roast our own coffee beans.</p>
+<p>Going back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase. Now suppose we also own a roastery with a bunch of roasters, where we can roast our own coffee beans.</p>
 <doc-anchor-target id="inputs">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#inputs">#</doc-anchor-trigger>
@@ -195,11 +185,15 @@
 <table class="comfortable">
 <thead>
 <tr>
-<th><span class="math">t</span></th>
-<th>Time period</th>
+<th>Variable</th>
+<th>Definition</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><span class="math">t</span></td>
+<td>Time period</td>
+</tr>
 <tr>
 <td><span class="math">d_t</span></td>
 <td>Demand at time <span class="math">t</span></td>
@@ -237,8 +231,8 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
 \end{cases}</pre></div>
 <p>Note that “period” is the interval between each timestamp</p>
 <p><figure class="content-center">
-    <img src="screenshot_2023-11-03_at_15.25.45.png" alt="Screenshot 2023-11-03 at 15.25.45.png">
-    <figcaption class="caption">Screenshot 2023-11-03 at 15.25.45.png</figcaption>
+    <img src="../assets/screenshot_2023-11-03_at_15.25.45.png" alt="">
+    <figcaption class="caption"></figcaption>
 </figure>
 </p>
 <doc-anchor-target id="stage-state-value-function">
@@ -251,11 +245,15 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
 <table class="comfortable">
 <thead>
 <tr>
-<th>Stage</th>
-<th>Time <span class="math">t = 1, 2\dots, T</span></th>
+<th>Element</th>
+<th>Corresponding Variable</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Stage</td>
+<td>Time <span class="math">t = 1, 2\dots, T</span></td>
+</tr>
 <tr>
 <td>State</td>
 <td>Inventory <span class="math">s_t</span></td>
@@ -292,32 +290,65 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
     </h3>
 </doc-anchor-target>
 <p>Assuming unit costs <span class="math">b, h</span> are independent of time <span class="math">t</span>, we have:</p>
-<doc-anchor-target id="prop-dont-produce-if-we-have-inventory">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#prop-dont-produce-if-we-have-inventory">#</doc-anchor-trigger>
-        <span>Prop. Don’t produce if we have inventory</span>
-    </h4>
-</doc-anchor-target>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5><strong>Prop.</strong> Don’t produce if we have inventory</h5>
 <div class="math"><pre>a_t &gt; 0\implies s_t = 0</pre></div>
 <p>If it is optimal to produce during any time period <span class="math">t</span>, then the starting inventory is 0</p>
-<doc-anchor-target id="prop-if-we-produce-produce-enough-to-cover-integer-amount-of-time-periods">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#prop-if-we-produce-produce-enough-to-cover-integer-amount-of-time-periods">#</doc-anchor-trigger>
-        <span>Prop. If we produce, produce enough to cover integer amount of time periods</span>
-    </h4>
-</doc-anchor-target>
+        </div>
+    </div>
+</div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5><strong>Prop.</strong> If we produce, produce enough to cover integer amount of time periods</h5>
 <p>If it is optimal to produce in stage <span class="math">t</span> (so <span class="math">a_t &gt; 0</span> for some <span class="math">t</span>), then it is optimal to produce an amount that exactly covers the demand for <span class="math">t, t+1, \cdots, t+j</span> for some  <span class="math">0\leqslant j\leqslant T-t</span>.</p>
-<doc-anchor-target id="prop-equivalent-optimality-equation">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#prop-equivalent-optimality-equation">#</doc-anchor-trigger>
-        <span>Prop. Equivalent optimality equation</span>
-    </h4>
-</doc-anchor-target>
+        </div>
+    </div>
+</div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5><strong>Prop.</strong> Equivalent optimality equation</h5>
 <p>Using the previous 2 properties, we only need to find the number of time periods <span class="math">j</span> to cover when we produce. If we produce enough to cover <span class="math">j</span> periods, we move to time <span class="math">t+j+1</span>.</p>
 <div class="math"><pre>v_t = \min_{0\leqslant\, j\leqslant\, T-t}\{c_{t,t+j+1} + v_{t+j+1}\}</pre></div>
 <p>where the transition cost <span class="math">c_{t, t+j+1}</span> is:</p>
 <div class="math"><pre>c_{t,\,t+j+1} = K + h\sum^j_{i=1}\underbrace{i\cdot d_{t+i}}_{\substack{\text{need to keep the demand}\\\text{ amount in inventory}}}</pre></div>
 <p>with base cases <span class="math">v_{T+1} = 0, s_1 = 0</span>.</p>
+        </div>
+    </div>
+</div>
 <doc-anchor-target id="stochastic-dynamic-programming">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#stochastic-dynamic-programming">#</doc-anchor-trigger>
@@ -330,15 +361,20 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
         <span>Markov Chain Review</span>
     </h3>
 </doc-anchor-target>
-<doc-anchor-target id="def-discrete-time-markov-chain">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#def-discrete-time-markov-chain">#</doc-anchor-trigger>
-        <span>Def. Discrete Time Markov Chain</span>
-    </h4>
-</doc-anchor-target>
-<p><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
-    <span>Definition</span>
-</span></p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5><strong>Def.</strong> Discrete Time Markov Chain</h5>
 <p>A discrete, time homogeneous Markov chain on state space <span class="math">S</span> with transition matrix <span class="math">P</span> and initial distribution <span class="math">\alpha</span> is a sequence of random states <span class="math">X_n\in S</span> such that:</p>
 <ol>
 <li><p><span class="math">\Bbb P(X_0 = i) = \alpha_i</span></p>
@@ -349,33 +385,69 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
 </ol>
 <p>The elements <span class="math">p_{ij}</span> in <span class="math">P</span> represents:</p>
 <div class="math"><pre>p_{ij} = \Bbb P(X_{t+1} = j\mid X_t = i)</pre></div>
-<doc-anchor-target id="prop--step-transition-probability">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#prop--step-transition-probability">#</doc-anchor-trigger>
-        <span>Prop. <span class="math">n</span> step transition probability</span>
-    </h4>
-</doc-anchor-target>
+        </div>
+    </div>
+</div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5><strong>Prop.</strong> <span class="math">n</span> step transition probability</h5>
 <p>It’s the <span class="math">i,j</span> th entry in <span class="math">P^n</span>.</p>
 <div class="math"><pre>\begin{aligned}
 \Bbb P(X_n = j\mid X_0 = i) &amp;= \Bbb P(X_{m+n}= j\mid X_m = i) \\&amp;= P^n_{ij}
 \end{aligned}</pre></div>
-<doc-anchor-target id="def-communicate">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#def-communicate">#</doc-anchor-trigger>
-        <span>Def. Communicate</span>
-    </h4>
-</doc-anchor-target>
+        </div>
+    </div>
+</div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5><strong>Def.</strong> Communicate</h5>
 <p>2 states <span class="math">i, j\in S</span> communicates if they are accessible from each other.</p>
 <div class="math"><pre>i\lrarr j \coloneqq i\to j\text{ and }j \to i</pre></div>
-<doc-anchor-target id="def-closed-subset">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#def-closed-subset">#</doc-anchor-trigger>
-        <span>Def. Closed Subset</span>
-    </h4>
-</doc-anchor-target>
+        </div>
+    </div>
+</div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5><strong>Def.</strong> Closed Subset</h5>
 <p>A subset of state space <span class="math">T\sub S</span> is closed if any of the states in <span class="math">T</span> is ever entered, the chain cannot leave <span class="math">T</span>. In terms of transition probability:</p>
 <div class="math"><pre>P_{ij} =0\hskip1em\forall i\in T, j\notin T</pre></div>
 <p>The entire state space is always closed.</p>
+        </div>
+    </div>
+</div>
 <doc-anchor-target id="markov-decision-process-with-finite-time">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#markov-decision-process-with-finite-time">#</doc-anchor-trigger>
@@ -393,11 +465,15 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
 <table class="comfortable">
 <thead>
 <tr>
-<th><span class="math">s_t\in S</span></th>
-<th>State at time <span class="math">t</span></th>
+<th>Variable</th>
+<th>Definition</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><span class="math">s_t\in S</span></td>
+<td>State at time <span class="math">t</span></td>
+</tr>
 <tr>
 <td><span class="math">a_t\in A</span></td>
 <td>Action at time <span class="math">t</span></td>
@@ -439,12 +515,20 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
 <p>At each state <span class="math">s_t</span>, we want to pick out an action <span class="math">a_t</span>. There are 2 types of decision rules.</p>
 <p><strong>Markovian</strong> <span class="math">d_t(s_t)</span> returns an action by looking at current state.</p>
 <p><strong>History dependent</strong> <span class="math">d_t(s_1,a_1\dots s_{t-1}, a_{t-1}, s_t)</span> returns an action by looking at all past states and actions.</p>
-<doc-anchor-target id="def-policy--sample-path--total-reward-">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#def-policy--sample-path--total-reward-">#</doc-anchor-trigger>
-        <span>Def. Policy <span class="math">\pi</span>, sample path <span class="math">\omega</span>, total reward <span class="math">W</span></span>
-    </h4>
-</doc-anchor-target>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Def. Policy <span class="math">\pi</span>, sample path <span class="math">\omega</span>, total reward <span class="math">W</span></h5>
 <p>The decision rules at each stage</p>
 <div class="math"><pre>\pi = (d_1, d_2, \dots d_{N-1})</pre></div>
 <p>Given a policy <span class="math">\pi</span>, we automatically get a sample path <span class="math">\omega</span>,</p>
@@ -456,6 +540,9 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
 (s_N)+\sum_{i=1}^{N-1}r_i(s_i, a_i) </pre></div>
 <p>Each <span class="math">s_i</span> in the sum is a random variable, so the expected total reward is:</p>
 <div class="math"><pre>\Bbb E_{W,\pi}[W(\omega)] = \sum_{\text{all possible }\omega} \Bbb P(\text{path}=\omega) \cdot W(\omega)</pre></div>
+        </div>
+    </div>
+</div>
 <doc-anchor-target id="ex1-stochastic-shortest-paths">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#ex1-stochastic-shortest-paths">#</doc-anchor-trigger>
@@ -495,6 +582,7 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
         <span>Policy Backward Evaluation</span>
     </h2>
 </doc-anchor-target>
+<p>TODO</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -504,7 +592,7 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../w5---dynamic-programming-pt-1-37039d990eaa411291146efdd0385eab/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../w5---dynamic-programming-pt-1/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752634972837">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752646552814">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -14,33 +14,35 @@
     <meta name="description" content="Given undirected graph G = (V, E), start node s, and end node t, we want to find the shortest path s\\leadsto t">
 
     <!-- Canonical -->
-    <link rel="canonical" href="/w5---dynamic-programming-pt-1-37039d990eaa411291146efdd0385eab/">
+    <link rel="canonical" href="/w5---dynamic-programming-pt-1/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="/w5---dynamic-programming-pt-1-37039d990eaa411291146efdd0385eab/">
+    <meta property="og:url" content="/w5---dynamic-programming-pt-1/">
     <meta property="og:title" content="W5 - Dynamic Programming Pt.1">
     <meta property="og:description" content="Given undirected graph G = (V, E), start node s, and end node t, we want to find the shortest path s\\leadsto t">
-    <meta property="og:image" content="https://www.mdpi.com/2075-1680/10/1/19">
+    <meta property="og:image" content="/assets/screenshot_2023-10-23_at_15.33.56.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="/w5---dynamic-programming-pt-1-37039d990eaa411291146efdd0385eab/">
+    <meta property="twitter:url" content="/w5---dynamic-programming-pt-1/">
     <meta property="twitter:title" content="W5 - Dynamic Programming Pt.1">
     <meta property="twitter:description" content="Given undirected graph G = (V, E), start node s, and end node t, we want to find the shortest path s\\leadsto t">
-    <meta property="twitter:image" content="https://www.mdpi.com/2075-1680/10/1/19">
+    <meta property="twitter:image" content="/assets/screenshot_2023-10-23_at_15.33.56.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.5.0.752634972837" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.5.0.752646552814" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.752634972837" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.752646552814" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.752634972837" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.752634972837" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.752646552814" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.752646552814" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../resources/js/mermaid.js?v=3.5.0" defer></script>
     <link href="../resources/css/katex.css?v=3.5.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../resources/js/katex.js?v=3.5.0" defer></script>
+
+    <link href="/assets/palette.css" rel="stylesheet" />
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -67,10 +69,7 @@
                     <!-- Top Nav -->
                     <nav class="hidden md:flex">
                         <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
-                            <li class="mr-6">
-                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
-                            </li>
-        
+                            
                         </ul>
                     </nav>
         
@@ -140,17 +139,6 @@
             <doc-sidebar v-cloak>
                 <template #sidebar-footer>
                     <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
-            
-                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
-                            <nav>
-                                <ul class="flex flex-wrap justify-center items-center">
-                                    <li class="mr-6">
-                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
-                                    </li>
-            
-                                </ul>
-                            </nav>
-                        </div>
             
                         <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
                             <span class="text-xs whitespace-nowrap">Powered by</span>
@@ -225,6 +213,14 @@
     </h3>
 </doc-anchor-target>
 <p>The following pseudocode is from my own <a href="https://www.notion.so/Single-Source-Shortest-Paths-ccab559c3b5c4f018913429bf3b1091c?pvs=21">algorithm notes</a> but it does the same thing as what we did in class.</p>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-mono leading-snug text-white docs-columns-code-title border-r">
+        <span><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> Pseudocode</span>
+    </div>
+    <div class="flex items-center px-5 py-3 font-mono leading-snug text-white docs-columns-code-title">
+        <span><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M20.322.75h1.176a1.75 1.75 0 0 1 1.75 1.749v1.177a10.75 10.75 0 0 1-2.925 7.374l-1.228 1.304a23.699 23.699 0 0 1-1.596 1.542v5.038c0 .615-.323 1.184-.85 1.5l-4.514 2.709a.75.75 0 0 1-1.12-.488l-.963-4.572a1.305 1.305 0 0 1-.14-.129L8.04 15.96l-1.994-1.873a1.305 1.305 0 0 1-.129-.14l-4.571-.963a.75.75 0 0 1-.49-1.12l2.71-4.514c.316-.527.885-.85 1.5-.85h5.037a23.668 23.668 0 0 1 1.542-1.594l1.304-1.23A10.753 10.753 0 0 1 20.321.75Zm-6.344 4.018v-.001l-1.304 1.23a22.275 22.275 0 0 0-3.255 3.851l-2.193 3.29 1.859 1.744a.545.545 0 0 1 .034.034l1.743 1.858 3.288-2.192a22.263 22.263 0 0 0 3.854-3.257l1.228-1.303a9.251 9.251 0 0 0 2.517-6.346V2.5a.25.25 0 0 0-.25-.25h-1.177a9.252 9.252 0 0 0-6.344 2.518ZM6.5 21c-1.209 1.209-3.901 1.445-4.743 1.49a.236.236 0 0 1-.18-.067.236.236 0 0 1-.067-.18c.045-.842.281-3.534 1.49-4.743.9-.9 2.6-.9 3.5 0 .9.9.9 2.6 0 3.5Zm-.592-8.588L8.17 9.017c.23-.346.47-.685.717-1.017H5.066a.25.25 0 0 0-.214.121l-2.167 3.612ZM16 15.112c-.333.248-.672.487-1.018.718l-3.393 2.262.678 3.223 3.612-2.167a.25.25 0 0 0 .121-.214ZM17.5 8a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 17.5 8Z"/></g></g></svg> Complexity</span>
+    </div>
+    <div class="docs-columns-code docs-columns-content border-r border-gray-200 dark:border-dark-650">
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-c"><code v-pre class="language-c">function Initialize(G, start):
 	for each vertex v in G:
@@ -250,18 +246,35 @@ function NonNegativeDijkstras(G, start):
 				pred[v] = u
 				queue.UpdatePriority(v, dist[v])</code></pre>
 </doc-codeblock></div>
+    </div>
+    <div class="docs-columns-code docs-columns-content">
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">Complexity
+<pre class="language-none"><code v-pre class="language-none">// matched to each line
+
+
+
+
+
+
+
+
 O(V)
 
+
+
 O(V log V)
+
 
 O(E) with inner for loop
 O(log V) for heaps
 already counted
 
+
+
 O(log V) for heaps</code></pre>
 </doc-codeblock></div>
+    </div>
+</div>
 <p>where <code v-pre>queue.ExtractMin()</code> grabs the vertex with the shortest distance.</p>
 <doc-anchor-target id="ex-in-class-practice-graph">
     <h4>
@@ -270,11 +283,10 @@ O(log V) for heaps</code></pre>
     </h4>
 </doc-anchor-target>
 <p><figure class="content-center">
-    <img src="screenshot_2023-10-23_at_15.33.56.png" alt="Source: Canvas, Shortest_path_problem_in_class.pdf">
+    <img src="../assets/screenshot_2023-10-23_at_15.33.56.png" alt="Source: Canvas, Shortest_path_problem_in_class.pdf" class="image-m">
     <figcaption class="caption">Source: Canvas, <code v-pre>Shortest_path_problem_in_class.pdf</code></figcaption>
 </figure>
 </p>
-<p>Source: Canvas, <code v-pre>Shortest_path_problem_in_class.pdf</code></p>
 <p>Running Dijkstra’s algorithm with <span class="math">\text{start} = A</span> gives us shortest path from <span class="math">A</span> to every other node:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">==&gt; Selected start: A
@@ -301,7 +313,6 @@ O(log V) for heaps</code></pre>
         <span>Optimal Substructure</span>
     </h3>
 </doc-anchor-target>
-<p>October 23, 2023</p>
 <p>Suppose <span class="math">s\leadsto t</span> is the shortest path from <span class="math">s</span> to <span class="math">t</span>, and <span class="math">v</span> is an intermediate node.</p>
 <p>Then the sub-path <span class="math">s\leadsto v</span> and <span class="math">v\leadsto t</span> are both shortest paths from <span class="math">s</span> to <span class="math">v</span>, <span class="math">v</span> to <span class="math">t</span> respectively.</p>
 <doc-anchor-target id="asymmetric-traveling-salesman-problem">
@@ -373,8 +384,11 @@ O(log V) for heaps</code></pre>
 
 \end{cases}</pre></div>
 <p>The idea is we must go to a node that has a larger label than the current node.</p>
-<p>![[Source](<a href="https://how-to.aimms.com/Articles/332/332-Miller-Tucker-Zemlin-formulation.html#:%7E:text=The%20Miller%2DTucker%2DZemlin%20(,visited%2C%20the%20value%20for%20increases.)%5D(Untitled%202.png)">https://how-to.aimms.com/Articles/332/332-Miller-Tucker-Zemlin-formulation.html#:~:text=The%20Miller%2DTucker%2DZemlin%20(,visited%2C%20the%20value%20for%20increases.)](Untitled%202.png)</a></p>
-<p>[Source](<a href="https://how-to.aimms.com/Articles/332/332-Miller-Tucker-Zemlin-formulation.html#:%7E:text=The%20Miller%2DTucker%2DZemlin%20(,visited%2C%20the%20value%20for%20increases.)">https://how-to.aimms.com/Articles/332/332-Miller-Tucker-Zemlin-formulation.html#:~:text=The%20Miller%2DTucker%2DZemlin%20(,visited%2C%20the%20value%20for%20increases.)</a></p>
+<p><figure class="content-center">
+    <img src="https://how-to.aimms.com/_images/MTZ2.png" alt="See image link for source" class="image-m">
+    <figcaption class="caption">See image link for source</figcaption>
+</figure>
+</p>
 <p>This prevents us from going into cycles, since if we do, we will eventually travel to a node with a smaller label, which violates the constraint.</p>
 <doc-anchor-target id="symmetric-tsp">
     <h2>
@@ -422,11 +436,15 @@ O(log V) for heaps</code></pre>
 <table class="comfortable">
 <thead>
 <tr>
-<th><span class="math">t=1,2,\dots ,T</span></th>
-<th>Stages</th>
+<th>Variable</th>
+<th>Definition</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><span class="math">t=1,2,\dots ,T</span></td>
+<td>Stages</td>
+</tr>
 <tr>
 <td><span class="math">s_t</span></td>
 <td>State at time <span class="math">t</span></td>
@@ -480,11 +498,30 @@ x_i &amp; \in\{0,1\}
         <span>DP Formulation</span>
     </h4>
 </doc-anchor-target>
-<p>| Stage | The maximum item index <span class="math">1, 2,\dots,n</span>.
-If we are in stage <span class="math">k</span>, we only consider items <span class="math">1,2,\dots, k</span>. |
-| --- | --- |
-| State | <span class="math">w</span>, remaining capacity of the backpack |
-| Value function | <span class="math">v_k(w)</span>, max profit given capacity <span class="math">w</span> and items <span class="math">1,2,\dots k</span> |</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Element</th>
+<th>Corresponding varaible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stage</td>
+<td>The maximum item index <span class="math">1, 2,\dots,n</span>. If we are in stage <span class="math">k</span>, we only consider items <span class="math">1,2,\dots, k</span>.</td>
+</tr>
+<tr>
+<td>State</td>
+<td><span class="math">w</span>, remaining capacity of the backpack</td>
+</tr>
+<tr>
+<td>Value function</td>
+<td><span class="math">v_k(w)</span>, max profit given capacity <span class="math">w</span> and items <span class="math">1,2,\dots k</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="math"><pre>v_k(w) = \max\left\{\begin{gathered}v_{k-1}(w-a_k) + c_k\\v_{k-1}(w)\end{gathered}\right\}</pre></div>
 <p>We can try to take item <span class="math">k</span> if it fits, or we can skip <span class="math">k</span>.</p>
 <doc-anchor-target id="bounded-knapsack">
@@ -534,7 +571,7 @@ i\backslash j &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5\\
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../w4---network-flow-pt-2-842c00a4ff8a4ae3a7d33a37ee9dd659/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../w4---network-flow-pt-2/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
@@ -544,7 +581,7 @@ i\backslash j &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5\\
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../w6---dynamic-programming-pt-2-c6f49edbe8024c978a19f0f916e7a7ad/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../w6---dynamic-programming-pt-2/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
                                                 <span class="block mt-1">W​6 - Dynamic Programming Pt.​2</span>
