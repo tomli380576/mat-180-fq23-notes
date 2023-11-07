@@ -1,3 +1,8 @@
+---
+icon: check-circle
+---
+
+
 # W3 - Network Flow Pt.1
 
 ## Transportation Problem
@@ -10,7 +15,7 @@ Let $\bigcirc$ be the factories (supply nodes) and $\triangle$ be the stores (de
 
 The supply system looks like a directed graph:
 
-![The placements are arbitrary](Screenshot_2023-10-14_at_00.00.58.png)
+![](/assets/Screenshot_2023-10-14_at_00.00.58.png){class="image-m"}
 
 The placements are arbitrary
 
@@ -20,10 +25,11 @@ $$
 {\Large\text{\textcircled{$\normalsize i$}}}\xrightarrow{\normalsize c_{ij}}{\Large\triangle}\!\!\!\!\!\!j
 $$
 
-#### Input
+#### Inputs
 
-| $I$ | Set of supply nodes |
+|Variable| Definition|
 | --- | --- |
+| $I$ | Set of supply nodes |
 | $J$ | Set of demand nodes |
 | $s_i$ | Supply capacity of node $i$ |
 | $d_j$ | Demand at node $j$ |
@@ -31,8 +37,9 @@ $$
 
 #### Decision Variables
 
-| $x_{ij}$ | Amount of items to ship from supply node $i$ to demand node $j$. $\forall i\in I, j\in J$ |
+|Variable| Definition|
 | --- | --- |
+| $x_{ij}$ | Amount of items to ship from supply node $i$ to demand node $j$. $\forall i\in I, j\in J$ |
 
 #### Objective
 
@@ -49,7 +56,7 @@ x_{ij}&\geqslant 0
 \end{aligned}
 $$
 
-#### Prop. Integer Constraints ⇒ Integer Solutions, Existence
+!!!primary **Proposition.** Integer Constraints ⇒ Integer Solutions, Existence
 
 1. If $d_j, s_i\in \Z$, the solution are also integers.
 2. If the total demand is less than total supply, the the problem is feasible.
@@ -57,6 +64,7 @@ $$
     $$
     \sum_{i\in I}s_i\geqslant \sum_{j\in J} d_j
     $$
+!!!
     
 
 We will see that the transportation problem is a special case of the more general network flow problem.
@@ -69,7 +77,9 @@ Define $x_{ij}$ to be the **flow** on the arc $i\to j$.
 
 Each node $i$ has the flow conservation constraint
 
-#### Def. Flow Conservation
+
+!!!
+**Def.** Flow Conservation
 
 For each node $i$,
 
@@ -79,6 +89,7 @@ $$
 \sum_{(j\to i) \in A}x_{ji} &= \sum_{(i\to k) \in A}x_{ik}
 \end{aligned}
 $$
+!!!
 
 #### Objective
 
@@ -97,7 +108,7 @@ $$
 
 ### Special Case: Transportation Problem
 
-Continue from [above](W3%20-%20Network%20Flow%20Pt%201%2067d861e40761479f9d21e4dc59ff840e.md), define the vertices to be:
+Continue from above, define the vertices to be:
 
 $$
 V = \{\text{Supply nodes}\}\cup\{\text{Demand Nodes}\} = I\cup J
@@ -105,9 +116,9 @@ $$
 
 Since there are only arcs from supply nodes to demand nodes, we can group everything into a [bipartite graph](https://mathworld.wolfram.com/BipartiteGraph.html).
 
-![Screenshot 2023-10-14 at 01.14.17.png](Screenshot_2023-10-14_at_01.14.17.png)
+![](/assets/Screenshot_2023-10-14_at_01.14.17.png){class="image-m"}
 
-where $\color{darkred}\bigstar$ is the **universal node** $u$ to maintain flow conservation.
+where :icon-star-fill: is the **universal node** $u$ to maintain flow conservation.
 
 - Supply nodes only have arcs leaving them, causing negative flow.
     
@@ -132,8 +143,9 @@ $$
 
 $y_i$ and $z_j$ are new
 
-| $x_{ij}$ | Amount of items to ship from supply node $i$ to demand node $j$. |
+|Variable| Definition|
 | --- | --- |
+| $x_{ij}$ | Amount of items to ship from supply node $i$ to demand node $j$. |
 | $y_i$ | The flow from $u$ to $i$ for each supply node $i$ |
 | $z_j$ | The from from $j$ to $u$ for each demand node $j$ |
 
@@ -176,9 +188,3 @@ Finally the bounds:
 Together we have the transportation model. 
 
 The constraints are exactly the same as [above](W3%20-%20Network%20Flow%20Pt%201%2067d861e40761479f9d21e4dc59ff840e.md).
-
----
-
-Go to next:
-
-[W5 - Dynamic Programming Pt.1](W5%20-%20Dynamic%20Programming%20Pt%201%2037039d990eaa411291146efdd0385eab.md)

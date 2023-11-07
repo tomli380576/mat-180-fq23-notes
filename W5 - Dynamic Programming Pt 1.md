@@ -1,3 +1,7 @@
+---
+icon: circle
+---
+
 # W5 - Dynamic Programming Pt.1
 
 ##  Shortest path as network flow
@@ -44,6 +48,7 @@ We could solve the shortest path problem with a general LP solver, but we have m
 
 The following pseudocode is from my own [algorithm notes](https://www.notion.so/Single-Source-Shortest-Paths-ccab559c3b5c4f018913429bf3b1091c?pvs=21) but it does the same thing as what we did in class.
 
+||| :icon-code: Pseudocode
 ```c
 function Initialize(G, start):
 	for each vertex v in G:
@@ -69,27 +74,39 @@ function NonNegativeDijkstras(G, start):
 				pred[v] = u
 				queue.UpdatePriority(v, dist[v])
 ```
-
+||| :icon-rocket: Complexity
 ```
-Complexity
+// matched to each line
+
+
+
+
+
+
+
+
 O(V)
 
+
+
 O(V log V)
+
 
 O(E) with inner for loop
 O(log V) for heaps
 already counted
 
+
+
 O(log V) for heaps
 ```
+|||
 
 where `queue.ExtractMin()` grabs the vertex with the shortest distance.
 
 #### EX. In-class practice graph
 
-![Source: Canvas, `Shortest_path_problem_in_class.pdf`](Screenshot_2023-10-23_at_15.33.56.png)
-
-Source: Canvas, `Shortest_path_problem_in_class.pdf`
+![Source: Canvas, `Shortest_path_problem_in_class.pdf`](/assets/Screenshot_2023-10-23_at_15.33.56.png){class="image-m"}
 
 Running Dijkstra’s algorithm with $\text{start} = A$ gives us shortest path from $A$ to every other node:
 
@@ -114,8 +131,6 @@ Running Dijkstra’s algorithm with $\text{start} = A$ gives us shortest path fr
 ```
 
 ### Optimal Substructure
-
-October 23, 2023 
 
 Suppose $s\leadsto t$ is the shortest path from $s$ to $t$, and $v$ is an intermediate node.
 
@@ -190,9 +205,9 @@ $$
 
 The idea is we must go to a node that has a larger label than the current node. 
 
-![[Source](https://how-to.aimms.com/Articles/332/332-Miller-Tucker-Zemlin-formulation.html#:~:text=The%20Miller%2DTucker%2DZemlin%20(,visited%2C%20the%20value%20for%20increases.)](Untitled%202.png)
+![See image link for source](https://how-to.aimms.com/_images/MTZ2.png){class="image-m"}
 
-[Source](https://how-to.aimms.com/Articles/332/332-Miller-Tucker-Zemlin-formulation.html#:~:text=The%20Miller%2DTucker%2DZemlin%20(,visited%2C%20the%20value%20for%20increases.)
+
 
 This prevents us from going into cycles, since if we do, we will eventually travel to a node with a smaller label, which violates the constraint.
 
@@ -240,8 +255,9 @@ $$
 
 Every DP problem has the following properties:
 
-| $t=1,2,\dots ,T$ | Stages |
+|Variable| Definition|
 | --- | --- |
+| $t=1,2,\dots ,T$ | Stages |
 | $s_t$ | State at time $t$ |
 | $v_t(s_t)$ | Value function |
 | $c(s_{t-1}, s_t)$ | Transition cost |
@@ -278,9 +294,9 @@ If we don’t have the integer constraint $x_i\in\{0,1\}$, we can just take the 
 
 #### DP Formulation
 
-| Stage | The maximum item index $1, 2,\dots,n$. 
-If we are in stage $k$, we only consider items $1,2,\dots, k$. |
+|Element| Corresponding varaible|
 | --- | --- |
+| Stage | The maximum item index $1, 2,\dots,n$. If we are in stage $k$, we only consider items $1,2,\dots, k$. |
 | State | $w$, remaining capacity of the backpack |
 | Value function | $v_k(w)$, max profit given capacity $w$ and items $1,2,\dots k$ |
 

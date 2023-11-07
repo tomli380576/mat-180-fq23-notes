@@ -1,15 +1,20 @@
+---
+icon: circle
+---
+
 # W6 - Dynamic Programming Pt.2
 
 ## Lot Sizing / Generalized Inventory Problem
 
-#### Scenario. Keeping inventory
+### Scenario. Keeping inventory
 
-Go back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase. Now suppose we also own a roastery with a bunch of roasters, where we can roast our own coffee beans.
+Going back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase. Now suppose we also own a roastery with a bunch of roasters, where we can roast our own coffee beans.
 
 #### Inputs
 
-| $t$ | Time period |
+|Variable| Definition|
 | --- | --- |
+| $t$ | Time period |
 | $d_t$ | Demand at time $t$ |
 | $s_t$ | Inventory at the start of period $t$ |
 | $a_t$ | Production amount at period $t$ |
@@ -27,12 +32,13 @@ $$
 
 Note that “period” is the interval between each timestamp
 
-![Screenshot 2023-11-03 at 15.25.45.png](Screenshot_2023-11-03_at_15.25.45.png)
+![](/assets/Screenshot_2023-11-03_at_15.25.45.png)
 
 #### Stage, State, Value Function
 
-| Stage | Time $t = 1, 2\dots, T$ |
+|Element| Corresponding Variable|
 | --- | --- |
+| Stage | Time $t = 1, 2\dots, T$ |
 | State | Inventory $s_t$ |
 | Value function | $v_t(s_t)$,  the minimum cost from time $t$ to $T$ with initial inventory $s_t$ |
 | Action | $a_t$, the production amount |
@@ -67,19 +73,21 @@ $$
 
 Assuming unit costs $b, h$ are independent of time $t$, we have:
 
-#### Prop. Don’t produce if we have inventory
+!!! **Prop.** Don’t produce if we have inventory
 
 $$
 a_t > 0\implies s_t = 0
 $$
 
 If it is optimal to produce during any time period $t$, then the starting inventory is 0
+!!!
 
-#### Prop. If we produce, produce enough to cover integer amount of time periods
+!!! **Prop.** If we produce, produce enough to cover integer amount of time periods
 
 If it is optimal to produce in stage $t$ (so $a_t > 0$ for some $t$), then it is optimal to produce an amount that exactly covers the demand for $t, t+1, \cdots, t+j$ for some  $0\leqslant j\leqslant T-t$.
+!!!
 
-#### Prop. Equivalent optimality equation
+!!! **Prop.** Equivalent optimality equation
 
 Using the previous 2 properties, we only need to find the number of time periods $j$ to cover when we produce. If we produce enough to cover $j$ periods, we move to time $t+j+1$.
 
@@ -94,14 +102,14 @@ c_{t,\,t+j+1} = K + h\sum^j_{i=1}\underbrace{i\cdot d_{t+i}}_{\substack{\text{ne
 $$
 
 with base cases $v_{T+1} = 0, s_1 = 0$.
+!!!
 
 ## Stochastic Dynamic Programming
 
 ### Markov Chain Review
 
-#### Def. Discrete Time Markov Chain
+!!! **Def.** Discrete Time Markov Chain
 
-[!badge Definition]
 
 A discrete, time homogeneous Markov chain on state space $S$ with transition matrix $P$ and initial distribution $\alpha$ is a sequence of random states $X_n\in S$ such that:
 
@@ -119,8 +127,9 @@ The elements $p_{ij}$ in $P$ represents:
 $$
 p_{ij} = \Bbb P(X_{t+1} = j\mid X_t = i)
 $$
+!!!
 
-#### Prop. $n$ step transition probability
+!!! **Prop.** $n$ step transition probability
 
 It’s the $i,j$ th entry in $P^n$.
 
@@ -129,16 +138,18 @@ $$
 \Bbb P(X_n = j\mid X_0 = i) &= \Bbb P(X_{m+n}= j\mid X_m = i) \\&= P^n_{ij}
 \end{aligned}
 $$
+!!!
 
-#### Def. Communicate
+!!! **Def.** Communicate
 
 2 states $i, j\in S$ communicates if they are accessible from each other.
 
 $$
 i\lrarr j \coloneqq i\to j\text{ and }j \to i
 $$
+!!!
 
-#### Def. Closed Subset
+!!! **Def.** Closed Subset
 
 A subset of state space $T\sub S$ is closed if any of the states in $T$ is ever entered, the chain cannot leave $T$. In terms of transition probability:
 
@@ -147,6 +158,8 @@ P_{ij} =0\hskip1em\forall i\in T, j\notin T
 $$
 
 The entire state space is always closed.
+!!!
+
 
 ### Markov decision process with finite time
 
@@ -154,8 +167,9 @@ For this class we assume time $t$ is finite, $t = 0,1,2,\dots, N$.
 
 #### Variables
 
-| $s_t\in S$ | State at time $t$ |
+|Variable| Definition|
 | --- | --- |
+| $s_t\in S$ | State at time $t$ |
 | $a_t\in A$ | Action at time $t$ |
 | $r_t(s_t, a_t)$ | Reward function for the state, action pair at time $t$ |
 | $\Bbb P(s_{t+1}\mid s_t, a_t)$ | Transition probability of going to state $s_{t+1}$ given we took action $a_t$ at state $s_t$. |
@@ -191,7 +205,7 @@ At each state $s_t$, we want to pick out an action $a_t$. There are 2 types of d
 
 **History dependent** $d_t(s_1,a_1\dots s_{t-1}, a_{t-1}, s_t)$ returns an action by looking at all past states and actions.
 
-#### Def. Policy $\pi$, sample path $\omega$, total reward $W$
+!!! Def. Policy $\pi$, sample path $\omega$, total reward $W$
 
 The decision rules at each stage
 
@@ -223,6 +237,7 @@ Each $s_i$ in the sum is a random variable, so the expected total reward is:
 $$
 \Bbb E_{W,\pi}[W(\omega)] = \sum_{\text{all possible }\omega} \Bbb P(\text{path}=\omega) \cdot W(\omega)
 $$
+!!!
 
 #### Ex.1 Stochastic Shortest Paths
 
@@ -268,3 +283,5 @@ $$
 $$
 
 ## Policy Backward Evaluation
+
+TODO

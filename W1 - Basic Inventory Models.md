@@ -1,5 +1,8 @@
-# W1 - Basic Inventory Models
+---
+icon: check-circle
+---
 
+# W1 - Basic Inventory Models
 
 ## Economic Order Quantity Model (EOQ)
 
@@ -24,8 +27,9 @@ A coffee shop needs to decide how much coffee beans to purchase and how frequent
 
 #### Input
 
+|Variable| Definition|
+| --- | --- |
 | $d$ | Total annual demand (in this case pounds of coffee needed per year) |
-| --- | ------------------------------------------------------------------- |
 | $f$ | Fixed cost of an order (shipping & handling, etc.)                  |
 | $c$ | Unit cost of each item (price per pound of coffee)                  |
 | $h$ | Holding / Storage cost per item per year                            |
@@ -39,7 +43,7 @@ A coffee shop needs to decide how much coffee beans to purchase and how frequent
 
 Since orders are fulfilled instantly, we only order a batch of coffee beans when stock goes to 0.
 
-![Screenshot 2023-09-27 at 17.54.03.png](Screenshot_2023-09-27_at_17.54.03.png)
+![](assets/Screenshot_2023-09-27_at_17.54.03.png)
 
 We can compute the following:
 
@@ -64,8 +68,6 @@ Q^* &= \sqrt{\frac{2fd}{h}}
 \end{aligned}
 $$
 
-September 29, 2023
-
 The optimal total cost can be found by plugging in $Q^*$ into $\text{TC}$:
 
 $$
@@ -75,26 +77,27 @@ $$
 
 $$
 
-- **Derivation**
-  $$
-  \begin{aligned}
-  \text{TC}(Q^*) &= f\frac{d}{Q^*}+cd + h\frac Q2\\
-  &= \frac{fd}{\sqrt{\frac{2fd}{h}}} + cd + h\frac{\sqrt {\frac{2fd}{h}}}{2}\\
-  &= fd\frac{\sqrt{\frac{2fd}{h}}}{\frac{2fd}{h}} + \frac h2 \sqrt{\frac{2fd}{h}} + cd\\
-  &= h\sqrt{\frac{2fd}{h}} + cd\\
-  &= \sqrt{2fdh} + cd
-  \end{aligned}
-  $$
+==- **Derivation** of $\text{TC}(Q^*)$
+$$
+\begin{aligned}
+\text{TC}(Q^*) &= f\frac{d}{Q^*}+cd + h\frac Q2\\
+&= \frac{fd}{\sqrt{\frac{2fd}{h}}} + cd + h\frac{\sqrt {\frac{2fd}{h}}}{2}\\
+&= fd\frac{\sqrt{\frac{2fd}{h}}}{\frac{2fd}{h}} + \frac h2 \sqrt{\frac{2fd}{h}} + cd\\
+&= h\sqrt{\frac{2fd}{h}} + cd\\
+&= \sqrt{2fdh} + cd
+\end{aligned}
+$$
+===
 
 We can find the optimum $Q^*$ when we graph the total cost at the intersection of holding cost $y(Q)=\frac {hQ}{2}$ and ordering cost $y(Q) = \frac{fd}{Q}$.
 
-![Untitled](/assets/Untitled.png)
+![](/assets/Untitled.png){class="image-m"}
 
 #### Sensitivity Analysis
 
 Since $Q^*$ is likely not an integer, we are interested in what will happen if we pick a nearby integer.
 
-![Screenshot 2023-09-29 at 17.59.10.png](/assets/Screenshot_2023-09-29_at_17.59.10.png)
+![](/assets/Screenshot_2023-09-29_at_17.59.10.png){class="image-m"}
 
 In particular, we could find a range of $Q$ such that $\text{TC}(Q)$ is within some range around the optimal total cost.
 
@@ -116,19 +119,18 @@ A newspaper vendor needs to decide how many newspapers to buy from the news publ
 
 #### Decision Variable
 
-| Variable | Definition                                        |
-| -------- | ------------------------------------------------- |
 | $B$      | The number of newspapers to buy from the supplier |
+| -------- | ------------------------------------------------- |
 
 #### Input & Objective Function
 
-| Variable     | Definition                                                                   |
-| ------------ | ---------------------------------------------------------------------------- |
 | $d$          | Discrete R.V., the uncertain demand of newspapers                            |
+| ------------ | ---------------------------------------------------------------------------- |
 | $P$ (unused) | The probability distribution of newspaper demand. $d\sim P$                  |
 | $p$          | Sale price of each newspaper                                                 |
 | $c$          | Cost of each newspaper                                                       |
 | $s$          | Salvage price, sale price for expired newspapers. (e.g. recycling the paper) |
+
 
 The 3 prices have the following inequality:
 
@@ -152,8 +154,6 @@ The objective is to maximize the expected value of $\text{TP}$ by picking the be
 $$
 \max_{B}\,\Bbb E[\text{TP}]
 $$
-
-October 2, 2023
 
 Since $d$ is a discrete random variable, we have a probability mass function:
 
@@ -254,7 +254,7 @@ $$
 \end{aligned}
 $$
 
-#### [!badge variant="warning" text="Strategy."] Critical Ratio Method
+!!!  **Strat.** Critical Ratio Method 
 
 This method requires $s<c<p$.
 
@@ -265,6 +265,7 @@ Q(B)\geqslant\frac{p-c}{p-s}
 $$
 
 is the optimum number of newspapers to buy, $B^*$.
+!!!
 
 #### Sensitivity
 
@@ -274,8 +275,8 @@ $$
 s\uparrow\implies p-s\darr \implies\frac{p-c}{p-s}\uarr\implies B^*\uarr
 $$
 
-
-## [!badge size="xl" text="Key Example."] Buying services
+##  Buying services
+[!badge variant='warning' text="Key Example."]
 
 ### Scenario. Signing a contract
 
@@ -286,13 +287,17 @@ Suppose we want to sign a contract with a lighting company to purchase their mai
 
 #### Decision Variable
 
+|Variable| Definition|
+| --- | --- |
 | $B$ | The number of services to buy from the contracting company |
-| --- | ---------------------------------------------------------- |
 
 #### Input & Objective Function
 
+
+|Variable| Definition|
+| --- | --- |
 | $D$    | A discrete random variable, the uncertain number of services we actually need |
-| ------ | ----------------------------------------------------------------------------- |
+
 | $c$    | Price of each service on the contract                                         |
 | $s$    | Refund price                                                                  |
 | $p$    | Price of extra services                                                       |
@@ -321,6 +326,6 @@ $$
 
 where $(d-B)^+ = \max(d-B, 0)$ and $(d-B)^- = \min(d-B, 0)$.
 
-[!badge size="s" text="Strat. Critical Ratio Method"](#badge-variantwarning-textstrategy-critical-ratio-method) still works because $\Bbb E[\text{TC}]$ is dual of $\Bbb E[\text{Profit}]$ from the newsvenfor problem.
+*Strat. Critical Ratio Method* still works because $\Bbb E[\text{TC}]$ is dual of $\Bbb E[\text{Profit}]$ from the newsvenfor problem.
 
 - Minimizing $\Bbb E[\text{TC}]$ is the same as maximizing $\Bbb E[\text{Profit}]$.
