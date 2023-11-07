@@ -12,23 +12,36 @@ Going back to the coffee shop example: A coffee shop needs to decide how much co
 
 #### Inputs
 
-|Variable| Definition|
-| --- | --- |
-| $t$ | Time period |
-| $d_t$ | Demand at time $t$ |
-| $s_t$ | Inventory at the start of period $t$ |
-| $a_t$ | Production amount at period $t$ |
-| $b$ | Unit production cost |
-| $h$ | Unit holding cost |
-| $K$ | Fixed cost for starting production |
-| $c(a_t)$ | Production cost function |
+$t$  
+:	Time period 
 
-$$
-c(a_t) = \begin{cases}
-0 & \text{if }a_t = 0\\
-K + b\cdot a_t & \text{if }a_t > 0
-\end{cases}
-$$
+$d_t$  
+:	Demand at time $t$ 
+
+$s_t$  
+:	Inventory at the start of period $t$ 
+ 
+$a_t$  
+:	Production amount at period $t$ 
+
+$b$  
+:	Unit production cost 
+
+$h$  
+:	Unit holding cost 
+
+$K$  
+:	Fixed cost for starting production 
+
+$c(a_t)$
+:  	Production cost function 
+
+	> $$
+	> c(a_t) = \begin{cases}
+	> 0 & \text{if }a_t = 0\\
+	> K + b\cdot a_t & \text{if }a_t > 0
+	> \end{cases}
+	> $$
 
 Note that “period” is the interval between each timestamp
 
@@ -36,12 +49,17 @@ Note that “period” is the interval between each timestamp
 
 #### Stage, State, Value Function
 
-|Element| Corresponding Variable|
-| --- | --- |
-| Stage | Time $t = 1, 2\dots, T$ |
-| State | Inventory $s_t$ |
-| Value function | $v_t(s_t)$,  the minimum cost from time $t$ to $T$ with initial inventory $s_t$ |
-| Action | $a_t$, the production amount |
+Stage  
+:	Time $t = 1, 2\dots, T$ 
+
+State  
+:	Inventory $s_t$ 
+
+Value function  
+:	$v_t(s_t)$,  the minimum cost from time $t$ to $T$ with initial inventory $s_t$ 
+
+Action  
+:	$a_t$, the production amount 
 
 The optimality equation is:
 
@@ -73,7 +91,7 @@ $$
 
 Assuming unit costs $b, h$ are independent of time $t$, we have:
 
-!!! **Prop.** Don’t produce if we have inventory
+!!!secondary **Prop.** Don’t produce if we have inventory
 
 $$
 a_t > 0\implies s_t = 0
@@ -82,12 +100,12 @@ $$
 If it is optimal to produce during any time period $t$, then the starting inventory is 0
 !!!
 
-!!! **Prop.** If we produce, produce enough to cover integer amount of time periods
+!!!secondary **Prop.** If we produce, produce enough to cover integer amount of time periods
 
 If it is optimal to produce in stage $t$ (so $a_t > 0$ for some $t$), then it is optimal to produce an amount that exactly covers the demand for $t, t+1, \cdots, t+j$ for some  $0\leqslant j\leqslant T-t$.
 !!!
 
-!!! **Prop.** Equivalent optimality equation
+!!! **Lemma.** Equivalent optimality equation
 
 Using the previous 2 properties, we only need to find the number of time periods $j$ to cover when we produce. If we produce enough to cover $j$ periods, we move to time $t+j+1$.
 
@@ -108,7 +126,7 @@ with base cases $v_{T+1} = 0, s_1 = 0$.
 
 ### Markov Chain Review
 
-!!! **Def.** Discrete Time Markov Chain
+!!!info **Def.** Discrete Time Markov Chain
 
 
 A discrete, time homogeneous Markov chain on state space $S$ with transition matrix $P$ and initial distribution $\alpha$ is a sequence of random states $X_n\in S$ such that:
@@ -129,7 +147,7 @@ p_{ij} = \Bbb P(X_{t+1} = j\mid X_t = i)
 $$
 !!!
 
-!!! **Prop.** $n$ step transition probability
+!!!secondary **Prop.** $n$ step transition probability
 
 It’s the $i,j$ th entry in $P^n$.
 
@@ -140,7 +158,7 @@ $$
 $$
 !!!
 
-!!! **Def.** Communicate
+!!!info **Def.** Communicate
 
 2 states $i, j\in S$ communicates if they are accessible from each other.
 
@@ -149,7 +167,7 @@ i\lrarr j \coloneqq i\to j\text{ and }j \to i
 $$
 !!!
 
-!!! **Def.** Closed Subset
+!!!info **Def.** Closed Subset
 
 A subset of state space $T\sub S$ is closed if any of the states in $T$ is ever entered, the chain cannot leave $T$. In terms of transition probability:
 
@@ -167,13 +185,20 @@ For this class we assume time $t$ is finite, $t = 0,1,2,\dots, N$.
 
 #### Variables
 
-|Variable| Definition|
-| --- | --- |
-| $s_t\in S$ | State at time $t$ |
-| $a_t\in A$ | Action at time $t$ |
-| $r_t(s_t, a_t)$ | Reward function for the state, action pair at time $t$ |
-| $\Bbb P(s_{t+1}\mid s_t, a_t)$ | Transition probability of going to state $s_{t+1}$ given we took action $a_t$ at state $s_t$. |
-| $R(s_N)$ | Reward if we end on state $s_N$ |
+$s_t\in S$  
+:	State at time $t$ 
+
+$a_t\in A$  
+:	Action at time $t$ 
+
+$r_t(s_t, a_t)$  
+:	Reward function for the state, action pair at time $t$ 
+
+$\Bbb P(s_{t+1}\mid s_t, a_t)$ 
+:	Transition probability of going to state $s_{t+1}$ given we took action $a_t$ at state $s_t$. 
+
+$R(s_N)$ or $r_N(s_N)$  
+:	Reward if we end on state $s_N$ 
 
 #### Optimality Equation
 
@@ -201,11 +226,11 @@ with base cases $v_N(s_N) = R(s_N)$ for some final reward function $R$ and each 
 
 At each state $s_t$, we want to pick out an action $a_t$. There are 2 types of decision rules.
 
-**Markovian** $d_t(s_t)$ returns an action by looking at current state.
+1.  *Markovian*. $d_t(s_t)$ returns an action by looking at current state.
 
-**History dependent** $d_t(s_1,a_1\dots s_{t-1}, a_{t-1}, s_t)$ returns an action by looking at all past states and actions.
+2. *History dependent*. $d_t(s_1,a_1\dots s_{t-1}, a_{t-1}, s_t)$ returns an action by looking at all past states and actions.
 
-!!! Def. Policy $\pi$, sample path $\omega$, total reward $W$
+!!!info **Def.** Policy $\pi$, sample path $\omega$, total reward $W$
 
 The decision rules at each stage
 
@@ -238,8 +263,8 @@ $$
 \Bbb E_{W,\pi}[W(\omega)] = \sum_{\text{all possible }\omega} \Bbb P(\text{path}=\omega) \cdot W(\omega)
 $$
 !!!
-
-#### Ex.1 Stochastic Shortest Paths
+ 
+=== [!badge size="l" variant="warning" text="Ex.1"] Stochastic Shortest Paths
 
 ```mermaid
 graph LR
@@ -281,7 +306,21 @@ So the expected reward is:
 $$
 \Bbb E_{W\!,\pi}[W(\omega)] = \sum_{i=1}^{2^3}W(w_i)\cdot \Bbb P(\text{path} = \omega_i)
 $$
+===
 
 ## Policy Backward Evaluation
 
-TODO
+For policy $\pi$, time $t$, define the value function:
+
+$$
+v_{\pi, t}(s_t) = r_t(s_t, d_t(h_t)) + \sum_{j\in S}\Bbb P(j\mid s_t, d_t(h_t))\cdot v_{\pi, t+1}(h_t, d_t(h_t), j)
+$$
+
+$r_t$ 
+:	reward function
+
+$s_t$ 
+:	current state
+
+$d_t(h_t)$ 
+:	returns action depending on the history

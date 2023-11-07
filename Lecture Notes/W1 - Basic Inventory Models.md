@@ -27,17 +27,23 @@ A coffee shop needs to decide how much coffee beans to purchase and how frequent
 
 #### Input
 
-|Variable| Definition|
-| --- | --- |
-| $d$ | Total annual demand (in this case pounds of coffee needed per year) |
-| $f$ | Fixed cost of an order (shipping & handling, etc.)                  |
-| $c$ | Unit cost of each item (price per pound of coffee)                  |
-| $h$ | Holding / Storage cost per item per year                            |
+$d$  
+:   Total annual demand (in this case pounds of coffee needed per year) 
+
+$f$
+:   Fixed cost of an order (shipping & handling, etc.)                  
+
+$c$
+:   Unit cost of each item (price per pound of coffee)                  
+
+$h$
+:    Holding / Storage cost per item per year                            
+
 
 #### Decision Variables / Output
 
-| $Q$ | Quantity / size of each order |
-| --- | ----------------------------- |
+$Q$
+:    Quantity
 
 #### Optimal Order Quantity $Q^*$
 
@@ -119,17 +125,27 @@ A newspaper vendor needs to decide how many newspapers to buy from the news publ
 
 #### Decision Variable
 
-| $B$      | The number of newspapers to buy from the supplier |
-| -------- | ------------------------------------------------- |
+$B$
+:   The number of newspapers to buy from the supplier
+
+---
 
 #### Input & Objective Function
 
-| $d$          | Discrete R.V., the uncertain demand of newspapers                            |
-| ------------ | ---------------------------------------------------------------------------- |
-| $P$ (unused) | The probability distribution of newspaper demand. $d\sim P$                  |
-| $p$          | Sale price of each newspaper                                                 |
-| $c$          | Cost of each newspaper                                                       |
-| $s$          | Salvage price, sale price for expired newspapers. (e.g. recycling the paper) |
+$d$
+:   Discrete R.V., the uncertain demand of newspapers                  
+
+$P$ (unused) 
+:   The probability distribution of newspaper demand. $d\sim P$                  
+
+$p$          
+:   Sale price of each newspaper                                                 
+
+$c$          
+:   Cost of each newspaper
+
+$s$          
+:   Salvage price, sale price for expired newspapers. (e.g. recycling the paper) 
 
 
 The 3 prices have the following inequality:
