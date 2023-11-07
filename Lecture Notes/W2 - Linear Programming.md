@@ -16,19 +16,25 @@ We will use $\bold x$ to indicate a vector, $x_i$ to indicate the element of $\b
 
 Consider a factory that has a limited amount of resources and produces a finite number of products.
 
-#### Input
+#### Variables
 
-| $m$ | Total number of kinds of resources |
-| --- | --- |
-| $n$ | Total number of products |
-| $b_i$ | Amount we have for resource $i$ |
-| $c_j$ | Unit profit of product $j$ |
-| $a_{ij}$ | Amount of resource $i$ needed to make 1 unit of product $j$ |
+$m$  
+:   Total number of kinds of resources 
 
-#### Decision Variable
+$n$  
+:   Total number of products 
 
-| $x_j$ | Number of product $j$ to make, $1\leqslant j\leqslant n$, non negative |
-| --- | --- |
+$b_i$  
+:   Amount we have for resource $i$ 
+
+$c_j$  
+:   Unit profit of product $j$ 
+
+$a_{ij}$  
+:   Amount of resource $i$ needed to make 1 unit of product $j$ 
+
+$x_j$  [!badge variant="success" text="Decision Variable"]
+:   Number of product $j$ to make, $1\leqslant j\leqslant n$, non negative 
 
 #### Objective
 
@@ -52,7 +58,7 @@ $$
 x_j\geqslant 0, \forall j
 $$
 
-#### Matrix-Vector Form
+### Matrix-Vector Form
 
 $$
 \begin{aligned}
@@ -88,9 +94,7 @@ a_{m1} & a_{m2} & \cdots & a_{mn}
 \end{bmatrix}
 $$
 
-#### Ex.1 2D Example
-
-
+=== **Ex.1** 2D Example
 
 ||| Program
 
@@ -106,11 +110,13 @@ x_1, x_2 & \geqslant 0\\
 \end{aligned}
 $$
 
-||| Region
+|||Region
 
 ![](/assets/Screenshot_2023-10-06_at_17.45.31.png){ style="width: 200px;" }
 
 |||
+
+===
 
 !!!info **Def.** Standard Form
 
@@ -222,11 +228,11 @@ A linear program can have the following statuses:
 
 By strong duality, the results of Primal & Dual are linked:
 
-| **Primal** | **Dual** |
-| --- | --- |
-| Optimal | Optimal |
-| Unbounded | Infeasible |
-| Infeasible | Unbounded or Infeasible |
+ **Primal** | **Dual** 
+ --- | --- 
+ Optimal | Optimal 
+ Unbounded | Infeasible 
+ Infeasible | Unbounded or Infeasible 
 
 ### Sensitivity
 

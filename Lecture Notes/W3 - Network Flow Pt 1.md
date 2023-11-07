@@ -113,7 +113,7 @@ $$
 
 Since there are only arcs from supply nodes to demand nodes, we can group everything into a [bipartite graph](https://mathworld.wolfram.com/BipartiteGraph.html).
 
-![](/assets/Screenshot_2023-10-14_at_01.14.17.png){class="image-m"}
+![](/assets/Screenshot_2023-10-14_at_01.14.17.png){ class="image-m" }
 
 where :icon-star-fill: is the **universal node** $u$ to maintain flow conservation.
 

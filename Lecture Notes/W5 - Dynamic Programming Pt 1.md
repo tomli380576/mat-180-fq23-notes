@@ -106,7 +106,7 @@ where `queue.ExtractMin()` grabs the vertex with the shortest distance.
 
 === **Ex.** In-class practice graph
 
-![Source: Canvas, `Shortest_path_problem_in_class.pdf`](/assets/Screenshot_2023-10-23_at_15.33.56.png){class="image-m"}
+![Source: Canvas, `Shortest_path_problem_in_class.pdf`](/assets/Screenshot_2023-10-23_at_15.33.56.png){ class="image-m" }
 
 Running Dijkstra’s algorithm with $\text{start} = A$ gives us shortest path from $A$ to every other node:
 
