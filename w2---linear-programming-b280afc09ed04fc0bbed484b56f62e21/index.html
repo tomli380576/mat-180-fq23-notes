@@ -9,32 +9,34 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>MAT 180 - Mathematics for Operations Research</title>
-    <meta name="title" content="MAT 180 - Mathematics for Operations Research">
-    <meta name="description" content="This is the landing page.">
+    <title>W2 - Linear Programming</title>
+    <meta name="title" content="W2 - Linear Programming">
+    <meta name="description" content="We will use \\bold x to indicate a vector, x_i to indicate the element of \\bold x. The \\leqslant, \\geqslant">
 
     <!-- Canonical -->
-    <link rel="canonical" href="/">
+    <link rel="canonical" href="/w2---linear-programming-b280afc09ed04fc0bbed484b56f62e21/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="/">
-    <meta property="og:title" content="MAT 180 - Mathematics for Operations Research">
-    <meta property="og:description" content="This is the landing page.">
+    <meta property="og:url" content="/w2---linear-programming-b280afc09ed04fc0bbed484b56f62e21/">
+    <meta property="og:title" content="W2 - Linear Programming">
+    <meta property="og:description" content="We will use \\bold x to indicate a vector, x_i to indicate the element of \\bold x. The \\leqslant, \\geqslant">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="/">
-    <meta property="twitter:title" content="MAT 180 - Mathematics for Operations Research">
-    <meta property="twitter:description" content="This is the landing page.">
+    <meta property="twitter:url" content="/w2---linear-programming-b280afc09ed04fc0bbed484b56f62e21/">
+    <meta property="twitter:title" content="W2 - Linear Programming">
+    <meta property="twitter:description" content="We will use \\bold x to indicate a vector, x_i to indicate the element of \\bold x. The \\leqslant, \\geqslant">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="resources/css/retype.css?v=3.5.0.752634972837" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.5.0.752634972837" rel="stylesheet">
 
-    <script data-cfasync="false" src="resources/js/config.js?v=3.5.0.752634972837" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.5.0.752634972837" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.752634972837" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.752634972837" data-turbo-eval="false" defer></script>
+    <link href="../resources/css/katex.css?v=3.5.0" rel="stylesheet">
+    <script id="katex-js" data-cfasync="false" src="../resources/js/katex.js?v=3.5.0" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -49,7 +51,7 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="" class="flex items-center leading-snug text-xl">
+                        <a id="docs-site-logo" href="../" class="flex items-center leading-snug text-xl">
                             <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">MAT 180 - Mathematics for Operations Research</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Notes</span>
                     </div>
@@ -163,13 +165,292 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="mat-180---mathematics-for-operations-research" class="break-words">
+<doc-anchor-target id="w2---linear-programming" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#mat-180---mathematics-for-operations-research">#</doc-anchor-trigger>
-        <span>MAT 180 - Mathematics for Operations Research</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#w2---linear-programming">#</doc-anchor-trigger>
+        <span>W2 - Linear Programming</span>
     </h1>
 </doc-anchor-target>
-<p>This is the landing page.</p>
+<p>We will use <span class="math">\bold x</span> to indicate a vector, <span class="math">x_i</span> to indicate the element of <span class="math">\bold x</span>. The <span class="math">\leqslant, \geqslant</span> comparators are element–wise comparison. <span class="math">\bold 0</span> is the zero vector.</p>
+<p>October 6, 2023</p>
+<doc-anchor-target id="linear-programming">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#linear-programming">#</doc-anchor-trigger>
+        <span>Linear Programming</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="scenario-production-problem">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#scenario-production-problem">#</doc-anchor-trigger>
+        <span>Scenario. Production Problem</span>
+    </h3>
+</doc-anchor-target>
+<p>Consider a factory that has a limited amount of resources and produces a finite number of products.</p>
+<doc-anchor-target id="input">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#input">#</doc-anchor-trigger>
+        <span>Input</span>
+    </h4>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th><span class="math">m</span></th>
+<th>Total number of kinds of resources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">n</span></td>
+<td>Total number of products</td>
+</tr>
+<tr>
+<td><span class="math">b_i</span></td>
+<td>Amount we have for resource <span class="math">i</span></td>
+</tr>
+<tr>
+<td><span class="math">c_j</span></td>
+<td>Unit profit of product <span class="math">j</span></td>
+</tr>
+<tr>
+<td><span class="math">a_{ij}</span></td>
+<td>Amount of resource <span class="math">i</span> needed to make 1 unit of product <span class="math">j</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="decision-variable">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#decision-variable">#</doc-anchor-trigger>
+        <span>Decision Variable</span>
+    </h4>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th><span class="math">x_j</span></th>
+<th>Number of product <span class="math">j</span> to make, <span class="math">1\leqslant j\leqslant n</span>, non negative</th>
+</tr>
+</thead>
+</table>
+</div>
+<doc-anchor-target id="objective">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#objective">#</doc-anchor-trigger>
+        <span>Objective</span>
+    </h4>
+</doc-anchor-target>
+<p>We want to maximize the total profit, which is the sum of profits over all products:</p>
+<div class="math"><pre>\max \sum_{1\leqslant j\leqslant n}c_jx_j</pre></div>
+<doc-anchor-target id="constraints">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#constraints">#</doc-anchor-trigger>
+        <span>Constraints</span>
+    </h4>
+</doc-anchor-target>
+<p>For each resource <span class="math">i</span>, we can’t use more than what we have:</p>
+<div class="math"><pre>\sum_{1\leqslant j\leqslant n}a_{ij}x_j\leqslant b_i\hspace 2em1\leqslant i\leqslant m</pre></div>
+<p>We shouldn’t make negative number of products either:</p>
+<div class="math"><pre>x_j\geqslant 0, \forall j</pre></div>
+<doc-anchor-target id="matrix-vector-form">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#matrix-vector-form">#</doc-anchor-trigger>
+        <span>Matrix-Vector Form</span>
+    </h4>
+</doc-anchor-target>
+<div class="math"><pre>\begin{aligned}
+\max &amp;&amp;&amp; c^T\bold x\\
+\text{subject to}&amp;&amp;&amp;\begin{aligned}
+A\bold x &amp;\leqslant \bold b\\
+\bold x&amp;\geqslant \bold 0
+\end{aligned}
+\end{aligned}</pre></div>
+<p>Where <span class="math">c, x</span> are vectors in <span class="math">\R^m</span>:</p>
+<div class="math"><pre>\bold c=\begin{bmatrix}
+c_1\\c_2\\\vdots\\c_m
+\end{bmatrix} 
+\hspace1em
+\bold x=\begin{bmatrix}
+x_1\\x_2\\\vdots\\x_m
+\end{bmatrix}</pre></div>
+<p>and <span class="math">A</span> is a <span class="math">m\times n</span> matrix:</p>
+<div class="math"><pre>A = \begin{bmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n}\\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n}\\
+\vdots &amp; &amp; \ddots &amp; \vdots\\
+a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+
+\end{bmatrix}</pre></div>
+<doc-anchor-target id="ex1-2d-example">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ex1-2d-example">#</doc-anchor-trigger>
+        <span>EX.1 2D Example</span>
+    </h4>
+</doc-anchor-target>
+<p>The feasible region for the linear program:</p>
+<div class="math"><pre>\begin{aligned}
+\max &amp;&amp;&amp; 8x_1 + 5x_2\\
+\text{subject to}&amp;&amp;&amp;\left\{\begin{aligned}
+2x_1 + x_2 &amp; \leqslant 6\\
+2x_1 + 2x_2 &amp; \leqslant 8\\
+x_1, x_2 &amp; \geqslant 0\\
+\end{aligned}\right.
+
+\end{aligned}</pre></div>
+<p><figure class="content-center">
+    <img src="screenshot_2023-10-06_at_17.45.31.png" alt="Screenshot 2023-10-06 at 17.45.31.png">
+    <figcaption class="caption">Screenshot 2023-10-06 at 17.45.31.png</figcaption>
+</figure>
+</p>
+<doc-anchor-target id="def-standard-form">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#def-standard-form">#</doc-anchor-trigger>
+        <span>Def. Standard Form</span>
+    </h4>
+</doc-anchor-target>
+<div class="math"><pre>\begin{aligned}
+\max &amp;&amp;&amp; \bold c^T\bold x\\
+\text{subject to}&amp;&amp;&amp;\begin{aligned}
+A\bold x &amp;\leqslant \bold b\\
+\bold x&amp;\geqslant \bold 0
+\end{aligned}
+\end{aligned}</pre></div>
+<doc-anchor-target id="duality---resource-buyer">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#duality---resource-buyer">#</doc-anchor-trigger>
+        <span>Duality - Resource Buyer</span>
+    </h3>
+</doc-anchor-target>
+<p>Consider the resource buyer perspective. For each resource <span class="math">i</span>, we have a bid price <span class="math">y_i</span>.</p>
+<doc-anchor-target id="objective-1">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#objective-1">#</doc-anchor-trigger>
+        <span>Objective</span>
+    </h4>
+</doc-anchor-target>
+<p>Minimize total cost.</p>
+<div class="math"><pre>\min \sum_{1\leqslant i \leqslant m} b_i y_i</pre></div>
+<doc-anchor-target id="constraint">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#constraint">#</doc-anchor-trigger>
+        <span>Constraint</span>
+    </h4>
+</doc-anchor-target>
+<p>For each product <span class="math">j</span>, the price to sell all the resources needed should be greater than the profit of <span class="math">j</span>.</p>
+<div class="math"><pre>\sum_{1\leqslant i\leqslant m} a_{ij} y_i\geqslant c_j</pre></div>
+<doc-anchor-target id="matrix-vector-form-1">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#matrix-vector-form-1">#</doc-anchor-trigger>
+        <span>Matrix-Vector Form</span>
+    </h4>
+</doc-anchor-target>
+<div class="math"><pre>\begin{aligned}
+\max &amp;&amp;&amp; \bold b^T\bold y\\
+\text{subject to}&amp;&amp;&amp;\begin{aligned}
+A^T\bold y &amp;\geqslant \bold c\\
+\bold y&amp;\geqslant \bold 0
+\end{aligned}
+\end{aligned}</pre></div>
+<p>This is the Dual problem of the original <a href="w220-20linear20programming20b280afc09ed04fc0bbed484b56f62e21.md">Primal problem</a></p>
+<doc-anchor-target id="thm-weak--strong-duality">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#thm-weak--strong-duality">#</doc-anchor-trigger>
+        <span>Thm. Weak &amp; Strong Duality</span>
+    </h4>
+</doc-anchor-target>
+<p>For each feasible solution <span class="math">\bold x</span> of the primal problem, and each feasible solution <span class="math">\bold y</span> of the dual problem, we have the following:</p>
+<ol>
+<li><p>Weak Duality.</p>
+<div class="math"><pre> \bold c^T\bold x\leqslant \bold b^T\bold y</pre></div>
+</li>
+<li><p>Strong Duality (all linear programs have strong duality if optimal solutions <span class="math">\bold x^*, \bold  y^*</span> exists for primal and dual)</p>
+<div class="math"><pre> \bold c^T\bold x^* = \bold b^T\bold y^*</pre></div>
+</li>
+</ol>
+<p>October 9, 2023</p>
+<p><span class="math">\diamond\;\textbf{Proof.}</span>  (Weak Duality)</p>
+<p>Let <span class="math">\bold x, \bold y</span> be feasible solutions for the primal and dual problem respectively.</p>
+<p>Then by definition of feasible, we have</p>
+<div class="math"><pre>A\bold x \leqslant \bold b\hspace2em \bold x\geqslant 0\hspace2em A^T \bold y \geqslant \bold c\hspace2em \bold y\geqslant 0</pre></div>
+<p>We need to show <span class="math">\bold c^T\bold x\leqslant \bold b^T\bold y</span>:</p>
+<div class="math"><pre>\bold c^T\bold x\leqslant {\underbrace{(A^T\bold y)}_{\text{bound }\bold c}}^T\bold x = \bold y^TA\bold x\leqslant \bold y^T\underbrace{\bold b}_{\text{bound }A\bold x} = \bold b^T\bold y</pre></div>
+<doc-anchor-target id="thm-complementary-slackness">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#thm-complementary-slackness">#</doc-anchor-trigger>
+        <span>Thm. Complementary Slackness</span>
+    </h4>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="screenshot_2022-11-08_at_2.07.01_pm.png" alt="Screenshot 2022-11-08 at 2.07.01 PM.png">
+    <figcaption class="caption">Screenshot 2022-11-08 at 2.07.01 PM.png</figcaption>
+</figure>
+</p>
+<p>The slack variables are just a vector that turns <span class="math">\leqslant, \geqslant</span> in the constraints into equality:</p>
+<div class="math"><pre>\begin{aligned}
+\bold w &amp;= \bold b - A\bold x\\
+\bold z &amp;=  A^T\bold y - \bold c\\
+\end{aligned}</pre></div>
+<ul>
+<li>Basically primal solution times dual slack is 0, dual solution times primal slack is also 0 for linear programs. The optimal objective <span class="math">\zeta</span> and <span class="math">\xi</span> are equal.</li>
+</ul>
+<doc-anchor-target id="optimization-output--infer-dual-results-from-primal">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#optimization-output--infer-dual-results-from-primal">#</doc-anchor-trigger>
+        <span>Optimization Output / Infer Dual Results from Primal</span>
+    </h3>
+</doc-anchor-target>
+<p>A linear program can have the following statuses:</p>
+<ol>
+<li>Finite, we have a finite optimal solution</li>
+<li>Unbounded, the objective can go to <span class="math">\pm\infty</span></li>
+<li>Infeasible, no solution exists that satisfies all the constraints</li>
+</ol>
+<p>By strong duality, the results of Primal &amp; Dual are linked:</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Primal</th>
+<th>Dual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Optimal</td>
+<td>Optimal</td>
+</tr>
+<tr>
+<td>Unbounded</td>
+<td>Infeasible</td>
+</tr>
+<tr>
+<td>Infeasible</td>
+<td>Unbounded or Infeasible</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="sensitivity">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sensitivity">#</doc-anchor-trigger>
+        <span>Sensitivity</span>
+    </h3>
+</doc-anchor-target>
+<p>Suppose we change one of the constraints <span class="math">b_i</span> to <span class="math">b_i + \Delta b_i</span>.</p>
+<p>Let <span class="math">\zeta</span> be the value of the objective function.</p>
+<ol>
+<li><p>If <span class="math">\Delta b_i &gt; 0</span>, then the new optimal <span class="math">\zeta_{new}</span> should be at least the original solution because we loosened the constraint.</p>
+<div class="math"><pre> \zeta_{new} \geqslant\zeta_{old}</pre></div>
+</li>
+<li><p>If <span class="math">\Delta b_i  &lt; 0</span>, the original <span class="math">\bold x^*</span> might not be in the new feasible region. If there’s another solution, it should be at most the original because we tightened the constraint.</p>
+<div class="math"><pre> \zeta_{new}\leqslant \zeta _{old}\hspace2em{\text{if feasible}}</pre></div>
+</li>
+</ol>
+<hr>
+<p>Go to next:</p>
+<p><a href="w320-20network20flow20pt2012067d861e40761479f9d21e4dc59ff840e.md">W3 - Network Flow Pt.1</a></p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -179,13 +460,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../w1---basic-inventory-models/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">W​1 - Basic Inventory Models</span>
+                                            </span>
+                                        </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="w1---basic-inventory-models/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../w3---network-flow-pt-1-67d861e40761479f9d21e4dc59ff840e/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">W​1 - Basic Inventory Models</span>
+                                                <span class="block mt-1">W​3 - Network Flow Pt.​1</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -229,6 +517,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "MAT 180 - Mathematics for Operations Research", isRoot: true, level: 0, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "W2 - Linear Programming", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
 </body>
 </html>
