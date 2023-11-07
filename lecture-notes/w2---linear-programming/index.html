@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752702818596">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752716278488">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,11 +32,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.752702818596" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.752716278488" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752702818596" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752716278488" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752702818596" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752716278488" data-turbo-eval="false" defer></script>
     <link href="../../resources/css/katex.css?v=3.5.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.5.0" defer></script>
 
@@ -190,56 +190,28 @@
     </h3>
 </doc-anchor-target>
 <p>Consider a factory that has a limited amount of resources and produces a finite number of products.</p>
-<doc-anchor-target id="input">
+<doc-anchor-target id="variables">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#input">#</doc-anchor-trigger>
-        <span>Input</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#variables">#</doc-anchor-trigger>
+        <span>Variables</span>
     </h4>
 </doc-anchor-target>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th><span class="math">m</span></th>
-<th>Total number of kinds of resources</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="math">n</span></td>
-<td>Total number of products</td>
-</tr>
-<tr>
-<td><span class="math">b_i</span></td>
-<td>Amount we have for resource <span class="math">i</span></td>
-</tr>
-<tr>
-<td><span class="math">c_j</span></td>
-<td>Unit profit of product <span class="math">j</span></td>
-</tr>
-<tr>
-<td><span class="math">a_{ij}</span></td>
-<td>Amount of resource <span class="math">i</span> needed to make 1 unit of product <span class="math">j</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<doc-anchor-target id="decision-variable">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#decision-variable">#</doc-anchor-trigger>
-        <span>Decision Variable</span>
-    </h4>
-</doc-anchor-target>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th><span class="math">x_j</span></th>
-<th>Number of product <span class="math">j</span> to make, <span class="math">1\leqslant j\leqslant n</span>, non negative</th>
-</tr>
-</thead>
-</table>
-</div>
+<dl>
+<dt><span class="math">m</span>  </dt>
+<dd>Total number of kinds of resources</dd>
+<dt><span class="math">n</span>  </dt>
+<dd>Total number of products</dd>
+<dt><span class="math">b_i</span>  </dt>
+<dd>Amount we have for resource <span class="math">i</span></dd>
+<dt><span class="math">c_j</span>  </dt>
+<dd>Unit profit of product <span class="math">j</span></dd>
+<dt><span class="math">a_{ij}</span>  </dt>
+<dd>Amount of resource <span class="math">i</span> needed to make 1 unit of product <span class="math">j</span></dd>
+<dt><span class="math">x_j</span>  <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-green-700 bg-green-100 h-6 px-2 text-xs rounded-md">
+    <span>Decision Variable</span>
+</span></dt>
+<dd>Number of product <span class="math">j</span> to make, <span class="math">1\leqslant j\leqslant n</span>, non negative</dd>
+</dl>
 <doc-anchor-target id="objective">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#objective">#</doc-anchor-trigger>
@@ -259,10 +231,10 @@
 <p>We shouldn’t make negative number of products either:</p>
 <div class="math"><pre>x_j\geqslant 0, \forall j</pre></div>
 <doc-anchor-target id="matrix-vector-form">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#matrix-vector-form">#</doc-anchor-trigger>
         <span>Matrix-Vector Form</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
 <div class="math"><pre>\begin{aligned}
 \max &amp;&amp;&amp; c^T\bold x\\
@@ -287,12 +259,8 @@ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n}\\
 a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
 
 \end{bmatrix}</pre></div>
-<doc-anchor-target id="ex1-2d-example">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#ex1-2d-example">#</doc-anchor-trigger>
-        <span>Ex.1 2D Example</span>
-    </h4>
-</doc-anchor-target>
+<doc-panel id="ex-1-2d-example">
+    <template #title><strong>Ex.1</strong> 2D Example</template>
 <div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
     <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white border-r">
         <span>Program</span>
@@ -319,6 +287,7 @@ x_1, x_2 &amp; \geqslant 0\\
 </p>
     </div>
 </div>
+</doc-panel>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-300"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
