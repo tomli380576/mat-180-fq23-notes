@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752658360559">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752702818596">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>W3 - Network Flow Pt.1</title>
     <meta name="title" content="W3 - Network Flow Pt.1">
-    <meta name="description" content="Suppose you own a clothing business and owns both factories and stores.">
+    <meta name="description" content="Suppose you own a clothing business and owns both factories and stores. Let \\bigcirc be the factories (supply nodes) and ">
 
     <!-- Canonical -->
     <link rel="canonical" href="/lecture-notes/w3---network-flow-pt-1/">
@@ -20,23 +20,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="/lecture-notes/w3---network-flow-pt-1/">
     <meta property="og:title" content="W3 - Network Flow Pt.1">
-    <meta property="og:description" content="Suppose you own a clothing business and owns both factories and stores.">
+    <meta property="og:description" content="Suppose you own a clothing business and owns both factories and stores. Let \\bigcirc be the factories (supply nodes) and ">
     <meta property="og:image" content="/assets/screenshot_2023-10-14_at_00.00.58.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="/lecture-notes/w3---network-flow-pt-1/">
     <meta property="twitter:title" content="W3 - Network Flow Pt.1">
-    <meta property="twitter:description" content="Suppose you own a clothing business and owns both factories and stores.">
+    <meta property="twitter:description" content="Suppose you own a clothing business and owns both factories and stores. Let \\bigcirc be the factories (supply nodes) and ">
     <meta property="twitter:image" content="/assets/screenshot_2023-10-14_at_00.00.58.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.752658360559" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.752702818596" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752658360559" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752702818596" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752658360559" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752702818596" data-turbo-eval="false" defer></script>
     <link href="../../resources/css/katex.css?v=3.5.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.5.0" defer></script>
 
@@ -173,82 +173,41 @@
         <span>Scenario. Sending supplies to stores</span>
     </h4>
 </doc-anchor-target>
-<p>Suppose you own a clothing business and owns both factories and stores.</p>
-<p>Let <span class="math">\bigcirc</span> be the factories (supply nodes) and <span class="math">\triangle</span> be the stores (demand node).</p>
-<p>The supply system looks like a directed graph:</p>
+<p>Suppose you own a clothing business and owns both factories and stores. Let <span class="math">\bigcirc</span> be the factories (supply nodes) and <span class="math">\triangle</span> be the stores (demand node). The supply system looks like a directed graph:</p>
 <p><figure class="content-center">
-    <img src="../../assets/screenshot_2023-10-14_at_00.00.58.png" alt="" class="image-m">
-    <figcaption class="caption"></figcaption>
+    <img src="../../assets/screenshot_2023-10-14_at_00.00.58.png" alt="The placements are arbitrary" class="image-m">
+    <figcaption class="caption">The placements are arbitrary</figcaption>
 </figure>
 </p>
-<p>The placements are arbitrary</p>
 <p>There’s also a unit cost to ship cloths from <span class="math">i</span> to <span class="math">j</span>.</p>
 <div class="math"><pre>{\Large\text{\textcircled{$\normalsize i$}}}\xrightarrow{\normalsize c_{ij}}{\Large\triangle}\!\!\!\!\!\!j</pre></div>
-<doc-anchor-target id="inputs">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#inputs">#</doc-anchor-trigger>
-        <span>Inputs</span>
-    </h4>
+<doc-anchor-target id="variables">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#variables">#</doc-anchor-trigger>
+        <span>Variables</span>
+    </h3>
 </doc-anchor-target>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Variable</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="math">I</span></td>
-<td>Set of supply nodes</td>
-</tr>
-<tr>
-<td><span class="math">J</span></td>
-<td>Set of demand nodes</td>
-</tr>
-<tr>
-<td><span class="math">s_i</span></td>
-<td>Supply capacity of node <span class="math">i</span></td>
-</tr>
-<tr>
-<td><span class="math">d_j</span></td>
-<td>Demand at node <span class="math">j</span></td>
-</tr>
-<tr>
-<td><span class="math">c_{ij}</span></td>
-<td>Unit transportation cost to go from <span class="math">i</span> to <span class="math">j</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<doc-anchor-target id="decision-variables">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#decision-variables">#</doc-anchor-trigger>
-        <span>Decision Variables</span>
-    </h4>
-</doc-anchor-target>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Variable</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="math">x_{ij}</span></td>
-<td>Amount of items to ship from supply node <span class="math">i</span> to demand node <span class="math">j</span>. <span class="math">\forall i\in I, j\in J</span></td>
-</tr>
-</tbody>
-</table>
-</div>
+<dl>
+<dt><span class="math">I</span>  </dt>
+<dd>Set of supply nodes</dd>
+<dt><span class="math">J</span>  </dt>
+<dd>Set of demand nodes</dd>
+<dt><span class="math">s_i</span>  </dt>
+<dd>Supply capacity of node <span class="math">i</span></dd>
+<dt><span class="math">d_j</span>  </dt>
+<dd>Demand at node <span class="math">j</span></dd>
+<dt><span class="math">c_{ij}</span></dt>
+<dd>Unit transportation cost to go from <span class="math">i</span> to <span class="math">j</span></dd>
+<dt><span class="math">x_{ij}</span> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-green-700 bg-green-100 h-6 px-2 text-xs rounded-md">
+    <span>Decision Variable</span>
+</span></dt>
+<dd>Amount of items to ship from supply node <span class="math">i</span> to demand node <span class="math">j</span>. <span class="math">\forall i\in I, j\in J</span></dd>
+</dl>
 <doc-anchor-target id="objective">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#objective">#</doc-anchor-trigger>
         <span>Objective</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
 <p>We want to minimize the total shipping cost.</p>
 <div class="math"><pre>\min\sum_{i\in I, j\in J}c_{ij }x_{ij}\\[10pt]
@@ -260,10 +219,10 @@ x_{ij}&amp;\geqslant 0
 \end{aligned}\right.
 \end{aligned}</pre></div>
 <div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-gray-500 dark:bg-dark-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
         <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-gray-500 dark:text-dark-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
                 <g fill="currentColor"><g>
                     <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
                     <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
@@ -294,10 +253,10 @@ x_{ij}&amp;\geqslant 0
 <p>Define <span class="math">x_{ij}</span> to be the <strong>flow</strong> on the arc <span class="math">i\to j</span>.</p>
 <p>Each node <span class="math">i</span> has the flow conservation constraint</p>
 <div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-300"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
         <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-300" width="22" height="22" viewBox="0 0 24 24" role="presentation">
                 <g fill="currentColor"><g>
                     <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
                     <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
@@ -306,7 +265,7 @@ x_{ij}&amp;\geqslant 0
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p><strong>Def.</strong> Flow Conservation</p>
+            <h5><strong>Def.</strong> Flow Conservation</h5>
 <p>For each node <span class="math">i</span>,</p>
 <div class="math"><pre>\begin{aligned}
 \text{Flow into } i &amp;= \text{Flow out from }i\\
@@ -316,10 +275,10 @@ x_{ij}&amp;\geqslant 0
     </div>
 </div>
 <doc-anchor-target id="objective-1">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#objective-1">#</doc-anchor-trigger>
         <span>Objective</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
 <p>Minimize the total cost. <span class="math">c_{ij}</span> is the unit cost to go from <span class="math">i\to j</span>.</p>
 <div class="math"><pre>\min \sum_{(i\to j)\in A}c_{ij}x_{ij}\\
@@ -327,10 +286,10 @@ x_{ij}&amp;\geqslant 0
 <p>Flows could have upper and lower bounds:</p>
 <div class="math"><pre>l_{ij}\leqslant x_{ij}\leqslant u_{ij}</pre></div>
 <doc-anchor-target id="special-case-transportation-problem">
-    <h3>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#special-case-transportation-problem">#</doc-anchor-trigger>
         <span>Special Case: Transportation Problem</span>
-    </h3>
+    </h2>
 </doc-anchor-target>
 <p>Continue from above, define the vertices to be:</p>
 <div class="math"><pre>V = \{\text{Supply nodes}\}\cup\{\text{Demand Nodes}\} = I\cup J</pre></div>
@@ -355,51 +314,35 @@ A ={}&amp;\{i\to j: i\text{ is supply node}, j\text{ is demand node}\}\cup{}\\
 &amp;\{u\to i:i\text{ is supply node}\}\cup{}\\
 &amp;\{ j\to u:j\text{ is demand node}\}
 \end{aligned}</pre></div>
-<doc-anchor-target id="decision-variables-1">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#decision-variables-1">#</doc-anchor-trigger>
+<doc-anchor-target id="decision-variables">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#decision-variables">#</doc-anchor-trigger>
         <span>Decision Variables</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
-<p><span class="math">y_i</span> and <span class="math">z_j</span> are new</p>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Variable</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="math">x_{ij}</span></td>
-<td>Amount of items to ship from supply node <span class="math">i</span> to demand node <span class="math">j</span>.</td>
-</tr>
-<tr>
-<td><span class="math">y_i</span></td>
-<td>The flow from <span class="math">u</span> to <span class="math">i</span> for each supply node <span class="math">i</span></td>
-</tr>
-<tr>
-<td><span class="math">z_j</span></td>
-<td>The from from <span class="math">j</span> to <span class="math">u</span> for each demand node <span class="math">j</span></td>
-</tr>
-</tbody>
-</table>
-</div>
+<p><span class="math">y_i</span> and <span class="math">z_j</span> are new for this model.</p>
+<dl>
+<dt><span class="math">x_{ij}</span></dt>
+<dd>Amount of items to ship from supply node <span class="math">i</span> to demand node <span class="math">j</span>.</dd>
+<dt><span class="math">y_i</span>  </dt>
+<dd>The flow from <span class="math">u</span> to <span class="math">i</span> for each supply node <span class="math">i</span></dd>
+<dt><span class="math">z_j</span>  </dt>
+<dd>The from from <span class="math">j</span> to <span class="math">u</span> for each demand node <span class="math">j</span></dd>
+</dl>
 <doc-anchor-target id="objective-2">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#objective-2">#</doc-anchor-trigger>
         <span>Objective</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
 <p>Minimize the total cost.</p>
 <div class="math"><pre>\min\sum_{i\in I, j\in J}c_{ij}x_{ij} +\underbrace{ \sum_{i\in I}0y_i + \sum_{j\in J} 0 z_j}_0</pre></div>
 <p>Note that the under-braced parts are 0, because we only use <span class="math">y_i, z_j</span> for flow conservation. There’s no unit cost associated with arcs from or into <span class="math">u</span>.</p>
 <doc-anchor-target id="constraints">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#constraints">#</doc-anchor-trigger>
         <span>Constraints</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
 <p>For each supply node <span class="math">i</span>, total flow out should equal to total flow in.</p>
 <div class="math"><pre>y_i = \sum_{j\in J}x_{ij}</pre></div>

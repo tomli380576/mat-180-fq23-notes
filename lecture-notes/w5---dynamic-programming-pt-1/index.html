@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752658360559">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752702818596">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.752658360559" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.752702818596" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752658360559" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752702818596" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752658360559" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.752658360559" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752702818596" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.752702818596" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
     <link href="../../resources/css/katex.css?v=3.5.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.5.0" defer></script>
@@ -276,12 +276,8 @@ O(log V) for heaps</code></pre>
     </div>
 </div>
 <p>where <code v-pre>queue.ExtractMin()</code> grabs the vertex with the shortest distance.</p>
-<doc-anchor-target id="ex-in-class-practice-graph">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#ex-in-class-practice-graph">#</doc-anchor-trigger>
-        <span>EX. In-class practice graph</span>
-    </h4>
-</doc-anchor-target>
+<doc-panel id="ex-in-class-practice-graph">
+    <template #title><strong>Ex.</strong> In-class practice graph</template>
 <p><figure class="content-center">
     <img src="../../assets/screenshot_2023-10-23_at_15.33.56.png" alt="Source: Canvas, Shortest_path_problem_in_class.pdf" class="image-m">
     <figcaption class="caption">Source: Canvas, <code v-pre>Shortest_path_problem_in_class.pdf</code></figcaption>
@@ -307,6 +303,7 @@ O(log V) for heaps</code></pre>
 │ L            │ ['A', 'E', 'F', 'G', 'K', 'L'] │         61 │  &lt;== Path from A to L
 ╰──────────────┴────────────────────────────────┴────────────╯</code></pre>
 </doc-codeblock></div>
+</doc-panel>
 <doc-anchor-target id="optimal-substructure">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#optimal-substructure">#</doc-anchor-trigger>
@@ -366,16 +363,16 @@ O(log V) for heaps</code></pre>
 <doc-anchor-target id="the-dantzig-fulkerson-johnson-dfj-formulation">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#the-dantzig-fulkerson-johnson-dfj-formulation">#</doc-anchor-trigger>
-        <span>The <strong><strong>Dantzig-Fulkerson-Johnson (DFJ) formulation</strong></strong></span>
+        <span>The Dantzig-Fulkerson-Johnson (DFJ) formulation</span>
     </h4>
 </doc-anchor-target>
 <div class="math"><pre>\forall S\sub V, S\ne \varnothing,\text{ define }\delta ^+(S) =\{i\to j\in A:i\in S, j\notin S\}\\[10pt]
 \sum_{a\in \delta^+(S)}x_a\geqslant 1</pre></div>
-<p>This constraint is what makes TSP an NP-Hard problem, the number of possible <span class="math">S</span>’s is the size of the power set of <span class="math">V</span>, which is <span class="math">|{\cal P}(V)|=2^{|V|}</span></p>
+<p>This constraint is what makes TSP an NP-Hard problem, the number of possible <span class="math">S</span>’s is the size of the power set of <span class="math">V</span>, which is <span class="math">{\cal P}(V)=2^{V}</span></p>
 <doc-anchor-target id="the-millertuckerzemlin-mtz-formulation">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#the-millertuckerzemlin-mtz-formulation">#</doc-anchor-trigger>
-        <span><strong>The Miller–Tucker–Zemlin (MTZ)</strong> formulation</span>
+        <span>The Miller–Tucker–Zemlin (MTZ) formulation</span>
     </h4>
 </doc-anchor-target>
 <p>For each node <span class="math">i\in V</span>, label with <span class="math">u_i\in\N</span> except the starting node.</p>
@@ -432,42 +429,34 @@ O(log V) for heaps</code></pre>
     </h3>
 </doc-anchor-target>
 <p>Every DP problem has the following properties:</p>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Variable</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="math">t=1,2,\dots ,T</span></td>
-<td>Stages</td>
-</tr>
-<tr>
-<td><span class="math">s_t</span></td>
-<td>State at time <span class="math">t</span></td>
-</tr>
-<tr>
-<td><span class="math">v_t(s_t)</span></td>
-<td>Value function</td>
-</tr>
-<tr>
-<td><span class="math">c(s_{t-1}, s_t)</span></td>
-<td>Transition cost</td>
-</tr>
-</tbody>
-</table>
-</div>
+<dl>
+<dt>Stages</dt>
+<dd><span class="math">t=1,2,\dots ,T</span></dd>
+<dt>State at stage <span class="math">t</span></dt>
+<dd><span class="math">s_t</span></dd>
+<dt>Value function </dt>
+<dd><span class="math">v_t(s_t)</span></dd>
+<dt>Transition cost </dt>
+<dd><span class="math">c(s_{t-1}, s_t)</span></dd>
+</dl>
 <div class="math"><pre>v_t(s_t) = \min/\max\{v_{t-1}(s_{t-1}) + c(s_{t-1}, s_t)\}</pre></div>
-<doc-anchor-target id="thm-principle-of-optimality">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#thm-principle-of-optimality">#</doc-anchor-trigger>
-        <span>Thm. Principle of optimality</span>
-    </h4>
-</doc-anchor-target>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-green-500"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-green-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M21 9.09c-.55 0-1 .45-1 1v.92c0 4.96-4.04 8.99-9 8.99-4.97 0-9-4.04-9-9s4.04-9 9-9c1.27 0 2.5.26 3.66.78.51.22 1.1 0 1.32-.51.23-.5 0-1.1-.51-1.32C14.06.32 12.56 0 11.01 0H11C4.94 0 0 4.93 0 10.99 0 17.06 4.93 22 10.99 22H11c6.06 0 11-4.93 11-10.99v-.92c0-.56-.45-1-1-1z"></path>
+                    <path d="M8.71 9.31a.996.996 0 10-1.41 1.41l3 3c.19.19.44.29.71.29.27 0 .52-.11.71-.29l10-10.01a.996.996 0 10-1.41-1.41L11 11.6 8.71 9.31z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Theorem. Principle of optimality</h5>
 <p>If <span class="math">v_t(s_t)</span> is optimal, then all the subproblems <span class="math">v_{t-1}(s_{t-1})</span> are also optimal.</p>
+        </div>
+    </div>
+</div>
 <doc-anchor-target id="0-1-knapsack">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#0-1-knapsack">#</doc-anchor-trigger>
@@ -498,30 +487,14 @@ x_i &amp; \in\{0,1\}
         <span>DP Formulation</span>
     </h4>
 </doc-anchor-target>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Element</th>
-<th>Corresponding varaible</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Stage</td>
-<td>The maximum item index <span class="math">1, 2,\dots,n</span>. If we are in stage <span class="math">k</span>, we only consider items <span class="math">1,2,\dots, k</span>.</td>
-</tr>
-<tr>
-<td>State</td>
-<td><span class="math">w</span>, remaining capacity of the backpack</td>
-</tr>
-<tr>
-<td>Value function</td>
-<td><span class="math">v_k(w)</span>, max profit given capacity <span class="math">w</span> and items <span class="math">1,2,\dots k</span></td>
-</tr>
-</tbody>
-</table>
-</div>
+<dl>
+<dt>Stage  </dt>
+<dd>The maximum item index <span class="math">1, 2,\dots,n</span>. If we are in stage <span class="math">k</span>, we only consider items <span class="math">1,2,\dots, k</span>.</dd>
+<dt>State  </dt>
+<dd><span class="math">w</span>, remaining capacity of the backpack</dd>
+<dt>Value function</dt>
+<dd><span class="math">v_k(w)</span>, max profit given capacity <span class="math">w</span> and items <span class="math">1,2,\dots k</span></dd>
+</dl>
 <div class="math"><pre>v_k(w) = \max\left\{\begin{gathered}v_{k-1}(w-a_k) + c_k\\v_{k-1}(w)\end{gathered}\right\}</pre></div>
 <p>We can try to take item <span class="math">k</span> if it fits, or we can skip <span class="math">k</span>.</p>
 <doc-anchor-target id="bounded-knapsack">

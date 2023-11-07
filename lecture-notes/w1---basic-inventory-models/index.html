@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752658360559">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752702818596">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,11 +32,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.752658360559" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.752702818596" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752658360559" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752702818596" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752658360559" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752702818596" data-turbo-eval="false" defer></script>
     <link href="../../resources/css/katex.css?v=3.5.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.5.0" defer></script>
 
@@ -187,19 +187,19 @@
         <span>Assumption</span>
     </h4>
 </doc-anchor-target>
-<ol>
+<ul>
 <li>Everything is deterministic</li>
 <li>Demand is constant (always the same amount of customers)</li>
 <li>Only 1 product (1 type of coffee)</li>
 <li>No backorders (coffee bean provider is always available)</li>
 <li>Zero load time (supply instantly appears when ordered)</li>
 <li>No discounts (coffee is always flat rate)</li>
-</ol>
-<doc-anchor-target id="input">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#input">#</doc-anchor-trigger>
-        <span>Input</span>
-    </h4>
+</ul>
+<doc-anchor-target id="variables">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#variables">#</doc-anchor-trigger>
+        <span>Variables</span>
+    </h3>
 </doc-anchor-target>
 <dl>
 <dt><span class="math">d</span>  </dt>
@@ -210,22 +210,16 @@
 <dd>Unit cost of each item (price per pound of coffee)</dd>
 <dt><span class="math">h</span></dt>
 <dd>Holding / Storage cost per item per year</dd>
-</dl>
-<doc-anchor-target id="decision-variables--output">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#decision-variables--output">#</doc-anchor-trigger>
-        <span>Decision Variables / Output</span>
-    </h4>
-</doc-anchor-target>
-<dl>
-<dt><span class="math">Q</span></dt>
+<dt><span class="math">Q</span> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-green-700 bg-green-100 h-6 px-2 text-xs rounded-md">
+    <span>Decision Variable</span>
+</span></dt>
 <dd>Quantity</dd>
 </dl>
 <doc-anchor-target id="optimal-order-quantity-">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#optimal-order-quantity-">#</doc-anchor-trigger>
         <span>Optimal Order Quantity <span class="math">Q^*</span></span>
-    </h4>
+    </h3>
 </doc-anchor-target>
 <p>Since orders are fulfilled instantly, we only order a batch of coffee beans when stock goes to 0.</p>
 <p><figure class="content-center">
@@ -291,29 +285,12 @@ Q^* &amp;= \sqrt{\frac{2fd}{h}}
         <span>The News Vendor Model</span>
     </h2>
 </doc-anchor-target>
-<doc-anchor-target id="scenario-selling-newspapers">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#scenario-selling-newspapers">#</doc-anchor-trigger>
-        <span>Scenario. Selling Newspapers</span>
-    </h3>
-</doc-anchor-target>
 <p>A newspaper vendor needs to decide how many newspapers to buy from the news publisher. Newspapers expire in a day. Expired newspapers can be salvaged (returned to vendor) for a lower price.</p>
-<doc-anchor-target id="decision-variable">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#decision-variable">#</doc-anchor-trigger>
-        <span>Decision Variable</span>
-    </h4>
-</doc-anchor-target>
-<dl>
-<dt><span class="math">B</span></dt>
-<dd>The number of newspapers to buy from the supplier</dd>
-</dl>
-<hr>
-<doc-anchor-target id="input--objective-function">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#input--objective-function">#</doc-anchor-trigger>
-        <span>Input &amp; Objective Function</span>
-    </h4>
+<doc-anchor-target id="variables-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#variables-1">#</doc-anchor-trigger>
+        <span>Variables</span>
+    </h3>
 </doc-anchor-target>
 <dl>
 <dt><span class="math">d</span></dt>
@@ -326,6 +303,10 @@ Q^* &amp;= \sqrt{\frac{2fd}{h}}
 <dd>Cost of each newspaper</dd>
 <dt><span class="math">s</span>          </dt>
 <dd>Salvage price, sale price for expired newspapers. (e.g. recycling the paper)</dd>
+<dt><span class="math">B</span> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-green-700 bg-green-100 h-6 px-2 text-xs rounded-md">
+    <span>Decision Variable</span>
+</span></dt>
+<dd>The number of newspapers to buy from the supplier</dd>
 </dl>
 <p>The 3 prices have the following inequality:</p>
 <div class="math"><pre>p &gt; c &gt; s</pre></div>
@@ -433,7 +414,7 @@ f(B+1)-f(B) ={}&amp;p\cdot(1-\sum^B_{i=0}p_i) + s\sum^B_{i=0}p_i - c\\
     </h2>
 </doc-anchor-target>
 <p><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-yellow-900 bg-yellow-100 h-6 px-2 text-xs rounded-md">
-    <span>Key Example.</span>
+    <span>Key Example</span>
 </span></p>
 <doc-anchor-target id="scenario-signing-a-contract">
     <h3>
@@ -446,55 +427,30 @@ f(B+1)-f(B) ={}&amp;p\cdot(1-\sum^B_{i=0}p_i) + s\sum^B_{i=0}p_i - c\\
 <li>Contract too much: We get refunded for remaining services at a less price</li>
 <li>Contract too little: We need to pay more for the extra services on the fly</li>
 </ul>
-<doc-anchor-target id="decision-variable-1">
+<doc-anchor-target id="variables-2">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#decision-variable-1">#</doc-anchor-trigger>
-        <span>Decision Variable</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#variables-2">#</doc-anchor-trigger>
+        <span>Variables</span>
     </h4>
 </doc-anchor-target>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Variable</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="math">B</span></td>
-<td>The number of services to buy from the contracting company</td>
-</tr>
-</tbody>
-</table>
-</div>
-<doc-anchor-target id="input--objective-function-1">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#input--objective-function-1">#</doc-anchor-trigger>
-        <span>Input &amp; Objective Function</span>
-    </h4>
-</doc-anchor-target>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Variable</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="math">D</span></td>
-<td>A discrete random variable, the uncertain number of services we actually need</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>| <span class="math">c</span>    | Price of each service on the contract                                         |
-| <span class="math">s</span>    | Refund price                                                                  |
-| <span class="math">p</span>    | Price of extra services                                                       |
-| <span class="math">q(d)</span> | PMF of <span class="math">D</span>, same as <span class="math">\Bbb P(D=d)</span>, in this case <span class="math">d = 0,1,2,\dots</span>             |
-| <span class="math">Q(d)</span> | CDF of <span class="math">D</span>, same as <span class="math">\Bbb P(D\leqslant d)</span>                                    |</p>
+<dl>
+<dt><span class="math">D</span>     </dt>
+<dd>A discrete random variable, the uncertain number of services we actually need</dd>
+<dt><span class="math">c</span>     </dt>
+<dd>Price of each service on the contract</dd>
+<dt><span class="math">s</span>     </dt>
+<dd>Refund price</dd>
+<dt><span class="math">p</span>     </dt>
+<dd>Price of extra services</dd>
+<dt><span class="math">q(d)</span>  </dt>
+<dd>PMF of <span class="math">D</span>, same as <span class="math">\Bbb P(D=d)</span>, in this case <span class="math">d = 0,1,2,\dots</span></dd>
+<dt><span class="math">Q(d)</span>  </dt>
+<dd>CDF of <span class="math">D</span>, same as <span class="math">\Bbb P(D\leqslant d)</span></dd>
+<dt><span class="math">B</span>  <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-green-700 bg-green-100 h-6 px-2 text-xs rounded-md">
+    <span>Decision Variable</span>
+</span></dt>
+<dd>The number of services to buy from the contracting company</dd>
+</dl>
 <p>The objective is to minimize the expected total cost <span class="math">\text {TC}</span> by picking the optimal <span class="math">B</span>.</p>
 <div class="math"><pre>\min_B\Bbb E[\text {TC}]</pre></div>
 <p>The expression for <span class="math">\Bbb E[{\text {TC}}]</span> is:</p>

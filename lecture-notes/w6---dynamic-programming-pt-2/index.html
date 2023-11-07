@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752658360559">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752702818596">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,11 +32,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.752658360559" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.752702818596" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752658360559" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752702818596" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752658360559" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752702818596" data-turbo-eval="false" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
     <link href="../../resources/css/katex.css?v=3.5.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.5.0" defer></script>
@@ -175,10 +175,10 @@
     </h3>
 </doc-anchor-target>
 <p>Going back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase. Now suppose we also own a roastery with a bunch of roasters, where we can roast our own coffee beans.</p>
-<doc-anchor-target id="inputs">
+<doc-anchor-target id="variables">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#inputs">#</doc-anchor-trigger>
-        <span>Inputs</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#variables">#</doc-anchor-trigger>
+        <span>Variables</span>
     </h4>
 </doc-anchor-target>
 <dl>
@@ -197,16 +197,12 @@
 <dt><span class="math">K</span>  </dt>
 <dd>Fixed cost for starting production</dd>
 <dt><span class="math">c(a_t)</span></dt>
-<dd>
-<p>Production cost function</p>
-<blockquote>
+<dd>Production cost function</dd>
+</dl>
 <div class="math"><pre>c(a_t) = \begin{cases}
 0 &amp; \text{if }a_t = 0\\
 K + b\cdot a_t &amp; \text{if }a_t &gt; 0
 \end{cases}</pre></div>
-</blockquote>
-</dd>
-</dl>
 <p>Note that “period” is the interval between each timestamp</p>
 <p><figure class="content-center">
     <img src="../../assets/screenshot_2023-11-03_at_15.25.45.png" alt="">
@@ -415,9 +411,9 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
     </h3>
 </doc-anchor-target>
 <p>For this class we assume time <span class="math">t</span> is finite, <span class="math">t = 0,1,2,\dots, N</span>.</p>
-<doc-anchor-target id="variables">
+<doc-anchor-target id="variables-1">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#variables">#</doc-anchor-trigger>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#variables-1">#</doc-anchor-trigger>
         <span>Variables</span>
     </h4>
 </doc-anchor-target>
@@ -429,7 +425,7 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
 <dt><span class="math">r_t(s_t, a_t)</span>  </dt>
 <dd>Reward function for the state, action pair at time <span class="math">t</span></dd>
 <dt><span class="math">\Bbb P(s_{t+1}\mid s_t, a_t)</span> </dt>
-<dd>Transition probability of going to state <span class="math">s_{t+1}</span> given we took action <span class="math">a_t</span> at state <span class="math">s_t</span>.</dd>
+<dd>Transition probability of actually going to state <span class="math">s_{t+1}</span> given we took action <span class="math">a_t</span> at state <span class="math">s_t</span>.</dd>
 <dt><span class="math">R(s_N)</span> or <span class="math">r_N(s_N)</span>  </dt>
 <dd>Reward if we end on state <span class="math">s_N</span></dd>
 </dl>
@@ -442,7 +438,7 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
 <p>Starting with the deterministic case, we want to see with action at time <span class="math">t</span> maximizes / minimizes the reward.</p>
 <div class="math"><pre>v_t(s_t) = \underset{a_t\in A}{\max/\min}\,\{r_t(s_t, a_t) + v_{t+1}(s_{t+1})\}</pre></div>
 <p>For the stochastic case, replace <span class="math">v_{t+1}</span> with expected value, since it’s possible we might not get to the state <span class="math">s_{t+1}</span>. The next state became a random variable:</p>
-<div class="math"><pre>v_t(s_t) = \underset{a_t\in A}{\max/\min}\,\Big\{r_t(s_t, a_t) + {\color{darkorange}\Bbb E}[v_{t+1}(s_{t+1})\mid s_t, a_t]\Big\}</pre></div>
+<div class="math"><pre>v_t(s_t) = \underset{a_t\in A}{\max/\min}\,\Big\{r_t(s_t, a_t) + \Bbb E[v_{t+1}(s_{t+1})\mid s_t, a_t]\Big\}</pre></div>
 <p>Expand with the definition of <span class="math">\Bbb E</span>:</p>
 <div class="math"><pre>v_t(s_t) = \underset{a_t\in A}{\max/\min}\,\left\{r_t(s_t, a_t) + \sum_{s_{t+1}\in S}{\Bbb P}(s_{t+1}\mid s_t, a_t)\cdot v_{t+1}(s_{t+1})\right\}</pre></div>
 <p>with base cases <span class="math">v_N(s_N) = R(s_N)</span> for some final reward function <span class="math">R</span> and each possible end state <span class="math">s_N\in S</span>.</p>
