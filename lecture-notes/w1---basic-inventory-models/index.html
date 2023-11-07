@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752646552814">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752658360559">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -14,31 +14,31 @@
     <meta name="description" content="A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase. Factors to consider include:">
 
     <!-- Canonical -->
-    <link rel="canonical" href="/w1---basic-inventory-models/">
+    <link rel="canonical" href="/lecture-notes/w1---basic-inventory-models/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="/w1---basic-inventory-models/">
+    <meta property="og:url" content="/lecture-notes/w1---basic-inventory-models/">
     <meta property="og:title" content="W1 - Basic Inventory Models">
     <meta property="og:description" content="A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase. Factors to consider include:">
-    <meta property="og:image" content="/assets/screenshot_2023-09-27_at_17.54.03.png">
+    <meta property="og:image" content="/assets/untitled.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="/w1---basic-inventory-models/">
+    <meta property="twitter:url" content="/lecture-notes/w1---basic-inventory-models/">
     <meta property="twitter:title" content="W1 - Basic Inventory Models">
     <meta property="twitter:description" content="A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase. Factors to consider include:">
-    <meta property="twitter:image" content="/assets/screenshot_2023-09-27_at_17.54.03.png">
+    <meta property="twitter:image" content="/assets/untitled.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.5.0.752646552814" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.752658360559" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.752646552814" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.752646552814" data-turbo-eval="false" defer></script>
-    <link href="../resources/css/katex.css?v=3.5.0" rel="stylesheet">
-    <script id="katex-js" data-cfasync="false" src="../resources/js/katex.js?v=3.5.0" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752658360559" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752658360559" data-turbo-eval="false" defer></script>
+    <link href="../../resources/css/katex.css?v=3.5.0" rel="stylesheet">
+    <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.5.0" defer></script>
 
     <link href="/assets/palette.css" rel="stylesheet" />
 </head>
@@ -55,7 +55,7 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../" class="flex items-center leading-snug text-xl">
+                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-xl">
                             <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">MAT 180 - Mathematics for Operations Research</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Notes</span>
                     </div>
@@ -201,50 +201,26 @@
         <span>Input</span>
     </h4>
 </doc-anchor-target>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Variable</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="math">d</span></td>
-<td>Total annual demand (in this case pounds of coffee needed per year)</td>
-</tr>
-<tr>
-<td><span class="math">f</span></td>
-<td>Fixed cost of an order (shipping &amp; handling, etc.)</td>
-</tr>
-<tr>
-<td><span class="math">c</span></td>
-<td>Unit cost of each item (price per pound of coffee)</td>
-</tr>
-<tr>
-<td><span class="math">h</span></td>
-<td>Holding / Storage cost per item per year</td>
-</tr>
-</tbody>
-</table>
-</div>
+<dl>
+<dt><span class="math">d</span>  </dt>
+<dd>Total annual demand (in this case pounds of coffee needed per year)</dd>
+<dt><span class="math">f</span></dt>
+<dd>Fixed cost of an order (shipping &amp; handling, etc.)</dd>
+<dt><span class="math">c</span></dt>
+<dd>Unit cost of each item (price per pound of coffee)</dd>
+<dt><span class="math">h</span></dt>
+<dd>Holding / Storage cost per item per year</dd>
+</dl>
 <doc-anchor-target id="decision-variables--output">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#decision-variables--output">#</doc-anchor-trigger>
         <span>Decision Variables / Output</span>
     </h4>
 </doc-anchor-target>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th><span class="math">Q</span></th>
-<th>Quantity / size of each order</th>
-</tr>
-</thead>
-</table>
-</div>
+<dl>
+<dt><span class="math">Q</span></dt>
+<dd>Quantity</dd>
+</dl>
 <doc-anchor-target id="optimal-order-quantity-">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#optimal-order-quantity-">#</doc-anchor-trigger>
@@ -253,7 +229,7 @@
 </doc-anchor-target>
 <p>Since orders are fulfilled instantly, we only order a batch of coffee beans when stock goes to 0.</p>
 <p><figure class="content-center">
-    <img src="../assets/screenshot_2023-09-27_at_17.54.03.png" alt="">
+    <img src="assets/screenshot_2023-09-27_at_17.54.03.png" alt="">
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
@@ -285,7 +261,7 @@ Q^* &amp;= \sqrt{\frac{2fd}{h}}
 </doc-panel>
 <p>We can find the optimum <span class="math">Q^*</span> when we graph the total cost at the intersection of holding cost <span class="math">y(Q)=\frac {hQ}{2}</span> and ordering cost <span class="math">y(Q) = \frac{fd}{Q}</span>.</p>
 <p><figure class="content-center">
-    <img src="../assets/untitled.png" alt="" class="image-m">
+    <img src="../../assets/untitled.png" alt="" class="image-m">
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
@@ -297,7 +273,7 @@ Q^* &amp;= \sqrt{\frac{2fd}{h}}
 </doc-anchor-target>
 <p>Since <span class="math">Q^*</span> is likely not an integer, we are interested in what will happen if we pick a nearby integer.</p>
 <p><figure class="content-center">
-    <img src="../assets/screenshot_2023-09-29_at_17.59.10.png" alt="" class="image-m">
+    <img src="../../assets/screenshot_2023-09-29_at_17.59.10.png" alt="" class="image-m">
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
@@ -328,50 +304,29 @@ Q^* &amp;= \sqrt{\frac{2fd}{h}}
         <span>Decision Variable</span>
     </h4>
 </doc-anchor-target>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th><span class="math">B</span></th>
-<th>The number of newspapers to buy from the supplier</th>
-</tr>
-</thead>
-</table>
-</div>
+<dl>
+<dt><span class="math">B</span></dt>
+<dd>The number of newspapers to buy from the supplier</dd>
+</dl>
+<hr>
 <doc-anchor-target id="input--objective-function">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#input--objective-function">#</doc-anchor-trigger>
         <span>Input &amp; Objective Function</span>
     </h4>
 </doc-anchor-target>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th><span class="math">d</span></th>
-<th>Discrete R.V., the uncertain demand of newspapers</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="math">P</span> (unused)</td>
-<td>The probability distribution of newspaper demand. <span class="math">d\sim P</span></td>
-</tr>
-<tr>
-<td><span class="math">p</span></td>
-<td>Sale price of each newspaper</td>
-</tr>
-<tr>
-<td><span class="math">c</span></td>
-<td>Cost of each newspaper</td>
-</tr>
-<tr>
-<td><span class="math">s</span></td>
-<td>Salvage price, sale price for expired newspapers. (e.g. recycling the paper)</td>
-</tr>
-</tbody>
-</table>
-</div>
+<dl>
+<dt><span class="math">d</span></dt>
+<dd>Discrete R.V., the uncertain demand of newspapers</dd>
+<dt><span class="math">P</span> (unused) </dt>
+<dd>The probability distribution of newspaper demand. <span class="math">d\sim P</span></dd>
+<dt><span class="math">p</span>          </dt>
+<dd>Sale price of each newspaper</dd>
+<dt><span class="math">c</span>          </dt>
+<dd>Cost of each newspaper</dd>
+<dt><span class="math">s</span>          </dt>
+<dd>Salvage price, sale price for expired newspapers. (e.g. recycling the paper)</dd>
+</dl>
 <p>The 3 prices have the following inequality:</p>
 <div class="math"><pre>p &gt; c &gt; s</pre></div>
 <p>The total profit <span class="math">\text{TP}</span> is given by:</p>
@@ -562,7 +517,7 @@ f(B+1)-f(B) ={}&amp;p\cdot(1-\sum^B_{i=0}p_i) + s\sum^B_{i=0}p_i - c\\
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
@@ -572,7 +527,7 @@ f(B+1)-f(B) ={}&amp;p\cdot(1-\sum^B_{i=0}p_i) + s\sum^B_{i=0}p_i - c\\
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../w2---linear-programming/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../lecture-notes/w2---linear-programming/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
                                                 <span class="block mt-1">W​2 - Linear Programming</span>
@@ -590,7 +545,7 @@ f(B+1)-f(B) ={}&amp;p\cdot(1-\sum^B_{i=0}p_i) + s\sum^B_{i=0}p_i - c\\
                                     <ul class="flex flex-wrap items-center text-sm">
                                     </ul>
                                 </div>
-                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2023. All rights reserved.</p></div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2023. All rights reserved. Any material from lecture is a property of University of California, Davis</p></div>
                             </footer>
                         </div>
                     </div>
@@ -619,6 +574,6 @@ f(B+1)-f(B) ={}&amp;p\cdot(1-\sum^B_{i=0}p_i) + s\sum^B_{i=0}p_i - c\\
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "W1 - Basic Inventory Models", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "W1 - Basic Inventory Models", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
 </body>
 </html>

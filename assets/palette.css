@@ -1,4 +1,10 @@
-.thm {
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+body:not(code) {
+  font-family: 'Raleway', sans-serif !important;
+}
+
+.purple {
   color: #8d8d8d;
 }
 
@@ -6,6 +12,14 @@
   color: #ff6188;
 }
 
-.image-m{
+.blue {
+  color: #78dce8;
+}
+
+.orange {
+  color: #fc9867;
+}
+
+.image-m {
   max-width: 400px;
 }
