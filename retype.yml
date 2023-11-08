@@ -2,10 +2,12 @@ input: .
 output: .retype
 # url: # Add your website address here
 branding:
-  title: MAT 180 - Mathematics for Operations Research
+  title: Mathematics for Operations Research
   label: Notes
+  logo: assets/bolt-circle.svg
 # links:
 # - text: Getting Started
 #   link: https://retype.com/guides/getting-started/
+favicon: assets/bolt-circle.svg
 footer:
   copyright: "&copy; Copyright {{ year }}. All rights reserved. Any material from lecture is a property of University of California, Davis"
