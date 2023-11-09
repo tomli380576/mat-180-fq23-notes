@@ -324,3 +324,4 @@ $s_t$
 
 $d_t(h_t)$ 
 :	returns action depending on the history
+
