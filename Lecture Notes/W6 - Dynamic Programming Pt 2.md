@@ -336,3 +336,49 @@ $s_t$
 $d_t(h_t)$ 
 :	returns action depending on the history
 
+
+when we are in a Markov chain, we introduce random variables $X_n, Y_n$ for $s_t, d_t(h_t)$.
+
+$$
+v_{t, \pi}(h_t) = \Bbb E[\sum^{N-1}_{n=t}r_n(X_n, Y_n) + r_N(X_N)]
+$$
+
+To find the best policy $\pi^*$, we max over all possible policies:
+
+$$
+
+\begin{aligned}
+v_t(h_t) &= \max_{pi} v_{t,\pi}(h_t)	\\
+&= \max_{a_t}\{r_t(s_t, a_t) + \sum_{j\in S}\Bbb P(j\mid s_t, a_t) \cdot v_{t+1} (h_{t+1})\}\\
+v_N(h_N)&= r_N(s_N)
+\end{aligned}
+$$
+
+The best policy is essentially the tuple of all the best actions $a_t$ at each stage $t$.
+
+$$
+d_t^*(ht) \in \argmax_{a_t}\{r_t(s_t, a_t) + \sum_{j\in S}\Bbb P(j\mid s_t, a_t) \cdot v_{t+1} (h_{t+1})\}
+$$
+
+Finally the optimal policy is $\pi^* = (d_1^*, d_2^*,\dots, d_{N_1}^*)$
+
+
+!!!warning 
+
+##### ****Observation.**** Randomizing choices doesn't yield a better optimum
+
+Given any value function $\omega: W\to \R$ where $W$ is a discrete set and some probability distribution $\Bbb P$ over $W$.
+
+Then the max value bounds the value of a random choice:
+
+$$
+\max_{s\in W}\omega(s) \geqslant \sum_{s\in W}\Bbb P(s)\omega(s) = \Bbb E[\omega]
+$$
+
+---
+
+##### ****Observation.****  Existence of optimal Markov decision rule
+
+If history dependent value function only looks at the current state, then there will be an optimal Markov decision rule.
+
+!!!
