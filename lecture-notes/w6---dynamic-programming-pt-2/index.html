@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752893237786">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752894646844">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -33,11 +33,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/bolt-circle.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.752893237786" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.752894646844" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752893237786" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752894646844" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752893237786" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752894646844" data-turbo-eval="false" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
     <link href="../../resources/css/katex.css?v=3.5.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.5.0" defer></script>
@@ -522,10 +522,52 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
 <dt><span class="math">s_t</span> </dt>
 <dd>current state</dd>
 <dt><span class="math">d_t(h_t)</span> </dt>
-<dd>
-<p>returns action depending on the history</p>
-</dd>
+<dd>returns action depending on the history</dd>
 </dl>
+<p>when we are in a Markov chain, we introduce random variables <span class="math">X_n, Y_n</span> for <span class="math">s_t, d_t(h_t)</span>.</p>
+<div class="math"><pre>v_{t, \pi}(h_t) = \Bbb E[\sum^{N-1}_{n=t}r_n(X_n, Y_n) + r_N(X_N)]</pre></div>
+<p>To find the best policy <span class="math">\pi^*</span>, we max over all possible policies:</p>
+<div class="math"><pre>
+\begin{aligned}
+v_t(h_t) &amp;= \max_{pi} v_{t,\pi}(h_t)	\\
+&amp;= \max_{a_t}\{r_t(s_t, a_t) + \sum_{j\in S}\Bbb P(j\mid s_t, a_t) \cdot v_{t+1} (h_{t+1})\}\\
+v_N(h_N)&amp;= r_N(s_N)
+\end{aligned}</pre></div>
+<p>The best policy is essentially the tuple of all the best actions <span class="math">a_t</span> at each stage <span class="math">t</span>.</p>
+<div class="math"><pre>d_t^*(ht) \in \argmax_{a_t}\{r_t(s_t, a_t) + \sum_{j\in S}\Bbb P(j\mid s_t, a_t) \cdot v_{t+1} (h_{t+1})\}</pre></div>
+<p>Finally the optimal policy is <span class="math">\pi^* = (d_1^*, d_2^*,\dots, d_{N_1}^*)</span></p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-yellow-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<doc-anchor-target id="observation-randomizing-choices-doesnt-yield-a-better-optimum">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#observation-randomizing-choices-doesnt-yield-a-better-optimum">#</doc-anchor-trigger>
+        <span><strong><strong>Observation.</strong></strong> Randomizing choices doesn&#x27;t yield a better optimum</span>
+    </h5>
+</doc-anchor-target>
+<p>Given any value function <span class="math">\omega: W\to \R</span> where <span class="math">W</span> is a discrete set and some probability distribution <span class="math">\Bbb P</span> over <span class="math">W</span>.</p>
+<p>Then the max value bounds the value of a random choice:</p>
+<div class="math"><pre>\max_{s\in W}\omega(s) \geqslant \sum_{s\in W}\Bbb P(s)\omega(s) = \Bbb E[\omega]</pre></div>
+<hr>
+<doc-anchor-target id="observation--existence-of-optimal-markov-decision-rule">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#observation--existence-of-optimal-markov-decision-rule">#</doc-anchor-trigger>
+        <span><strong><strong>Observation.</strong></strong>  Existence of optimal Markov decision rule</span>
+    </h5>
+</doc-anchor-target>
+<p>If history dependent value function only looks at the current state, then there will be an optimal Markov decision rule.</p>
+        </div>
+    </div>
+</div>
 
                                 
                                 <!-- Required only on API pages -->
