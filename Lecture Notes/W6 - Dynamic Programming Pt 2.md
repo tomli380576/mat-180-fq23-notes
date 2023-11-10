@@ -91,21 +91,26 @@ $$
 
 Assuming unit costs $b, h$ are independent of time $t$, we have:
 
-!!!secondary **Prop.** Don’t produce if we have inventory
+!!!secondary 
+
+#####  ****Prop.**** Don’t produce if we have inventory
 
 $$
 a_t > 0\implies s_t = 0
 $$
 
 If it is optimal to produce during any time period $t$, then the starting inventory is 0
-!!!
 
-!!!secondary **Prop.** If we produce, produce enough to cover integer amount of time periods
+---
+
+#####  ****Prop.**** If we produce, produce enough to cover integer amount of time periods
 
 If it is optimal to produce in stage $t$ (so $a_t > 0$ for some $t$), then it is optimal to produce an amount that exactly covers the demand for $t, t+1, \cdots, t+j$ for some  $0\leqslant j\leqslant T-t$.
 !!!
 
-!!! **Lemma.** Equivalent optimality equation
+!!! 
+
+#####  ****Lemma.**** Equivalent optimality equation
 
 Using the previous 2 properties, we only need to find the number of time periods $j$ to cover when we produce. If we produce enough to cover $j$ periods, we move to time $t+j+1$.
 
@@ -126,7 +131,9 @@ with base cases $v_{T+1} = 0, s_1 = 0$.
 
 ### Markov Chain Review
 
-!!!info **Def.** Discrete Time Markov Chain
+!!!info 
+
+#####  ****Def.**** Discrete Time Markov Chain
 
 
 A discrete, time homogeneous Markov chain on state space $S$ with transition matrix $P$ and initial distribution $\alpha$ is a sequence of random states $X_n\in S$ such that:
@@ -145,29 +152,20 @@ The elements $p_{ij}$ in $P$ represents:
 $$
 p_{ij} = \Bbb P(X_{t+1} = j\mid X_t = i)
 $$
-!!!
 
-!!!secondary **Prop.** $n$ step transition probability
+---
 
-It’s the $i,j$ th entry in $P^n$.
-
-$$
-\begin{aligned}
-\Bbb P(X_n = j\mid X_0 = i) &= \Bbb P(X_{m+n}= j\mid X_m = i) \\&= P^n_{ij}
-\end{aligned}
-$$
-!!!
-
-!!!info **Def.** Communicate
+##### ****Def.**** Communicate
 
 2 states $i, j\in S$ communicates if they are accessible from each other.
 
 $$
 i\lrarr j \coloneqq i\to j\text{ and }j \to i
 $$
-!!!
 
-!!!info **Def.** Closed Subset
+---
+
+##### ****Def.**** Closed Subset
 
 A subset of state space $T\sub S$ is closed if any of the states in $T$ is ever entered, the chain cannot leave $T$. In terms of transition probability:
 
@@ -176,6 +174,19 @@ P_{ij} =0\hskip1em\forall i\in T, j\notin T
 $$
 
 The entire state space is always closed.
+!!!
+
+!!!secondary 
+
+#####  ****Prop.**** $n$ step transition probability
+
+It’s the $i,j$ th entry in $P^n$.
+
+$$
+\begin{aligned}
+\Bbb P(X_n = j\mid X_0 = i) &= \Bbb P(X_{m+n}= j\mid X_m = i) \\&= P^n_{ij}
+\end{aligned}
+$$
 !!!
 
 
@@ -264,7 +275,7 @@ $$
 $$
 !!!
  
-=== [!badge size="l" variant="warning" text="Ex.1"] Stochastic Shortest Paths
+=== ****Example.**** Stochastic Shortest Paths
 
 ```mermaid
 graph LR

@@ -6,7 +6,9 @@ icon: circle
 
 ## Definitions
 
-!!!info **Def.** Convex Set
+!!!info 
+
+##### ****Def.**** Convex Set
 
 A set $S\sub\R^n$ is convex if for all $\bold{x,y}\in S,\lambda\in[0,1]$, the line connecting $\bold{x,y}$ is also in $S$.
 
@@ -14,9 +16,9 @@ $$
 \lambda \bold x + (1-\lambda)\bold y \in S
 $$
 
-!!!
+---
 
-!!!info **Def.** Convex Function
+##### ****Def.**** Convex Function
 
 A function $f:\R^n\to \R$ is convex iff the epigraph of $f$ (region above $f$) is convex.
 
@@ -97,7 +99,7 @@ f_1(\bold x) = x_1^2 + x_2^2 - 1\\
 f_2(\bold x) = e^{x_1} - x_2 - 1\\
 $$
 
-<!-- [!embed](https://www.desmos.com/calculator/sskqjyfkbl?embed) -->
+[!embed](https://www.desmos.com/calculator/sskqjyfkbl?embed)
 
 We can see that the overlapped region is convex.
 
@@ -232,5 +234,5 @@ $$
 \sum^p_{j=0}\mu_jh_j(\bold x) = 0\qquad \sum^m_{i=1}f_i(\bold x)\leqslant 0
 $$
 
-So there's no constraint on $mu_j$, and we need $\lambda_i\geqslant 0$ for $\sum^m_{i=1}\lambda_if_i(\bold x)\leqslant 0$ to hold.
+So there's no constraint on $\mu_j$, and we need $\lambda_i\geqslant 0$ for $\sum^m_{i=1}\lambda_if_i(\bold x)\leqslant 0$ to hold.
 
