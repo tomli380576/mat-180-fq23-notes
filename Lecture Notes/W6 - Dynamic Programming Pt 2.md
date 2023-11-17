@@ -348,7 +348,7 @@ To find the best policy $\pi^*$, we max over all possible policies:
 $$
 
 \begin{aligned}
-v_t(h_t) &= \max_{pi} v_{t,\pi}(h_t)	\\
+v_t(h_t) &= \max_{\pi} v_{t,\pi}(h_t)	\\
 &= \max_{a_t}\{r_t(s_t, a_t) + \sum_{j\in S}\Bbb P(j\mid s_t, a_t) \cdot v_{t+1} (h_{t+1})\}\\
 v_N(h_N)&= r_N(s_N)
 \end{aligned}
@@ -357,7 +357,7 @@ $$
 The best policy is essentially the tuple of all the best actions $a_t$ at each stage $t$.
 
 $$
-d_t^*(ht) \in \argmax_{a_t}\{r_t(s_t, a_t) + \sum_{j\in S}\Bbb P(j\mid s_t, a_t) \cdot v_{t+1} (h_{t+1})\}
+d_t^*(h_t) \in \argmax_{a_t}\{r_t(s_t, a_t) + \sum_{j\in S}\Bbb P(j\mid s_t, a_t) \cdot v_{t+1} (h_{t+1})\}
 $$
 
 Finally the optimal policy is $\pi^* = (d_1^*, d_2^*,\dots, d_{N_1}^*)$
