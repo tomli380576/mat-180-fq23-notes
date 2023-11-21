@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml.gz
+Sitemap: https://tomli380576.github.io/mat-180-fq23-notes/sitemap.xml.gz
