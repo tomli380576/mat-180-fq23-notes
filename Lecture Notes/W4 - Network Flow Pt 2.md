@@ -2,7 +2,7 @@
 icon: circle
 ---
 
-# W4 - Network Flow Pt.2
+# Network Flow Pt.2
 
 ## With discontinuous cost function
 

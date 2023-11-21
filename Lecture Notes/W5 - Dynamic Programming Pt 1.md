@@ -2,20 +2,18 @@
 icon: circle
 ---
 
+# Dynamic Programming Pt.1
 
+## Shortest path as network flow
 
-# W5 - Dynamic Programming Pt.1
+Given undirected graph $G = (V, E)$, start node $s$, and end node $t$, we want to find the shortest path $s\leadsto t$.
 
-##  Shortest path as network flow
-
-Given undirected graph $G = (V, E)$, start node $s$, and end node $t$, we want to find the shortest path $s\leadsto t$. 
-
-- Each edge $ij\in E$ has a ***non-negative*** cost $c_{ij}$. Typically the distance.
+- Each edge $ij\in E$ has a **_non-negative_** cost $c_{ij}$. Typically the distance.
 - The $\leadsto$ arrow means the path from $s$ to $t$, including arbitrarily many intermediate vertices.
 
 #### Decision Variables
 
-We want to find which edge to take from $E$. 
+We want to find which edge to take from $E$.
 
 $$
 x_{ij} = \begin{cases}
@@ -42,6 +40,7 @@ $$
 \end{gathered}\right.
 \end{aligned}
 
+
 $$
 
 We could solve the shortest path problem with a general LP solver, but we have more efficient algorithms.
@@ -51,6 +50,7 @@ We could solve the shortest path problem with a general LP solver, but we have m
 The following pseudocode is from my own [algorithm notes](https://www.notion.so/Single-Source-Shortest-Paths-ccab559c3b5c4f018913429bf3b1091c?pvs=21) but it does the same thing as what we did in class.
 
 |||:icon-code: Pseudocode
+
 ```c
 function Initialize(G, start):
 	for each vertex v in G:
@@ -63,7 +63,7 @@ function Initialize(G, start):
 function NonNegativeDijkstras(G, start):
 	dist, pred = Initialize(G, start)
 	dist[start] = 0
-	
+
 	queue = PriorityQueue()
 	for each vertex v in G:
 		put v in queue with priority dist[v]
@@ -76,7 +76,9 @@ function NonNegativeDijkstras(G, start):
 				pred[v] = u
 				queue.UpdatePriority(v, dist[v])
 ```
+
 |||:icon-rocket: Complexity
+
 ```
 // matched to each line
 
@@ -102,11 +104,12 @@ already counted
 
 O(log V) for heaps
 ```
+
 |||
 
 where `queue.ExtractMin()` grabs the vertex with the shortest distance.
 
-=== **Ex.** In-class practice graph
+=== **Example.** In-class practice graph
 
 ![Source: Canvas, `Shortest_path_problem_in_class.pdf`](/assets/Screenshot_2023-10-23_at_15.33.56.png){ class="image-m" }
 
@@ -131,8 +134,8 @@ Running Dijkstra’s algorithm with $\text{start} = A$ gives us shortest path fr
 │ L            │ ['A', 'E', 'F', 'G', 'K', 'L'] │         61 │  <== Path from A to L
 ╰──────────────┴────────────────────────────────┴────────────╯
 ```
-===
 
+===
 
 ### Optimal Substructure
 
@@ -140,7 +143,7 @@ Suppose $s\leadsto t$ is the shortest path from $s$ to $t$, and $v$ is an interm
 
 Then the sub-path $s\leadsto v$ and $v\leadsto t$ are both shortest paths from $s$ to $v$, $v$ to $t$ respectively.
 
-##  Asymmetric Traveling Salesman Problem
+## Asymmetric Traveling Salesman Problem
 
 For a directed graph $G = ( V, A)$, a non-negative cost $c_{ij}$ for each arc $i\to j$, we want to find the shortest tour (visit all nodes exactly once and return to the starting node)
 
@@ -183,7 +186,7 @@ $$
 
 The graph should also be connected, no isolated subgraphs
 
-![We don’t want (1) basically, since there’s complete tour. [Source](https://www.mdpi.com/2075-1680/10/1/19)](Untitled%201.png)
+![](/assets/disconnected.png){class=image-m}
 
 We don’t want (1) basically, since there’s complete tour. [Source](https://www.mdpi.com/2075-1680/10/1/19)
 
@@ -207,15 +210,13 @@ $$
 \end{cases}
 $$
 
-The idea is we must go to a node that has a larger label than the current node. 
+The idea is we must go to a node that has a larger label than the current node.
 
 ![See image link for source](https://how-to.aimms.com/_images/MTZ2.png){class="image-m"}
 
-
-
 This prevents us from going into cycles, since if we do, we will eventually travel to a node with a smaller label, which violates the constraint.
 
-##  Symmetric TSP
+## Symmetric TSP
 
 Now we consider a undirected graph $G = (V, E)$, a non-negative cost $c_{ij}$ for each edge $i j$. We also know that $c_{ij} = c_{ji}$.
 
@@ -253,24 +254,23 @@ $$
 \forall S\sub V, S\ne\varnothing\\\sum_{e\in\delta (S)}x_e\geqslant 2
 $$
 
-##  Dynamic Programming (DP)
+## Dynamic Programming (DP)
 
 ### General formulation
 
 Every DP problem has the following properties:
 
-
 Stages
-:	$t=1,2,\dots ,T$  
+: $t=1,2,\dots ,T$
 
 State at stage $t$
-:	$s_t$  
+: $s_t$
 
-Value function 
-:	$v_t(s_t)$  
+Value function
+: $v_t(s_t)$
 
-Transition cost 
-:	$c(s_{t-1}, s_t)$  
+Transition cost
+: $c(s_{t-1}, s_t)$
 
 $$
 v_t(s_t) = \min/\max\{v_{t-1}(s_{t-1}) + c(s_{t-1}, s_t)\}
@@ -306,13 +306,13 @@ If we don’t have the integer constraint $x_i\in\{0,1\}$, we can just take the 
 #### DP Formulation
 
 Stage  
-:	The maximum item index $1, 2,\dots,n$. If we are in stage $k$, we only consider items $1,2,\dots, k$. 
+: The maximum item index $1, 2,\dots,n$. If we are in stage $k$, we only consider items $1,2,\dots, k$.
 
 State  
-:	$w$, remaining capacity of the backpack 
+: $w$, remaining capacity of the backpack
 
 Value function
-:	$v_k(w)$, max profit given capacity $w$ and items $1,2,\dots k$ 
+: $v_k(w)$, max profit given capacity $w$ and items $1,2,\dots k$
 
 $$
 v_k(w) = \max\left\{\begin{gathered}v_{k-1}(w-a_k) + c_k\\v_{k-1}(w)\end{gathered}\right\}
@@ -357,7 +357,7 @@ $$
 i\backslash j & 1 & 2 & 3 & 4 & 5\\
 \hline
 1 & 0 & 3 & 1 & 5 & 4\\
-2 & 1 & 0 & 5 & 4 & 3\\ 
+2 & 1 & 0 & 5 & 4 & 3\\
 3 & 5 & 4 & 0 & 2 & 1\\
 4 & 3 & 1 & 3 & 0 & 3\\
 5 & 5 & 2 & 4 & 1 & 0

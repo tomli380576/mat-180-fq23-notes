@@ -3,7 +3,7 @@ icon: check-circle
 ---
 
 
-# W2 - Linear Programming
+# Linear Programming
 
 
 !!!warning Notation
@@ -163,7 +163,7 @@ A^T\bold y &\geqslant \bold c\\
 \end{aligned}
 $$
 
-This is the Dual problem of the original [Primal problem](W2%20-%20Linear%20Programming%20b280afc09ed04fc0bbed484b56f62e21.md)
+This is the Dual problem of the original Primal problem
 
 !!!success **Theorem.** Weak & Strong Duality
 

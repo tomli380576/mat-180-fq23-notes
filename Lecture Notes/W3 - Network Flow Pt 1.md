@@ -3,7 +3,7 @@ icon: check-circle
 ---
 
 
-# W3 - Network Flow Pt.1
+# Network Flow Pt.1
 
 ## Transportation Problem
 
@@ -187,4 +187,4 @@ Finally the bounds:
 
 Together we have the transportation model. 
 
-The constraints are exactly the same as [above](W3%20-%20Network%20Flow%20Pt%201%2067d861e40761479f9d21e4dc59ff840e.md).
+The constraints are exactly the same as above.

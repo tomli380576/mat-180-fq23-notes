@@ -2,7 +2,7 @@
 icon: check-circle
 ---
 
-# W1 - Basic Inventory Models
+# Basic Inventory Models
 
 ## Economic Order Quantity Model (EOQ)
 
@@ -46,7 +46,7 @@ $Q$ [!badge variant="success" text="Decision Variable"]
 
 Since orders are fulfilled instantly, we only order a batch of coffee beans when stock goes to 0.
 
-![](assets/Screenshot_2023-09-27_at_17.54.03.png)
+![](/assets/coffee_beans.png){class=image-m}
 
 We can compute the following:
 
@@ -94,7 +94,7 @@ $$
 
 We can find the optimum $Q^*$ when we graph the total cost at the intersection of holding cost $y(Q)=\frac {hQ}{2}$ and ordering cost $y(Q) = \frac{fd}{Q}$.
 
-![](/assets/Untitled.png){class="image-m"}
+![](/assets/eoq_graph.png){class="image-m"}
 
 #### Sensitivity Analysis
 

@@ -2,7 +2,7 @@
 icon: circle
 ---
 
-# W6 - Dynamic Programming Pt.2
+# Dynamic Programming Pt.2
 
 ## Lot Sizing / Generalized Inventory Problem
 
@@ -275,7 +275,9 @@ $$
 $$
 !!!
  
-=== ****Example.**** Stochastic Shortest Paths
+::: { .mb-6 .border .rounded-md .dark:border-dark-650 .pad}
+
+**Example.** Stochastic Shortest Paths
 
 ```mermaid
 graph LR
@@ -317,7 +319,7 @@ So the expected reward is:
 $$
 \Bbb E_{W\!,\pi}[W(\omega)] = \sum_{i=1}^{2^3}W(w_i)\cdot \Bbb P(\text{path} = \omega_i)
 $$
-===
+:::
 
 ## Policy Backward Evaluation
 
