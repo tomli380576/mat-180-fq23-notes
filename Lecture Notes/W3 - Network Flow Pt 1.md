@@ -11,7 +11,7 @@ icon: check-circle
 
 Suppose you own a clothing business and owns both factories and stores. Let $\bigcirc$ be the factories (supply nodes) and $\triangle$ be the stores (demand node). The supply system looks like a directed graph:
 
-![The placements are arbitrary](/assets/Screenshot_2023-10-14_at_00.00.58.png){class="image-m"}
+![The placements are arbitrary](/assets/Screenshot_2023-10-14_at_00.00.58.png){.image-m}
 
 There’s also a unit cost to ship cloths from $i$ to $j$.
 
@@ -54,7 +54,9 @@ x_{ij}&\geqslant 0
 \end{aligned}
 $$
 
-!!!secondary **Proposition.** Integer Constraints ⇒ Integer Solutions, Existence
+
+:::prop
+#### **Proposition.** Integer Constraints ⇒ Integer Solutions, Existence
 
 1. If $d_j, s_i\in \Z$, the solution are also integers.
 2. If the total demand is less than total supply, the the problem is feasible.
@@ -62,7 +64,7 @@ $$
     $$
     \sum_{i\in I}s_i\geqslant \sum_{j\in J} d_j
     $$
-!!!
+:::
     
 
 We will see that the transportation problem is a special case of the more general network flow problem.
@@ -76,7 +78,9 @@ Define $x_{ij}$ to be the **flow** on the arc $i\to j$.
 Each node $i$ has the flow conservation constraint
 
 
-!!!info **Def.** Flow Conservation
+:::def
+
+#### **Def.** Flow Conservation
 
 For each node $i$,
 
@@ -86,7 +90,7 @@ $$
 \sum_{(j\to i) \in A}x_{ji} &= \sum_{(i\to k) \in A}x_{ik}
 \end{aligned}
 $$
-!!!
+:::
 
 ### Objective
 

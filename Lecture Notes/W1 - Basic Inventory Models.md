@@ -261,7 +261,9 @@ $$
 \end{aligned}
 $$
 
-!!!  **Strat.** Critical Ratio Method 
+:::strat 
+
+#### **Strat.** Critical Ratio Method 
 
 This method requires $s<c<p$.
 
@@ -272,7 +274,8 @@ Q(B)\geqslant\frac{p-c}{p-s}
 $$
 
 is the optimum number of newspapers to buy, $B^*$.
-!!!
+
+:::
 
 #### Sensitivity
 

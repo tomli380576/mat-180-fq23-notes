@@ -91,9 +91,9 @@ $$
 
 Assuming unit costs $b, h$ are independent of time $t$, we have:
 
-!!!secondary 
+:::prop
 
-#####  ****Prop.**** Don’t produce if we have inventory
+#### **Prop.** Don’t produce if we have inventory
 
 $$
 a_t > 0\implies s_t = 0
@@ -103,14 +103,14 @@ If it is optimal to produce during any time period $t$, then the starting invent
 
 ---
 
-#####  ****Prop.**** If we produce, produce enough to cover integer amount of time periods
+#### **Prop.** If we produce, produce enough to cover integer amount of time periods
 
 If it is optimal to produce in stage $t$ (so $a_t > 0$ for some $t$), then it is optimal to produce an amount that exactly covers the demand for $t, t+1, \cdots, t+j$ for some  $0\leqslant j\leqslant T-t$.
-!!!
+:::
 
-!!! 
+:::lemma
 
-#####  ****Lemma.**** Equivalent optimality equation
+####  ****Lemma.**** Equivalent optimality equation
 
 Using the previous 2 properties, we only need to find the number of time periods $j$ to cover when we produce. If we produce enough to cover $j$ periods, we move to time $t+j+1$.
 
@@ -125,15 +125,15 @@ c_{t,\,t+j+1} = K + h\sum^j_{i=1}\underbrace{i\cdot d_{t+i}}_{\substack{\text{ne
 $$
 
 with base cases $v_{T+1} = 0, s_1 = 0$.
-!!!
+:::
 
 ## Stochastic Dynamic Programming
 
 ### Markov Chain Review
 
-!!!info 
+:::def
 
-#####  ****Def.**** Discrete Time Markov Chain
+#### **Def.** Discrete Time Markov Chain
 
 
 A discrete, time homogeneous Markov chain on state space $S$ with transition matrix $P$ and initial distribution $\alpha$ is a sequence of random states $X_n\in S$ such that:
@@ -155,7 +155,7 @@ $$
 
 ---
 
-##### ****Def.**** Communicate
+#### **Def.** Communicate
 
 2 states $i, j\in S$ communicates if they are accessible from each other.
 
@@ -165,7 +165,7 @@ $$
 
 ---
 
-##### ****Def.**** Closed Subset
+#### **Def.** Closed Subset
 
 A subset of state space $T\sub S$ is closed if any of the states in $T$ is ever entered, the chain cannot leave $T$. In terms of transition probability:
 
@@ -174,11 +174,11 @@ P_{ij} =0\hskip1em\forall i\in T, j\notin T
 $$
 
 The entire state space is always closed.
-!!!
+:::
 
-!!!secondary 
+:::prop
 
-#####  ****Prop.**** $n$ step transition probability
+####  ****Prop.**** $n$ step transition probability
 
 It’s the $i,j$ th entry in $P^n$.
 
@@ -187,7 +187,8 @@ $$
 \Bbb P(X_n = j\mid X_0 = i) &= \Bbb P(X_{m+n}= j\mid X_m = i) \\&= P^n_{ij}
 \end{aligned}
 $$
-!!!
+
+:::
 
 
 ### Markov decision process with finite time
@@ -241,7 +242,9 @@ At each state $s_t$, we want to pick out an action $a_t$. There are 2 types of d
 
 2. *History dependent*. $d_t(s_1,a_1\dots s_{t-1}, a_{t-1}, s_t)$ returns an action by looking at all past states and actions.
 
-!!!info **Def.** Policy $\pi$, sample path $\omega$, total reward $W$
+:::def
+
+#### **Def.** Policy $\pi$, sample path $\omega$, total reward $W$
 
 The decision rules at each stage
 
@@ -273,11 +276,12 @@ Each $s_i$ in the sum is a random variable, so the expected total reward is:
 $$
 \Bbb E_{W,\pi}[W(\omega)] = \sum_{\text{all possible }\omega} \Bbb P(\text{path}=\omega) \cdot W(\omega)
 $$
-!!!
- 
-::: { .mb-6 .border .rounded-md .dark:border-dark-650 .pad}
 
-**Example.** Stochastic Shortest Paths
+<p></p>
+:::
+ 
+
+#### **Example.** Stochastic Shortest Paths
 
 ```mermaid
 graph LR
@@ -319,7 +323,7 @@ So the expected reward is:
 $$
 \Bbb E_{W\!,\pi}[W(\omega)] = \sum_{i=1}^{2^3}W(w_i)\cdot \Bbb P(\text{path} = \omega_i)
 $$
-:::
+
 
 ## Policy Backward Evaluation
 
@@ -365,9 +369,7 @@ $$
 Finally the optimal policy is $\pi^* = (d_1^*, d_2^*,\dots, d_{N_1}^*)$
 
 
-!!!warning 
-
-##### ****Observation.**** Randomizing choices doesn't yield a better optimum
+##### **Observation.** Randomizing choices doesn't yield a better optimum
 
 Given any value function $\omega: W\to \R$ where $W$ is a discrete set and some probability distribution $\Bbb P$ over $W$.
 
@@ -377,10 +379,7 @@ $$
 \max_{s\in W}\omega(s) \geqslant \sum_{s\in W}\Bbb P(s)\omega(s) = \Bbb E[\omega]
 $$
 
----
 
-##### ****Observation.****  Existence of optimal Markov decision rule
+##### **Observation.**  Existence of optimal Markov decision rule
 
 If history dependent value function only looks at the current state, then there will be an optimal Markov decision rule.
-
-!!!

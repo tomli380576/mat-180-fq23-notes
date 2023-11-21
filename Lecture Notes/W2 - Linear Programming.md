@@ -94,7 +94,7 @@ a_{m1} & a_{m2} & \cdots & a_{mn}
 \end{bmatrix}
 $$
 
-=== **Ex.1** 2D Example
+#### **Example.1** 2D Example
 
 ||| Program
 
@@ -116,9 +116,13 @@ $$
 
 |||
 
-===
 
-!!!info **Def.** Standard Form
+
+:::def
+
+#### **Def.** Standard form of a linear program
+
+For $A\in\R^{m\times n}, \bold{c, x}\in \R^n, \bold b\in \R^m$
 
 $$
 \begin{aligned}
@@ -129,7 +133,8 @@ A\bold x &\leqslant \bold b\\
 \end{aligned}
 \end{aligned}
 $$
-!!!
+
+:::
 
 ### Duality - Resource Buyer
 
@@ -165,7 +170,9 @@ $$
 
 This is the Dual problem of the original Primal problem
 
-!!!success **Theorem.** Weak & Strong Duality
+:::thm
+
+#### **Theorem.** Weak & Strong Duality
 
 For each feasible solution $\bold x$ of the primal problem, and each feasible solution $\bold y$ of the dual problem, we have the following:
 
@@ -182,9 +189,10 @@ For each feasible solution $\bold x$ of the primal problem, and each feasible so
     $$
 
     - all linear programs have strong duality if optimal solutions $\bold x^*, \bold  y^*$ exists for primal and dual
-!!!
 
-=== **Proof.** (Weak Duality)
+:::
+
+#### **Proof.** (Weak Duality)
 
 Let $\bold x, \bold y$ be feasible solutions for the primal and dual problem respectively. 
 
@@ -199,9 +207,11 @@ We need to show $\bold c^T\bold x\leqslant \bold b^T\bold y$. Plug in the defini
 $$
 \bold c^T\bold x\leqslant {\underbrace{(A^T\bold y)}_{\text{bound }\bold c}}^T\bold x = \bold y^TA\bold x\leqslant \bold y^T\underbrace{\bold b}_{\text{bound }A\bold x} = \bold b^T\bold y
 $$
-===
 
-!!!success **Theorem.** Complementary Slackness
+
+:::thm
+
+#### **Theorem.** Complementary Slackness
 
 ![](/assets/Screenshot_2022-11-08_at_2.07.01_PM.png)
 
@@ -216,7 +226,7 @@ $$
 
 - Basically primal solution times dual slack is 0, dual solution times primal slack is also 0 for linear programs. The optimal objective $\zeta$ and $\xi$ are equal.
 
-!!!
+:::
 
 ### Optimization Output / Infer Dual Results from Primal
 

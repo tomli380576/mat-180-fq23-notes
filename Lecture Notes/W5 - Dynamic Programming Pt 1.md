@@ -109,7 +109,8 @@ O(log V) for heaps
 
 where `queue.ExtractMin()` grabs the vertex with the shortest distance.
 
-=== **Example.** In-class practice graph
+
+#### **Example.** In-class practice graph
 
 ![Source: Canvas, `Shortest_path_problem_in_class.pdf`](/assets/Screenshot_2023-10-23_at_15.33.56.png){ class="image-m" }
 
@@ -134,8 +135,6 @@ Running Dijkstra’s algorithm with $\text{start} = A$ gives us shortest path fr
 │ L            │ ['A', 'E', 'F', 'G', 'K', 'L'] │         61 │  <== Path from A to L
 ╰──────────────┴────────────────────────────────┴────────────╯
 ```
-
-===
 
 ### Optimal Substructure
 
@@ -276,10 +275,11 @@ $$
 v_t(s_t) = \min/\max\{v_{t-1}(s_{t-1}) + c(s_{t-1}, s_t)\}
 $$
 
-!!!success Theorem. Principle of optimality
+:::thm
+#### **Theorem.** Principle of optimality
 
 If $v_t(s_t)$ is optimal, then all the subproblems $v_{t-1}(s_{t-1})$ are also optimal.
-!!!
+:::
 
 ### 0-1 Knapsack
 
