@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.753502308588">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.753864470435">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>W5 - Dynamic Programming Pt.1</title>
-    <meta name="title" content="W5 - Dynamic Programming Pt.1">
+    <title>Dynamic Programming Pt.1</title>
+    <meta name="title" content="Dynamic Programming Pt.1">
     <meta name="description" content="Given undirected graph G = (V, E), start node s, and end node t, we want to find the shortest path s\\leadsto t">
 
     <!-- Canonical -->
@@ -19,26 +19,26 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="/lecture-notes/w5---dynamic-programming-pt-1/">
-    <meta property="og:title" content="W5 - Dynamic Programming Pt.1">
+    <meta property="og:title" content="Dynamic Programming Pt.1">
     <meta property="og:description" content="Given undirected graph G = (V, E), start node s, and end node t, we want to find the shortest path s\\leadsto t">
     <meta property="og:image" content="/assets/screenshot_2023-10-23_at_15.33.56.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="/lecture-notes/w5---dynamic-programming-pt-1/">
-    <meta property="twitter:title" content="W5 - Dynamic Programming Pt.1">
+    <meta property="twitter:title" content="Dynamic Programming Pt.1">
     <meta property="twitter:description" content="Given undirected graph G = (V, E), start node s, and end node t, we want to find the shortest path s\\leadsto t">
     <meta property="twitter:image" content="/assets/screenshot_2023-10-23_at_15.33.56.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/bolt-circle.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.753502308588" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.753864470435" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.753502308588" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.753864470435" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.753502308588" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.753502308588" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.753864470435" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.753864470435" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
     <link href="../../resources/css/katex.css?v=3.5.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.5.0" defer></script>
@@ -162,10 +162,10 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="w5---dynamic-programming-pt1" class="break-words">
+<doc-anchor-target id="dynamic-programming-pt1" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#w5---dynamic-programming-pt1">#</doc-anchor-trigger>
-        <span>W5 - Dynamic Programming Pt.1</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#dynamic-programming-pt1">#</doc-anchor-trigger>
+        <span>Dynamic Programming Pt.1</span>
     </h1>
 </doc-anchor-target>
 <doc-anchor-target id="shortest-path-as-network-flow">
@@ -176,7 +176,7 @@
 </doc-anchor-target>
 <p>Given undirected graph <span class="math">G = (V, E)</span>, start node <span class="math">s</span>, and end node <span class="math">t</span>, we want to find the shortest path <span class="math">s\leadsto t</span>.</p>
 <ul>
-<li>Each edge <span class="math">ij\in E</span> has a <em><strong>non-negative</strong></em> cost <span class="math">c_{ij}</span>. Typically the distance.</li>
+<li>Each edge <span class="math">ij\in E</span> has a <strong><em>non-negative</em></strong> cost <span class="math">c_{ij}</span>. Typically the distance.</li>
 <li>The <span class="math">\leadsto</span> arrow means the path from <span class="math">s</span> to <span class="math">t</span>, including arbitrarily many intermediate vertices.</li>
 </ul>
 <doc-anchor-target id="decision-variables">
@@ -209,6 +209,7 @@
 
 \end{gathered}\right.
 \end{aligned}
+
 </pre></div>
 <p>We could solve the shortest path problem with a general LP solver, but we have more efficient algorithms.</p>
 <doc-anchor-target id="dijkstras-algorithm">
@@ -238,7 +239,7 @@
 function NonNegativeDijkstras(G, start):
 	dist, pred = Initialize(G, start)
 	dist[start] = 0
-	
+
 	queue = PriorityQueue()
 	for each vertex v in G:
 		put v in queue with priority dist[v]
@@ -281,8 +282,8 @@ O(log V) for heaps</code></pre>
     </div>
 </div>
 <p>where <code v-pre>queue.ExtractMin()</code> grabs the vertex with the shortest distance.</p>
-<doc-panel id="ex-in-class-practice-graph">
-    <template #title><strong>Ex.</strong> In-class practice graph</template>
+<doc-panel id="example-in-class-practice-graph">
+    <template #title><strong>Example.</strong> In-class practice graph</template>
 <p><figure class="content-center">
     <img src="../../assets/screenshot_2023-10-23_at_15.33.56.png" alt="Source: Canvas, Shortest_path_problem_in_class.pdf" class="image-m">
     <figcaption class="caption">Source: Canvas, <code v-pre>Shortest_path_problem_in_class.pdf</code></figcaption>
@@ -363,7 +364,11 @@ O(log V) for heaps</code></pre>
     </h4>
 </doc-anchor-target>
 <p>The graph should also be connected, no isolated subgraphs</p>
-<p><img src="https://www.mdpi.com/2075-1680/10/1/19" alt="We don’t want (1) basically, since there’s complete tour. [Source" />](Untitled%201.png)</p>
+<p><figure class="content-center">
+    <img src="../../assets/disconnected.png" alt="" class="image-m">
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
 <p>We don’t want (1) basically, since there’s complete tour. <a href="https://www.mdpi.com/2075-1680/10/1/19">Source</a></p>
 <doc-anchor-target id="the-dantzig-fulkerson-johnson-dfj-formulation">
     <h4>
@@ -434,16 +439,14 @@ O(log V) for heaps</code></pre>
     </h3>
 </doc-anchor-target>
 <p>Every DP problem has the following properties:</p>
-<dl>
-<dt>Stages</dt>
-<dd><span class="math">t=1,2,\dots ,T</span></dd>
-<dt>State at stage <span class="math">t</span></dt>
-<dd><span class="math">s_t</span></dd>
-<dt>Value function </dt>
-<dd><span class="math">v_t(s_t)</span></dd>
-<dt>Transition cost </dt>
-<dd><span class="math">c(s_{t-1}, s_t)</span></dd>
-</dl>
+<p>Stages
+: <span class="math">t=1,2,\dots ,T</span></p>
+<p>State at stage <span class="math">t</span>
+: <span class="math">s_t</span></p>
+<p>Value function
+: <span class="math">v_t(s_t)</span></p>
+<p>Transition cost
+: <span class="math">c(s_{t-1}, s_t)</span></p>
 <div class="math"><pre>v_t(s_t) = \min/\max\{v_{t-1}(s_{t-1}) + c(s_{t-1}, s_t)\}</pre></div>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-green-500"></div>
@@ -492,14 +495,12 @@ x_i &amp; \in\{0,1\}
         <span>DP Formulation</span>
     </h4>
 </doc-anchor-target>
-<dl>
-<dt>Stage  </dt>
-<dd>The maximum item index <span class="math">1, 2,\dots,n</span>. If we are in stage <span class="math">k</span>, we only consider items <span class="math">1,2,\dots, k</span>.</dd>
-<dt>State  </dt>
-<dd><span class="math">w</span>, remaining capacity of the backpack</dd>
-<dt>Value function</dt>
-<dd><span class="math">v_k(w)</span>, max profit given capacity <span class="math">w</span> and items <span class="math">1,2,\dots k</span></dd>
-</dl>
+<p>Stage<br />
+: The maximum item index <span class="math">1, 2,\dots,n</span>. If we are in stage <span class="math">k</span>, we only consider items <span class="math">1,2,\dots, k</span>.</p>
+<p>State<br />
+: <span class="math">w</span>, remaining capacity of the backpack</p>
+<p>Value function
+: <span class="math">v_k(w)</span>, max profit given capacity <span class="math">w</span> and items <span class="math">1,2,\dots k</span></p>
 <div class="math"><pre>v_k(w) = \max\left\{\begin{gathered}v_{k-1}(w-a_k) + c_k\\v_{k-1}(w)\end{gathered}\right\}</pre></div>
 <p>We can try to take item <span class="math">k</span> if it fits, or we can skip <span class="math">k</span>.</p>
 <doc-anchor-target id="bounded-knapsack">
@@ -534,7 +535,7 @@ x_i &amp; \in\{0,1\}
 i\backslash j &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5\\
 \hline
 1 &amp; 0 &amp; 3 &amp; 1 &amp; 5 &amp; 4\\
-2 &amp; 1 &amp; 0 &amp; 5 &amp; 4 &amp; 3\\ 
+2 &amp; 1 &amp; 0 &amp; 5 &amp; 4 &amp; 3\\
 3 &amp; 5 &amp; 4 &amp; 0 &amp; 2 &amp; 1\\
 4 &amp; 3 &amp; 1 &amp; 3 &amp; 0 &amp; 3\\
 5 &amp; 5 &amp; 2 &amp; 4 &amp; 1 &amp; 0
@@ -549,11 +550,11 @@ i\backslash j &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5\\
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../lecture-notes/w4---network-flow-pt-2/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../lecture-notes/w7---convex-optimization/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">W​4 - Network Flow Pt.​2</span>
+                                                <span class="block mt-1">Convex Optimization</span>
                                             </span>
                                         </a>
                                     </div>
@@ -562,7 +563,7 @@ i\backslash j &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5\\
                                         <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../lecture-notes/w6---dynamic-programming-pt-2/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">W​6 - Dynamic Programming Pt.​2</span>
+                                                <span class="block mt-1">Dynamic Programming Pt.​2</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -606,6 +607,6 @@ i\backslash j &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5\\
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "W5 - Dynamic Programming Pt.1", level: 2, icon: "file", hasPrism: true, hasMermaid: true, hasMath: true, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Dynamic Programming Pt.1", level: 2, icon: "file", hasPrism: true, hasMermaid: true, hasMath: true, tocDepth: 23 }</script>
 </body>
 </html>

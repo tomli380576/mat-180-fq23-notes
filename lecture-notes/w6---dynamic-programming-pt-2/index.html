@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.753502308588">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.753864470435">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>W6 - Dynamic Programming Pt.2</title>
-    <meta name="title" content="W6 - Dynamic Programming Pt.2">
+    <title>Dynamic Programming Pt.2</title>
+    <meta name="title" content="Dynamic Programming Pt.2">
     <meta name="description" content="Going back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase.">
 
     <!-- Canonical -->
@@ -19,25 +19,25 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="/lecture-notes/w6---dynamic-programming-pt-2/">
-    <meta property="og:title" content="W6 - Dynamic Programming Pt.2">
+    <meta property="og:title" content="Dynamic Programming Pt.2">
     <meta property="og:description" content="Going back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase.">
     <meta property="og:image" content="/assets/screenshot_2023-11-03_at_15.25.45.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="/lecture-notes/w6---dynamic-programming-pt-2/">
-    <meta property="twitter:title" content="W6 - Dynamic Programming Pt.2">
+    <meta property="twitter:title" content="Dynamic Programming Pt.2">
     <meta property="twitter:description" content="Going back to the coffee shop example: A coffee shop needs to decide how much coffee beans to purchase and how frequently should they purchase.">
     <meta property="twitter:image" content="/assets/screenshot_2023-11-03_at_15.25.45.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/bolt-circle.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.753502308588" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.753864470435" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.753502308588" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.753864470435" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.753502308588" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.753864470435" data-turbo-eval="false" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
     <link href="../../resources/css/katex.css?v=3.5.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.5.0" defer></script>
@@ -161,10 +161,10 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="w6---dynamic-programming-pt2" class="break-words">
+<doc-anchor-target id="dynamic-programming-pt2" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#w6---dynamic-programming-pt2">#</doc-anchor-trigger>
-        <span>W6 - Dynamic Programming Pt.2</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#dynamic-programming-pt2">#</doc-anchor-trigger>
+        <span>Dynamic Programming Pt.2</span>
     </h1>
 </doc-anchor-target>
 <doc-anchor-target id="lot-sizing--generalized-inventory-problem">
@@ -478,8 +478,7 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
         </div>
     </div>
 </div>
-<doc-panel id="example-stochastic-shortest-paths">
-    <template #title><strong><strong>Example.</strong></strong> Stochastic Shortest Paths</template>
+<div class="mb-6 border rounded-md dark:border-dark-650 pad"><p><strong>Example.</strong> Stochastic Shortest Paths</p>
 <div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">graph LR
   S --1--- A
 	A --50--- C
@@ -507,7 +506,7 @@ K + b\cdot a_t &amp; \text{if }a_t &gt; 0
 <p>There are <span class="math">2^3</span> possible sample paths (2 choice at each stage, 3 stages in total). Each path <span class="math">\omega_i</span> has a reward <span class="math">W(\omega_i)</span> and a probability <span class="math">\Bbb P(\omega_i)</span>.</p>
 <p>So the expected reward is:</p>
 <div class="math"><pre>\Bbb E_{W\!,\pi}[W(\omega)] = \sum_{i=1}^{2^3}W(w_i)\cdot \Bbb P(\text{path} = \omega_i)</pre></div>
-</doc-panel>
+</div>
 <doc-anchor-target id="policy-backward-evaluation">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#policy-backward-evaluation">#</doc-anchor-trigger>
@@ -581,16 +580,16 @@ v_N(h_N)&amp;= r_N(s_N)
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">W​5 - Dynamic Programming Pt.​1</span>
+                                                <span class="block mt-1">Dynamic Programming Pt.​1</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../lecture-notes/w7---convex-optimization/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../lecture-notes/w2---linear-programming/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">W​7 - Convex Optimization</span>
+                                                <span class="block mt-1">Linear Programming</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -634,6 +633,6 @@ v_N(h_N)&amp;= r_N(s_N)
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "W6 - Dynamic Programming Pt.2", level: 2, icon: "file", hasPrism: false, hasMermaid: true, hasMath: true, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Dynamic Programming Pt.2", level: 2, icon: "file", hasPrism: false, hasMermaid: true, hasMath: true, tocDepth: 23 }</script>
 </body>
 </html>
