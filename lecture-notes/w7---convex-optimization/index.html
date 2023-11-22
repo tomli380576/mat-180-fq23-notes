@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/mat-180-fq23-notes">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.753925808252">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.753927202743">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -34,11 +34,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/bolt-circle.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.753925808252" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.753927202743" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.753925808252" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.753927202743" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.753925808252" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.753927202743" data-turbo-eval="false" defer></script>
     <link href="../../resources/css/katex.css?v=3.5.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.5.0" defer></script>
 
@@ -383,6 +383,7 @@ f_2(\bold x) = e^{x_1} - x_2 - 1</pre></div>
     </h4>
 </doc-anchor-target>
 <div class="math"><pre>{\cal L}(\bold x, \boldsymbol\lambda, \boldsymbol\mu) = f_0(\bold x) + \sum^m_{i=1}\lambda_if_i(\bold x) + \sum^p_{j=1}\mu_j h_j(\bold x)</pre></div>
+<p></p>
 </div>
 <p>To satisfy <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
     <span><strong>Thm. Weak Duality</strong></span>
@@ -520,12 +521,14 @@ f_2(\bold x) = e^{x_1} - x_2 - 1</pre></div>
 <p>For a <a href="http://www.damtp.cam.ac.uk/user/hf323/M18-OPT/lecture3.pdf">proper cone</a> <span class="math">K</span> (i.e. closed, pointed, nonempty interior), we denote a constraint <span class="math">f_i</span> in <span class="math">K</span> as:</p>
 <div class="math"><pre>f_i(\bold x)\preceq_{K} \bold 0\iff -f_i(\bold x) \in K</pre></div>
 <p>Each kind of optimization problems have the following cones:</p>
-<p>LP
-: <span class="math">K = \R_+^m</span></p>
-<p>SOCP
-: <span class="math">K = \{(x,t)\in\R^m\times \R: \|\bold x\|_2\leqslant t\}</span></p>
-<p>SDP
-: <span class="math">K = \{X\in\R^{m\times m}: X \text{ is positive semi-definite}\}</span></p>
+<dl>
+<dt>LP</dt>
+<dd><span class="math">K = \R_+^m</span></dd>
+<dt>SOCP</dt>
+<dd><span class="math">K = \{(x,t)\in\R^m\times \R: \|\bold x\|_2\leqslant t\}</span></dd>
+<dt>SDP</dt>
+<dd><span class="math">K = \{X\in\R^{m\times m}: X \text{ is positive semi-definite}\}</span></dd>
+</dl>
 <div class="def"><doc-anchor-target id="def-dual-cone">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#def-dual-cone">#</doc-anchor-trigger>
@@ -605,7 +608,7 @@ f_2(\bold x) = e^{x_1} - x_2 - 1</pre></div>
 <div class="math"><pre>\bold a_i^T\bold x\sim {\cal N}(\mu=\overline{\bold a_i}^T\bold x, \sigma^2=\bold x^T\Sigma_i\bold x)</pre></div>
 <p>Then we can convert it to the standard normal distribution (1 dimensional):</p>
 <div class="math"><pre>\frac{\bold a_i^T\bold x - \overline{\bold a}_i^T\bold x}{\sqrt{\bold x^T\Sigma_i\bold x}}\sim{\cal N}(\mu=0,\sigma^2=1)\\
-\Bbb P(\bold a_i^T\bold x\leqslant \bold b_i) = \Phi\left(\frac{\bold b_i - \overline{\bold a}_i^T\bold x}{\sqrt{\bold x^T\Sigma_i\bold x}})\right)</pre></div>
+\Bbb P(\bold a_i^T\bold x\leqslant \bold b_i) = \Phi\left(\frac{\bold b_i - \overline{\bold a}_i^T\bold x}{\sqrt{\bold x^T\Sigma_i\bold x}}\right)</pre></div>
 <p>where <span class="math">\Phi</span> is the c.d.f of standard normal distribution.</p>
 <p>Plugging in the probability expression gives us:</p>
 <div class="math"><pre>\begin{aligned}
