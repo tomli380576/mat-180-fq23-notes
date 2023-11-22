@@ -14,3 +14,5 @@ footer:
   copyright: "&copy; Copyright {{ year }}. All rights reserved. Any material from lecture is a property of University of California, Davis"
 exclude:
   - "README.md"
+editor: 
+  enabled: false

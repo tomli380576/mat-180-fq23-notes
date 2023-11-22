@@ -232,6 +232,7 @@ $$
 {\cal L}(\bold x, \boldsymbol\lambda, \boldsymbol\mu) = f_0(\bold x) + \sum^m_{i=1}\lambda_if_i(\bold x) + \sum^p_{j=1}\mu_j h_j(\bold x)
 $$
 
+<p></p>
 :::
 
 To satisfy [!badge text="**Thm. Weak Duality**"], we need ${\cal L}(\bold x, \lambda, \mu)\leqslant f_0(\bold x)$.
@@ -392,13 +393,13 @@ $$
 Each kind of optimization problems have the following cones:
 
 LP
-: $K = \R_+^m$
+:   $K = \R_+^m$
 
 SOCP
-: $K = \{(x,t)\in\R^m\times \R: \|\bold x\|_2\leqslant t\}$
+:   $K = \{(x,t)\in\R^m\times \R: \|\bold x\|_2\leqslant t\}$
 
 SDP
-: $K = \{X\in\R^{m\times m}: X \text{ is positive semi-definite}\}$
+:   $K = \{X\in\R^{m\times m}: X \text{ is positive semi-definite}\}$
 
 :::def
 
@@ -510,7 +511,7 @@ Then we can convert it to the standard normal distribution (1 dimensional):
 
 $$
 \frac{\bold a_i^T\bold x - \overline{\bold a}_i^T\bold x}{\sqrt{\bold x^T\Sigma_i\bold x}}\sim{\cal N}(\mu=0,\sigma^2=1)\\
-\Bbb P(\bold a_i^T\bold x\leqslant \bold b_i) = \Phi\left(\frac{\bold b_i - \overline{\bold a}_i^T\bold x}{\sqrt{\bold x^T\Sigma_i\bold x}})\right)
+\Bbb P(\bold a_i^T\bold x\leqslant \bold b_i) = \Phi\left(\frac{\bold b_i - \overline{\bold a}_i^T\bold x}{\sqrt{\bold x^T\Sigma_i\bold x}}\right)
 $$
 
 where $\Phi$ is the c.d.f of standard normal distribution.
