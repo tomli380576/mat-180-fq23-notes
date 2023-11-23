@@ -28,7 +28,26 @@ If $-f$ is convex, then $f$ is concave.
 
 :::
 
-**Example.** Convex Functions
+#### **Remark.**
+
+A nice connection shows up of we consider the more general definition of a linear function. $f:\R \to\R$ is linear if it satisfies: 
+
+$$
+f(\alpha x + \beta y) = \alpha f(x) + \beta f(y)
+$$
+
+for constants $\alpha, \beta$ and all $x,y$ in $f$'s domain.
+
+Another definition of a convex function is:
+
+$$
+f(\alpha x + \beta y) \leqslant \alpha f(x) + \beta f(y)
+$$
+
+So we can see that linear optimization is just a special case of convex optimization.
+
+
+#### **Example.** Convex Functions
 
 Let the domain be $(-\infty, \infty)$,
 
@@ -75,8 +94,6 @@ $$
 X = \{\bold{x}\in\R^m\mid \bold{x} \text{ satisfies all the constraints} \}
 $$
 
-**Remark.** Linear functions of the form $\bold{a^\top x +b}$ are both convex and concave. LP is a special case of convex optimization
-
 :::prop
 
 #### **Prop.** Feasible region is convex
@@ -84,7 +101,11 @@ $$
 <p></p>
 :::
 
-**Example.** Convex Region
+#### **Remark.**
+
+Linear functions of the form $\bold{a^\top x +b}$ are both convex and concave. LP is a special case of convex optimization
+
+#### **Example.** Convex Region
 
 In $\R^2$, consider the constraints $f_1, f_2 \leqslant 0$ where:
 
@@ -113,13 +134,13 @@ Let $f$ be convex.
 ### Optimality Status
 
 Infeasible
-: $X=\varnothing$, optimal value = $\infty$
+:   $X=\varnothing$, optimal value = $\infty$
 
 Unbounded
-: $|X| = \infty$, optimal value = $-\infty$
+:   $|X| = \infty$, optimal value = $-\infty$
 
 Optimal
-: We either have a finite solution or the solution is infinite. For example $\min e^{-x}$, the optimal value is 0, but we need $x\to \infty$.
+:   We either have a finite solution or the solution is infinite. For example $\min e^{-x}$, the optimal value is 0, but we need $x\to \infty$.
 
 ## Second Order Cone Programming (SOCP)
 
@@ -127,8 +148,8 @@ A general cone program has the form:
 
 $$
 \begin{aligned}
-    \min\quad &\bold c^T\bold x\\
-    \text{subject to}\quad & \|A_i\bold x + \bold b_i\|_2\leqslant \bold c_i^T\bold x +  d_i\qquad 1\leqslant i\leqslant m
+    \min\quad &\bold c^\top \bold x\\
+    \text{subject to}\quad & \|A_i\bold x + \bold b_i\|_2\leqslant \bold c_i^\top \bold x +  d_i\qquad 1\leqslant i\leqslant m
 \end{aligned}
 $$
 
@@ -147,7 +168,7 @@ Linear programming is a special case of SOCP.
 $$
 \begin{matrix}
     \begin{aligned}
-        \min \quad & \bold c^T \bold x\\
+        \min \quad & \bold c^\top  \bold x\\
         \text{subject to}\quad &\begin{aligned}
             A\bold x &= \bold b\\
             \bold x &\geqslant 0
@@ -157,9 +178,9 @@ $$
     &\iff
     &
     \begin{aligned}
-        \min \quad & \bold c^T \bold x\\
+        \min \quad & \bold c^\top  \bold x\\
         \text{subject to}\quad &\begin{aligned}
-            \|A\bold x - \bold b\|_2 &\leqslant \bold 0^T\bold x + 0 = 0\\
+            \|A\bold x - \bold b\|_2 &\leqslant \bold 0^\top \bold x + 0 = 0\\
             \|0\bold x + \bold 0\|_2 &\leqslant x_i
         \end{aligned}
     \end{aligned}
@@ -175,8 +196,8 @@ $$
 Matrix $A$ is semi-definite if
 
 - $a_{ij}\geqslant 0$
-- $A^T = A$
-- $\bold x^TA\bold x\geqslant 0$ for all $\bold x$ with non-negative entries
+- $A^\top  = A$
+- $\bold x^\top A\bold x\geqslant 0$ for all $\bold x$ with non-negative entries
 
 This is equivalent to saying all eigenvalues of $A$ is positive
 :::
@@ -192,7 +213,7 @@ A semi-definite program has the following form:
 
 $$
 \begin{aligned}
-    \min \quad&\bold c^T\bold x\\
+    \min \quad&\bold c^\top \bold x\\
     \text{subject to}\quad & \sum^n_{i=1}x_iA_i\geqslant B
 
 \end{aligned}
@@ -264,14 +285,11 @@ Weak duality hold here: $g(\boldsymbol\lambda ^*, \boldsymbol\mu^*)\leqslant f_0
 
 :::
 
-:::rmk
-
 #### **Remark.**
 
 1. Lagrangian dual also applies to non-convex problems
 2. The dual problem is always convex
 
-:::
 
 ## Strong Duality
 
@@ -360,7 +378,7 @@ The program is:
 
 $$
 \begin{aligned}
-    \min &&& \bold c^T\bold x\\
+    \min &&& \bold c^\top \bold x\\
     \text{subject to} &&& \sum^n_{i=1}A_ix_i - B\succeq 0
 \end{aligned}
 $$
@@ -373,8 +391,8 @@ The program is:
 
 $$
 \begin{aligned}
-    \min &&& \bold c^T\bold x\\
-    \text{subject to} &&& \|A_i\bold x + \bold b_i\|_2\leqslant \bold c_i^T\bold{x} +\bold{d}_i
+    \min &&& \bold c^\top \bold x\\
+    \text{subject to} &&& \|A_i\bold x + \bold b_i\|_2\leqslant \bold c_i^\top \bold{x} +\bold{d}_i
 \end{aligned}
 $$
 
@@ -408,7 +426,7 @@ SDP
 Let $K$ be a cone. The dual cone $K^*$ is:
 
 $$
-K^* = \{\bold y: \bold x^T\bold y\geqslant 0,\forall \bold x\in K\}
+K^* = \{\bold y: \bold x^\top \bold y\geqslant 0,\forall \bold x\in K\}
 $$
 
 The dual cone for LP, SOCP, and SDP is itself.
@@ -421,30 +439,30 @@ Consider the linear program
 
 $$
 \begin{aligned}
-    \min &&& \bold c^T \bold x\\
-    \text{subject to}&&& \bold a_i^T\bold x\leqslant \bold b_i
+    \min &&& \bold c^\top  \bold x\\
+    \text{subject to}&&& \bold a_i^\top \bold x\leqslant \bold b_i
 \end{aligned}
 $$
 
-where we have a uncertainty set $\varepsilon_i$ for each $\bold a_i$ meaning that $\bold a_i$ could take on any value in ${\varepsilon}_i$. We split this problem into deterministic and stochastic case.
+where we have a uncertainty set ${\cal E}_i$ for each $\bold a_i$ meaning that $\bold a_i$ could take on any value in ${{\cal E}}_i$. We split this problem into deterministic and stochastic case.
 
 ||| Deterministic
 
 $$
 \begin{aligned}
-    \min &&& \bold c^T \bold x\\
-    \text{subject to}&&& \bold a_i^T\bold x\leqslant \bold b_i
+    \min &&& \bold c^\top  \bold x\\
+    \text{subject to}&&& \bold a_i^\top \bold x\leqslant \bold b_i
 \end{aligned}
 $$
 
-for all possible $\bold a_i\in \varepsilon_i$
+for all possible $\bold a_i\in {\cal E}_i$
 
 ||| Stochastic
 
 $$
 \begin{aligned}
-    \min &&& \bold c^T \bold x\\
-    \text{subject to}&&& \Bbb P( \bold a_i^T\bold x\leqslant \bold b_i) \geqslant \eta
+    \min &&& \bold c^\top  \bold x\\
+    \text{subject to}&&& \Bbb P( \bold a_i^\top \bold x\leqslant \bold b_i) \geqslant \eta
 \end{aligned}
 $$
 
@@ -455,33 +473,33 @@ where $\eta$ is a probability value and each $\bold a_i$ is a random variable.
 
 ### Deterministic
 
-For simplicity suppose each $\varepsilon_i$ is an [ellipsoid](https://en.wikipedia.org/wiki/Ellipsoid) in $\R^n$.
+For simplicity suppose each ${\cal E}_i$ is an [ellipsoid](https://en.wikipedia.org/wiki/Ellipsoid) in $\R^n$.
 
 $$
-\varepsilon_i = \Big\{\overline{\bold a_i} + P_i\bold u : \|\bold u\|_2\leqslant 1, P_i\small\text{ is a linear transformation}\Big\}
+{\cal E}_i = \Big\{\overline{\bold a_i} + P_i\bold u : \|\bold u\|_2\leqslant 1, P_i\small\text{ is a linear transformation}\Big\}
 $$
 
-where $\overline{\bold a_i}$ is the "center" of $\varepsilon_i$.
+where $\overline{\bold a_i}$ is the "center" of ${\cal E}_i$.
 
-Then the worst case is $\sup_{\bold a_i\in\varepsilon_i}\bold a_i^T\bold x$. Therefore the constraint that covers all $\bold a_i$ is:
+Then the worst case is $\sup_{\bold a_i\in{\cal E}_i}\bold a_i^\top \bold x$. Therefore the constraint that covers all $\bold a_i$ is:
 
 $$
-\sup_{\bold a_i\in\varepsilon_i}\bold a_i^T\bold x \leqslant \bold b_i
+\sup_{\bold a_i\in{\cal E}_i}\bold a_i^\top \bold x \leqslant \bold b_i
 $$
 
 Since $\overline{\bold a_i}$ is fixed,
 
 $$
 \begin{aligned}
-    \sup_{\bold a_i\in \varepsilon_i} \bold a_i\bold x &= \sup_{\|\bold u\|_2\leqslant 1} (P_i\bold u)^T \bold x + \overline{\bold a_i}^T\bold x\\
-    &= \overline{\bold a_i}^T\bold x + \sup_{\|\bold u\|_2\leqslant 1} (P_i\bold x)^T \bold u
+    \sup_{\bold a_i\in {\cal E}_i} \bold a_i\bold x &= \sup_{\|\bold u\|_2\leqslant 1} (P_i\bold u)^\top  \bold x + \overline{\bold a_i}^\top \bold x\\
+    &= \overline{\bold a_i}^\top \bold x + \sup_{\|\bold u\|_2\leqslant 1} (P_i\bold x)^\top  \bold u
 \end{aligned}
 $$
 
-By [Cauchy-Schwartz inequality](https://artofproblemsolving.com/wiki/index.php/Cauchy-Schwarz_Inequality) we have $\bold x^T\bold y\leqslant \|\bold x\|_2\cdot \|\bold y\|_2$ for all $\bold x, \bold y\in \R^n$, therefore:
+By [Cauchy-Schwartz inequality](https://artofproblemsolving.com/wiki/index.php/Cauchy-Schwarz_Inequality) we have $\bold x^\top \bold y\leqslant \|\bold x\|_2\cdot \|\bold y\|_2$ for all $\bold x, \bold y\in \R^n$, therefore:
 
 $$
-\sup_{\bold a_i\in \varepsilon_i} \bold a_i\bold x   = \overline{\bold a_i}^T\bold x + (P_i\bold x)^T
+\sup_{\bold a_i\in {\cal E}_i} \bold a_i\bold x   = \overline{\bold a_i}^\top \bold x + (P_i\bold x)^\top 
 $$
 
 
@@ -489,8 +507,8 @@ The final program is:
 
 $$
 \begin{aligned}
-    \min &&& \bold c^T \bold x\\
-    \text{subject to}&&&  \overline{\bold a_i}^T\bold x + (P_i\bold x)^T\leqslant \bold b_i
+    \min &&& \bold c^\top  \bold x\\
+    \text{subject to}&&&  \overline{\bold a_i}^\top \bold x + (P_i\bold x)^\top \leqslant \bold b_i
 \end{aligned}
 $$
 
@@ -501,17 +519,17 @@ which is an SOCP problem.
 
 For simplicity assume each $\bold a_i$ is a normal random variable distributed as $\cal N(\overline{\bold a}_i, \Sigma_i)$. Note that $\overline{\bold a}_i$ is a vector and $\Sigma_i$ is the covariance matrix.
 
-Since $\bold{a}_i^T\bold x$ is a linear combination, the combination is still a normal r.v.
+Since $\bold{a}_i^\top \bold x$ is a linear combination, the combination is still a normal r.v.
 
 $$
-\bold a_i^T\bold x\sim {\cal N}(\mu=\overline{\bold a_i}^T\bold x, \sigma^2=\bold x^T\Sigma_i\bold x)
+\bold a_i^\top \bold x\sim {\cal N}(\mu=\overline{\bold a_i}^\top \bold x, \sigma^2=\bold x^\top \Sigma_i\bold x)
 $$
 
 Then we can convert it to the standard normal distribution (1 dimensional):
 
 $$
-\frac{\bold a_i^T\bold x - \overline{\bold a}_i^T\bold x}{\sqrt{\bold x^T\Sigma_i\bold x}}\sim{\cal N}(\mu=0,\sigma^2=1)\\
-\Bbb P(\bold a_i^T\bold x\leqslant \bold b_i) = \Phi\left(\frac{\bold b_i - \overline{\bold a}_i^T\bold x}{\sqrt{\bold x^T\Sigma_i\bold x}}\right)
+\frac{\bold a_i^\top \bold x - \overline{\bold a}_i^\top \bold x}{\sqrt{\bold x^\top \Sigma_i\bold x}}\sim{\cal N}(\mu=0,\sigma^2=1)\\
+\Bbb P(\bold a_i^\top \bold x\leqslant \bold b_i) = \Phi\left(\frac{\bold b_i - \overline{\bold a}_i^\top \bold x}{\sqrt{\bold x^\top \Sigma_i\bold x}}\right)
 $$
 
 where $\Phi$ is the c.d.f of standard normal distribution.
@@ -521,13 +539,13 @@ Plugging in the probability expression gives us:
 $$
 \begin{aligned}
 \iff\qquad&\begin{aligned}
-    \min &&& \bold c^T \bold x\\
-    \text{subject to}&&& \frac{\bold b_i - \overline{\bold a}_i^T\bold x}{\sqrt{\bold x^T\Sigma_i\bold x}}\geqslant \Phi^{-1}(\eta)
+    \min &&& \bold c^\top  \bold x\\
+    \text{subject to}&&& \frac{\bold b_i - \overline{\bold a}_i^\top \bold x}{\sqrt{\bold x^\top \Sigma_i\bold x}}\geqslant \Phi^{-1}(\eta)
 \end{aligned}\\\\
 
 \iff\qquad&\begin{aligned}
-    \min &&& \bold c^T \bold x\\
-    \text{subject to}&&& \bold b_i - \overline{\bold a}_i^T\bold x\geqslant\Phi^{-1}(\eta)\left\|\Sigma^{\frac12}\right\|_2
+    \min &&& \bold c^\top  \bold x\\
+    \text{subject to}&&& \bold b_i - \overline{\bold a}_i^\top \bold x\geqslant\Phi^{-1}(\eta)\left\|\Sigma^{\frac12}\right\|_2
 \end{aligned}
 \end{aligned}
 $$
@@ -535,3 +553,36 @@ $$
 which is also an SOCP problem.
 
 
+## Combinatorial Optimization (Max Cut)
+
+Given an undirected graph $G = (V,E)$ and weights $w_{ij} = w_{ji} \geqslant 0$. We want to find a subset $S\sube V$ that maximizes the total weight of the edges crossing the cut.
+- An edge $ij\in E$ crosses the cut when one of the vertices of $ij$ is in $S$ and the other is in $V\backslash S$
+
+For each node $i$, define
+$$
+x_i = \begin{cases}
+    1 & i\in S\\
+    -1 & i\notin S
+\end{cases}
+$$
+
+The objective and constraints are:
+
+$$
+\begin{aligned}
+    \max &&&\frac 12\sum_i\sum_j w_{ij}\cdot \underbrace{(1-x_ix_j)}_{\substack{\text{either 0 or 2}\\\text{hence mult by 1/2}}}\\
+    \text{subject to} &&& x_j\in\{-1,1\}\\
+\end{aligned}
+$$
+
+This program is an NP-hard problem, so we can use SDP [relaxation](https://en.wikipedia.org/wiki/Linear_programming_relaxation) to approximate a solution.
+
+
+Define the matrix $Y = \bold x\bold x^\top , Y_{ij} = x_ix_j$. The program becomes:
+
+$$
+\begin{aligned}
+    \max &&&\frac 12\sum_i\sum_j w_{ij} - \frac 12 \text{Trace}(W, Y)\\
+    \text{subject to} &&& x_j\in\{-1,1\}
+\end{aligned}
+$$
