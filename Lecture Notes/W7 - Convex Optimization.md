@@ -110,8 +110,10 @@ Linear functions of the form $\bold{a^\top x +b}$ are both convex and concave. L
 In $\R^2$, consider the constraints $f_1, f_2 \leqslant 0$ where:
 
 $$
-f_1(\bold x) = x_1^2 + x_2^2 - 1\\
-f_2(\bold x) = e^{x_1} - x_2 - 1
+\begin{aligned}
+    f_1(\bold x) &= x_1^2 + x_2^2 - 1\\
+    f_2(\bold x) &= e^{x_1} - x_2 - 1
+\end{aligned}
 $$
 
 

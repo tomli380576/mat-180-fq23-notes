@@ -42,7 +42,8 @@ body:not(code) {
 .def,
 .prop,
 .rmk,
-.strat {
+.strat,
+.cor {
   padding: 1.25rem 1.25rem 0 1.25rem;
   border-radius: 0.25rem;
   margin-bottom: 1.5rem;
@@ -90,7 +91,8 @@ body:not(code) {
   }
 }
 
-.rmk {
+.rmk,
+.cor {
   & h4 {
     & strong {
       color: var(--orange);
