@@ -10,24 +10,24 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Network Flow Pt.2</title>
-    <meta name="title" content="Network Flow Pt.2">
-    <meta name="description" content="In the previous network flow model, the cost of an edge is linear:">
+    <title>Electric Grid System</title>
+    <meta name="title" content="Electric Grid System">
+    <meta name="description" content="These are links to LibreTexts.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tomli380576.github.io/mat-180-fq23-notes/lecture-notes/w4---network-flow-pt-2/">
+    <link rel="canonical" href="https://tomli380576.github.io/mat-180-fq23-notes/lecture-notes/electric-grid-system/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tomli380576.github.io/mat-180-fq23-notes/lecture-notes/w4---network-flow-pt-2/">
-    <meta property="og:title" content="Network Flow Pt.2">
-    <meta property="og:description" content="In the previous network flow model, the cost of an edge is linear:">
+    <meta property="og:url" content="https://tomli380576.github.io/mat-180-fq23-notes/lecture-notes/electric-grid-system/">
+    <meta property="og:title" content="Electric Grid System">
+    <meta property="og:description" content="These are links to LibreTexts.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://tomli380576.github.io/mat-180-fq23-notes/lecture-notes/w4---network-flow-pt-2/">
-    <meta property="twitter:title" content="Network Flow Pt.2">
-    <meta property="twitter:description" content="In the previous network flow model, the cost of an edge is linear:">
+    <meta property="twitter:url" content="https://tomli380576.github.io/mat-180-fq23-notes/lecture-notes/electric-grid-system/">
+    <meta property="twitter:title" content="Electric Grid System">
+    <meta property="twitter:description" content="These are links to LibreTexts.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -159,30 +159,74 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="network-flow-pt2" class="break-words">
+<doc-anchor-target id="electric-grid-system" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#network-flow-pt2">#</doc-anchor-trigger>
-        <span>Network Flow Pt.2</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#electric-grid-system">#</doc-anchor-trigger>
+        <span>Electric Grid System</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="with-discontinuous-cost-function">
+<doc-anchor-target id="complex-numbers-review">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#with-discontinuous-cost-function">#</doc-anchor-trigger>
-        <span>With discontinuous cost function</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#complex-numbers-review">#</doc-anchor-trigger>
+        <span>Complex Numbers Review</span>
     </h2>
 </doc-anchor-target>
-<p>In the previous network flow model, the cost of an edge is linear:</p>
-<div class="math"><pre>\text{Cost of arc }i\to j = c_{ij}x_{ij}</pre></div>
-<p>Suppose now there’s a starting price <span class="math">d_{ij}</span> to send any amount of flow on arc <span class="math">i\to j</span>.</p>
-<p>Let non-negative <span class="math">x_{ij}</span> be the flow of <span class="math">i\to j</span>.</p>
-<p>We can model the initial cost with an indicator variable <span class="math">y_{ij}</span>.</p>
-<div class="math"><pre>y_{ij} = \begin{cases}
-1 &amp; \text{if need to pay to send flow on }i\to j\\
-0 &amp; \text{otherwise}
-
-\end{cases}</pre></div>
-<p>The total cost/objective function becomes:</p>
-<div class="math"><pre>\min\sum_{(i\to j)\in A}c_{ij}x_{ij} + \sum_{(i\to j)\in A}d_{ij}y_{ij}</pre></div>
+<p>These are links to LibreTexts.</p>
+<ul>
+<li><a href="https://math.libretexts.org/Courses/Lake_Tahoe_Community_College/A_First_Course_in_Linear_Algebra_(Kuttler)/06%3A_Complex_Numbers/6.01%3A_Complex_Numbers#Theorem_.5C(.5CPageIndex.7B3.7D.5C):_Properties_of_the_Conjugate-14531">Properties of Conjugate</a></li>
+<li><a href="https://math.libretexts.org/Courses/Lake_Tahoe_Community_College/A_First_Course_in_Linear_Algebra_(Kuttler)/06%3A_Complex_Numbers/6.01%3A_Complex_Numbers#Definition_.5C(.5CPageIndex.7B2.7D.5C):_Inverse_of_a_Complex_Number-14531">Inverses</a></li>
+</ul>
+<div class="thm"><doc-anchor-target id="thm-eulers-equation">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#thm-eulers-equation">#</doc-anchor-trigger>
+        <span><strong>Thm.</strong> Euler&#x27;s Equation</span>
+    </h4>
+</doc-anchor-target>
+<div class="math"><pre>e^{i\pi} + 1 = 0</pre></div>
+</div>
+<div class="cor"><doc-anchor-target id="cor-eulers-identity">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#cor-eulers-identity">#</doc-anchor-trigger>
+        <span><strong>Cor.</strong> Euler&#x27;s Identity</span>
+    </h4>
+</doc-anchor-target>
+<p>Let <span class="math">m, \theta\in\R</span></p>
+<div class="math"><pre>\begin{aligned}
+    e^{i\theta} &amp;= \cos \theta + i \sin\theta
+\end{aligned}</pre></div>
+<p>If <span class="math">z_1 = m_1e^{i\theta_1}, z_2 = m_2e^{i\theta_2}</span>,</p>
+<div class="math"><pre>z_1z_2 = m_1m_2e^{i(\theta_1 + \theta_2)}</pre></div>
+</div>
+<doc-anchor-target id="physics-setup">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#physics-setup">#</doc-anchor-trigger>
+        <span>Physics Setup</span>
+    </h2>
+</doc-anchor-target>
+<p>In real electrical grids we use alternating current, so voltage <span class="math">v</span> and current <span class="math">c</span> changes with time <span class="math">t</span>.</p>
+<doc-anchor-target id="voltage">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#voltage">#</doc-anchor-trigger>
+        <span>Voltage</span>
+    </h3>
+</doc-anchor-target>
+<p>Let <span class="math">v(t)</span> be the voltage at time <span class="math">t</span>, define:</p>
+<div class="math"><pre>v(t) = m\cdot \cos(\omega t + \phi)</pre></div>
+<p>where <span class="math">m</span> is the magnitude, <span class="math">\omega</span> is the angular frequency, and <span class="math">\phi</span> represents phase shift. All of which are constants in <span class="math">\R</span>.</p>
+<p>We can get rid of the cosine function by taking the real part of <span class="math">v(t)</span> in the complex plane.</p>
+<div class="math"><pre>\begin{aligned}
+    v(t) &amp;= m\cdot \cos(\omega t + \phi) \\
+         &amp;= \text{Re}(me^{i\omega t + \phi})\\
+         &amp;= \text{Re}(me^{i\phi}e^{i\omega t})
+\end{aligned}</pre></div>
+<doc-anchor-target id="current">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#current">#</doc-anchor-trigger>
+        <span>Current</span>
+    </h3>
+</doc-anchor-target>
+<p>For current, define</p>
+<div class="math"><pre>c(t) = m\cdot\cos(\omega t + \theta)</pre></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -192,20 +236,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../lecture-notes/w3---network-flow-pt-1/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../lecture-notes/w6---dynamic-programming-pt-2/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Network Flow Pt.​1</span>
+                                                <span class="block mt-1">Dynamic Programming Pt.​2</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../lecture-notes/helpful-stuff/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../lecture-notes/w2---linear-programming/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Helpful Links</span>
+                                                <span class="block mt-1">Linear Programming</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -249,6 +293,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Network Flow Pt.2", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Electric Grid System", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
 </body>
 </html>
