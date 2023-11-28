@@ -10,3 +10,5 @@ icon: link
 2. Conic Programming http://www.damtp.cam.ac.uk/user/hf323/M18-OPT/lecture3.pdf
 
 3. Stanford book on convex optimization https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf
+
+4. A gentle introduction to optimal power flow https://invenia.github.io/blog/2020/12/04/pf-intro/

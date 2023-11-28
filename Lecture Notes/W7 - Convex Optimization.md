@@ -446,7 +446,7 @@ $$
 \end{aligned}
 $$
 
-where we have a uncertainty set ${\cal E}_i$ for each $\bold a_i$ meaning that $\bold a_i$ could take on any value in ${{\cal E}}_i$. We split this problem into deterministic and stochastic case.
+where we have a uncertainty set ${\cal E}_i$ for each $\bold a_i$ meaning that $\bold a_i$ could take on any value in ${\cal E}_i$. We split this problem into deterministic and stochastic case.
 
 ||| Deterministic
 
