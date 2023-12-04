@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/mat-180-fq23-notes">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.754993773309">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.754994281676">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -34,17 +34,167 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/bolt-circle.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.754993773309" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.754994281676" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.754993773309" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.754994281676" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.754993773309" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.754994281676" data-turbo-eval="false" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
     <link href="../../resources/css/katex.css?v=3.5.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.5.0" defer></script>
 
-    <link href="../../static/palette.css" rel="stylesheet" />
-    <link href="/static/palette.css" rel="stylesheet" />
+    <!-- <link href="../../static/palette.css" rel="stylesheet" />
+    <link href="/static/palette.css" rel="stylesheet" /> -->
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap");
+
+      body:not(code) {
+        font-family: "Raleway", sans-serif !important;
+      }
+
+      /* .docs-markdown h2 {
+      
+    } */
+
+      :root {
+        --purple: #8d79f2;
+        --red: #ff5188;
+        --cyan: #78dce8;
+        --orange: #fc7f40;
+        --lightgray: #edeff4;
+      }
+
+      .purple {
+        color: #ab9df2;
+      }
+
+      .red {
+        color: #ff6188;
+      }
+
+      .blue {
+        color: #78dce8;
+      }
+
+      .orange {
+        color: #fc9867;
+      }
+
+      .image-m {
+        max-width: 500px;
+      }
+
+      .thm,
+      .lemma,
+      .def,
+      .prop,
+      .rmk,
+      .strat,
+      .cor {
+        padding: 1.25rem 1.25rem 0 1.25rem;
+        border-radius: 0.25rem;
+        margin-bottom: 1.5rem;
+
+        border: 1px solid rgba(255, 255, 255, 0);
+        /* border-left: 0.25rem solid lightgray; */
+
+        /* box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12); */
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
+          rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+
+        & h4 {
+          margin-bottom: 0.5rem;
+          & strong {
+            font-weight: bolder;
+          }
+        }
+      }
+
+      .thm,
+      .strat {
+        /* border-left: 0.25rem solid var(--purple); */
+        & h4 {
+          & strong {
+            color: var(--purple);
+          }
+        }
+      }
+
+      .def {
+        & h4 {
+          & strong {
+            color: var(--red);
+          }
+        }
+      }
+
+      .prop {
+        /* border: 1px solid var(--orange); */
+        & h4 {
+          & strong {
+            color: #f3c614;
+          }
+        }
+      }
+
+      .rmk,
+      .cor {
+        & h4 {
+          & strong {
+            color: var(--orange);
+          }
+        }
+      }
+
+      .lemma {
+        & h4 {
+          & strong {
+            color: var(--cyan);
+          }
+        }
+      }
+
+      .uline {
+        & h2 {
+          text-decoration: underline, 2px;
+        }
+      }
+
+      /* .custom-font {
+      & h2 {
+        font-family: "Noto Serif", serif;
+        text-decoration: underline 2px lightgray;
+        text-underline-offset: 0.25rem;
+      }
+    } */
+
+      .docs-markdown h1,
+      h2 {
+        font-family: "Noto Serif", serif;
+      }
+
+      .docs-markdown h2 {
+        text-decoration: underline 1px lightgray;
+        text-underline-offset: 0.5rem;
+      }
+
+      .font-body {
+        /* font-family: "Raleway", sans-serif !important; */
+        font-weight: 400;
+      }
+
+      .pad {
+        padding: 1.25rem;
+      }
+
+      .center {
+        align-content: center;
+      }
+    </style>
+
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
